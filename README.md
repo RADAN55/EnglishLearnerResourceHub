@@ -1,75 +1,68 @@
-# Midnight Executive · EL Publishing
+# The EL Publishing Library
 
-The front door to a catalog of free instructional, compliance, and professional development resources for teachers of English learners.
+Free curriculum, manuals, and professional development for teachers of English learners.
 
-**Richard A. Daniel, M.Ed.** — ENL/EL Specialist, Laurel High School, Laurel City School District, Mississippi.
-*Many Voices · One Storm*
+**Browse it → https://radan55.github.io/elpublishing/**
+
+**Richard A. Daniel, M.Ed.** · ENL/EL Specialist · Laurel High School, Mississippi
+Midnight Executive · EL Publishing · *Many Voices · One Storm*
 
 ---
 
-## What this repository is
+## How this repository works
 
-One file — `index.html` — that indexes every published resource and links out to it. Each resource keeps its own repository. This page only points at them, so updating a resource never breaks this site, and updating this site never touches a resource.
+One repo. Every document lives here. Drag a PDF in and it gets a public URL automatically:
 
-## Publishing it
-
-1. Create a **public** repository named exactly `radan55.github.io`
-2. Upload `index.html` (and this README)
-3. **Settings → Pages** → Deploy from a branch → `main` → `/ (root)` → Save
-
-Live in one to two minutes at **https://radan55.github.io/** — no folder in the URL, because the repo name matches the account name.
-
-## Adding a title
-
-Open `index.html`, scroll to the `CATALOG` array near the bottom, and add one entry:
-
-```js
-{
-  shelf:  "Manuals & Field Guides",
-  kind:   "Manual",
-  name:   "The Red Line",
-  desc:   "One sentence on what it is and who it's for.",
-  repo:   "red-line",
-  tags:   ["compliance","pd"],
-  status: "live"
-},
+```
+https://radan55.github.io/elpublishing/YOUR-FILE-NAME.pdf
 ```
 
-Re-upload `index.html`. That's the entire workflow — the layout, search, filters, and counts all regenerate from the list.
+`index.html` is the browsable front end — search, filters, and a card per document.
 
-### Fields
+## Adding a document
+
+1. **Add file → Upload files**, drag in the PDF, commit.
+2. Open `index.html`, find the `DOCS` list, add one line:
+
+```js
+{ grp:"Curriculum & Instruction", fmt:"Manual · PDF", tags:["curriculum"],
+  name:"The title as readers should see it",
+  desc:"One or two sentences on what it is and who it's for.",
+  file:"Exact-File-Name.pdf", size:"" },
+```
+
+3. Commit. Live in about a minute.
+
+`file` must match the uploaded filename exactly, including capitals and the extension.
+
+## Removing a document
+
+Delete the file **and** its line in `DOCS`. A card with no file behind it is a dead link — worse on a public resource page than a missing entry.
+
+## Filenames
+
+Use hyphens, no spaces, no parentheses. `Reading-Foundations-Manual.pdf`, not `reading foundations (1).pdf`. Spaces become `%20` in the URL and look broken when shared.
+
+## Fields
 
 | Field | Notes |
 |---|---|
-| `shelf` | Must match one of the five section names in the `SHELVES` array |
-| `kind` | Small label above the title — "Manual", "Progressive Web App", "Curriculum" |
-| `repo` | Repository name only. The URL is built as `radan55.github.io/REPO/` |
-| `url` | Optional. Use only if the resource lives somewhere other than a Pages repo |
-| `tags` | Any of: `apps`, `compliance`, `curriculum`, `pd` — these drive the filter buttons |
-| `status` | `live`, `deploy`, or `archive` |
+| `grp` | Must match one of the four names in the `ORDER` array |
+| `fmt` | Small label above the title — "Manual · PDF", "Workbook · PDF" |
+| `tags` | Any of `curriculum`, `compliance`, `pd`, `student` — these drive the filter buttons |
+| `file` | Filename only, exactly as uploaded |
+| `size` | Optional, e.g. `"4.2 MB · 88 pages"`. Leave `""` to hide |
 
-### The three statuses
+## The list ships pre-filled
 
-- **`live`** — you have clicked the URL yourself and it loaded. Only these render as clickable links.
-- **`deploy`** — the files are built and on your computer, waiting for a repository.
-- **`archive`** — the resource exists as a document but isn't hosted yet.
+`DOCS` already contains entries for the full catalog. **Delete any line for a file you don't upload.** Every remaining card must have a matching file in this repository.
 
-Nothing is presented to visitors as available until you mark it `live`. A dead link on a public resource site costs more credibility than a missing one.
+## Publishing
 
-## Changing the GitHub handle
-
-One line, near the top of the script block:
-
-```js
-const USER = "radan55";
-```
-
-Every repository URL on the page is derived from it.
-
-## Dependencies
-
-None, beyond Google Fonts (Fraunces, Inter, IBM Plex Mono) loaded over the network. No build step, no framework, no package manager. The page works offline apart from font rendering.
+Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save.
 
 ---
 
-Resources are free for classroom, school, and district professional development use. Materials are field guides, not policy — verify all compliance guidance against current Mississippi Department of Education publications.
+© 2026 Midnight Executive · EL Publishing, Mississippi.
+Free for classroom, school, and district professional development use.
+Materials are field guides, not policy. Verify compliance guidance against current MDE publications.
