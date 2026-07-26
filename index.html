@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midnight Executive · EL Publishing</title>
+<meta name="description" content="Free instructional, compliance, and professional development resources for teachers of English learners. Richard A. Daniel, M.Ed. — Many Voices, One Storm.">
+<meta property="og:title" content="Midnight Executive · EL Publishing">
+<meta property="og:description" content="Free resources for teachers of English learners. Many Voices · One Storm.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E2761; --gold:#C9A227; --ink:#12172E; --paper:#FBFAF7;
+  --slate:#5A627A; --go:#2A6B4F; --stop:#A5342B; --line:#E3DFD4;
+  --wash:#F2F0E9; --navywash:#EDEFF6;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+a{color:var(--navy)}
+
+/* ---------- MASTHEAD ---------- */
+.mast{background:var(--navy);color:#fff;padding:66px 0 52px;position:relative;overflow:hidden}
+.mast::after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;
+  background:linear-gradient(90deg,var(--gold) 0 33%,#fff 33% 66%,var(--stop) 66% 100%)}
+.imprint{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.mast h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.5rem,6.6vw,4.3rem);
+  line-height:.95;margin:0;letter-spacing:-.028em}
+.mast h1 em{font-style:normal;color:var(--gold);display:block}
+.mast .sub{font-family:'Fraunces',serif;font-size:clamp(1.02rem,2.3vw,1.38rem);font-weight:400;
+  color:#D7DCEC;max-width:620px;margin:20px 0 0;line-height:1.44}
+.mast .who{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);
+  font-size:.88rem;color:#C3CAE2;max-width:620px}
+.mast .who strong{color:#fff}
+.storm{margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+/* ---------- CONTROL BAR ---------- */
+.controls{position:sticky;top:0;z-index:50;background:var(--ink);
+  border-bottom:1px solid rgba(255,255,255,.1)}
+.controls .inner{max-width:1060px;margin:0 auto;padding:11px 28px;
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#q{flex:1 1 220px;min-width:180px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+  color:#fff;border-radius:4px;padding:9px 13px;font-family:'Inter',sans-serif;font-size:.9rem}
+#q::placeholder{color:#7E88AC}
+#q:focus{outline:2px solid var(--gold);outline-offset:1px}
+.filt{appearance:none;border:1px solid rgba(255,255,255,.18);background:transparent;color:#9AA3C4;
+  cursor:pointer;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+  letter-spacing:.16em;text-transform:uppercase;padding:8px 12px;transition:.15s}
+.filt:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.filt[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:600}
+.filt:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* ---------- SHELF ---------- */
+main{padding:44px 0 20px}
+.shelf{margin-bottom:44px}
+.shelf > h2{font-family:'Fraunces',serif;font-weight:900;font-size:1.7rem;color:var(--navy);
+  margin:0 0 4px;letter-spacing:-.02em}
+.shelf > .note{color:var(--slate);font-size:.94rem;margin:0 0 20px;max-width:70ch}
+.shelfhead{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--navy);
+  padding-bottom:8px;margin-bottom:6px}
+.shelfhead .ct{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-left:auto;white-space:nowrap}
+
+.rack{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+
+.title{background:#fff;border:1px solid var(--line);border-left:4px solid var(--slate);
+  padding:18px 20px;display:flex;flex-direction:column;transition:transform .12s,box-shadow .12s}
+.title:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(30,39,97,.09)}
+.title.s-live{border-left-color:var(--go)}
+.title.s-deploy{border-left-color:var(--gold)}
+.title.s-archive{border-left-color:var(--slate)}
+.title .kind{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.title h3{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;margin:0 0 6px;
+  color:var(--navy);line-height:1.24}
+.title p{font-size:.87rem;color:var(--slate);margin:0 0 12px;flex:1}
+.title .meta{font-family:'IBM Plex Mono',monospace;font-size:.66rem;color:#8A90A6;
+  margin-bottom:10px;word-break:break-word}
+.foot{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:11px}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.16em;
+  text-transform:uppercase;padding:3px 8px;border-radius:3px;font-weight:600;white-space:nowrap}
+.b-live{background:#E5F0EA;color:var(--go)}
+.b-deploy{background:#FAF3DE;color:#8A6E12}
+.b-archive{background:var(--wash);color:var(--slate)}
+.open{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;text-decoration:none;color:var(--navy);border-bottom:1px solid var(--gold);
+  padding-bottom:1px;white-space:nowrap}
+.open:hover{color:var(--gold)}
+.open[aria-disabled="true"]{color:#A9AEBE;border-bottom-color:var(--line);pointer-events:none}
+
+.empty{display:none;padding:40px 0;text-align:center;color:var(--slate);font-style:italic}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--navy);color:#B9C1DA;padding:44px 0;font-size:.85rem;margin-top:20px}
+footer a{color:var(--gold)}
+footer .fl{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{.controls{display:none}body{font-size:10.5pt}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="imprint">Midnight Executive</div>
+    <h1>EL<br><em>Publishing</em></h1>
+    <p class="sub">Instructional, compliance, and professional development resources for teachers of English learners. Free to use, copy, and share.</p>
+    <p class="who"><strong>Richard A. Daniel, M.Ed.</strong> — ENL/EL Specialist, Laurel High School, Laurel City School District. Thirty-one years in education across Mississippi, Alabama, and Georgia. Class AA license with ESL and Spanish endorsements.</p>
+    <div class="storm">Many Voices · One Storm</div>
+  </div>
+</header>
+
+<nav class="controls">
+  <div class="inner">
+    <input id="q" type="search" placeholder="Search the catalog…" aria-label="Search the catalog">
+    <button class="filt" data-f="all" aria-pressed="true">All</button>
+    <button class="filt" data-f="live" aria-pressed="false">Live now</button>
+    <button class="filt" data-f="apps" aria-pressed="false">Apps</button>
+    <button class="filt" data-f="compliance" aria-pressed="false">Compliance</button>
+    <button class="filt" data-f="curriculum" aria-pressed="false">Curriculum</button>
+    <button class="filt" data-f="pd" aria-pressed="false">PD</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div id="shelves"></div>
+  <p class="empty" id="empty">Nothing in the catalog matches that.</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fl">Midnight Executive · EL Publishing</div>
+    <p><strong style="color:#fff">Richard A. Daniel, M.Ed.</strong><br>
+    Resources on this site are free for classroom, school, and district professional development use.<br>
+    Materials are field guides, not policy. Verify all compliance guidance against current MDE publications.</p>
+    <p style="margin-top:18px" class="fl">Many Voices · One Storm</p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================================
+   THE CATALOG — edit here, nowhere else.
+   USER stays lowercase: GitHub Pages always serves from a lowercase domain,
+   even though the profile handle is RADAN55.
+   ========================================================================= */
+const USER = "radan55";
+const gh   = slug => `https://${USER}.github.io/${slug}/`;
+
+const CATALOG = [
+
+  /* ---------- APPS & INTERACTIVE TOOLS ---------- */
+  { shelf:"Apps & Interactive Tools", kind:"Progressive Web App", name:"MS EL Command Center",
+    desc:"Identification and screening timelines, proficiency levels, LSP and SET process, MTAM accommodations, §15 accountability, exit and monitoring, plus a compliance calendar and saving checklists. Installs to the home screen and works offline.",
+    repo:"ms-el-command-center", tags:["apps","compliance"], status:"deploy" },
+
+  { shelf:"Apps & Interactive Tools", kind:"Progressive Web App", name:"The EL Field Guide",
+    desc:"Built for general education teachers, special education teachers, and administrators with no EL background. Role-based launcher, Level Explorer, Newcomer Playbook, subject strategies, ten PLC scenarios, and a 28-term glossary.",
+    repo:"el-field-guide", tags:["apps","pd"], status:"deploy" },
+
+  { shelf:"Apps & Interactive Tools", kind:"Practice Modules", name:"ELPA21 Practice Suite",
+    desc:"Blueprint-aligned practice across all six ELPA21 grade bands, with hand-drawn illustrations, picture-choice items for K–3, tile-tap word and sentence builders, and a live task board. Separate K–12 and 9–12 modules.",
+    repo:"elpa21", tags:["apps","curriculum"], status:"deploy" },
+
+  { shelf:"Apps & Interactive Tools", kind:"Learning Platform", name:"EL Pathway Pro",
+    desc:"A single-file EL learning platform covering the four domains with progression tracking.",
+    repo:"el-pathway-pro", tags:["apps","curriculum"], status:"archive" },
+
+  /* ---------- MANUALS & FIELD GUIDES ---------- */
+  { shelf:"Manuals & Field Guides", kind:"Manual + PD Module", name:"The Red Line",
+    desc:"Mississippi LSP accommodations and modifications — the Three Doors, the Four Lanes, the ACCESS Protocol, the full accommodation and accessibility registers, a prohibition matrix, six reproducible forms, and a 90-minute faculty session with answer keys.",
+    repo:"mississippilspaccommodations", tags:["compliance","pd"], status:"deploy" },
+
+  { shelf:"Manuals & Field Guides", kind:"Field Guide", name:"ELPA21 Growth Manual",
+    desc:"How growth is calculated, what moves a student a level, and how to plan instruction against it.",
+    repo:"elpa21growthmanual", tags:["compliance","curriculum"], status:"live" },
+
+  { shelf:"Manuals & Field Guides", kind:"Field Guide", name:"Mississippi EL Educator Hub",
+    desc:"Accountability strategy, classroom pedagogy, SIOP, ELPA21, compliance, family engagement, research foundations, and a ready-to-use classroom toolbox in one self-contained site.",
+    repo:"ms-el-hub", tags:["compliance","pd"], status:"deploy" },
+
+
+  /* ---------- CURRICULUM ---------- */
+  { shelf:"Curriculum & Instructional Materials", kind:"Curriculum", name:"The Vocabulary Engine",
+    desc:"A complete word-growth curriculum for general and special education teachers: six PD modules, a five-day teaching cycle at fifteen minutes a day, ten no-prep activities, and six reproducible handouts.",
+    repo:"elvocabularycurriculumengine", tags:["curriculum","pd"], status:"live" },
+
+  { shelf:"Curriculum & Instructional Materials", kind:"Curriculum Suite", name:"ELPA21 ASCENT",
+    desc:"Teacher Edition, Student Workbook, Teacher Plan Book, and NBCT-aligned lesson plans — a full ELPA21 curriculum system for the EL block.",
+    repo:"elpa21-ascent", tags:["curriculum"], status:"archive" },
+
+  { shelf:"Curriculum & Instructional Materials", kind:"Library Series", name:"The Classroom Shelf",
+    desc:"Mississippi EL Library Series II — eleven volumes covering block architecture, standards, lesson plans, domain handbooks, field books, and a flexible block guide.",
+    repo:"classroom-shelf", tags:["curriculum"], status:"archive" },
+
+  { shelf:"Curriculum & Instructional Materials", kind:"Leveled Texts", name:"374 Leveled Readables",
+    desc:"One-page readables across fifteen content strands — 187 Emerging and 187 Progressing, every topic unique.",
+    repo:"leveled-readables", tags:["curriculum"], status:"archive" },
+
+  { shelf:"Curriculum & Instructional Materials", kind:"Curriculum System", name:"Science of Reading Phonics System",
+    desc:"A phonics and reading foundations curriculum for multilingual learners, with decodable readers and a Reading Foundations manual.",
+    repo:"sor-phonics", tags:["curriculum"], status:"archive" },
+
+  { shelf:"Curriculum & Instructional Materials", kind:"Unit", name:"World Geography for EL",
+    desc:"A leveled world geography unit with a 195-country reference document and Day 1 and Day 2 lesson packets for emerging students.",
+    repo:"world-geography-el", tags:["curriculum"], status:"archive" },
+
+  /* ---------- PROFESSIONAL DEVELOPMENT ---------- */
+  { shelf:"Professional Development", kind:"Guide · Web + PDF", name:"Every Teacher Is a Language Teacher",
+    desc:"A plain-English, research-based guide for general education teachers and staff. Seven principles with step-by-step instructions, visuals, a Monday Morning Checklist, and full references. The web version reads aloud — built-in text-to-speech with play, pause, speed, and voice controls. A 14-page print PDF is included.",
+    repo:"freeenglishlanguagelearnerpd", tags:["pd","compliance"], status:"live" },
+
+  { shelf:"Professional Development", kind:"Graphic Playbook · PDF", name:"The SIOP Model at a Glance",
+    desc:"A free six-page visual playbook of the SIOP model — the eight components and thirty features, laid out for a faculty meeting or a planning binder.",
+    url:"https://radan55.github.io/freeenglishlanguagelearnerpd/SIOP-Model-At-a-Glance-Graphic.pdf",
+    repo:"freeenglishlanguagelearnerpd", tags:["pd","curriculum"], status:"live" },
+
+  { shelf:"Professional Development", kind:"Course", name:"ELL Strategies for Mainstreamed Students",
+    desc:"A professional development course for content teachers who serve English learners in mainstream classrooms.",
+    repo:"ell-strategies", tags:["pd"], status:"archive" },
+
+  /* ---------- PUBLICATIONS ---------- */
+  { shelf:"Publications", kind:"Book", name:"Making Them Count",
+    desc:"Teaching English Learners in Mississippi's Overlooked Districts — thirty chapters across five parts, with an epilogue and four appendices covering compliance calendars, checklists, glossary, and sources.",
+    repo:"making-them-count", tags:["pd"], status:"archive" },
+];
+
+/* ---------- render ---------- */
+const SHELVES = ["Apps & Interactive Tools","Manuals & Field Guides",
+                 "Curriculum & Instructional Materials","Professional Development","Publications"];
+const NOTES = {
+  "Apps & Interactive Tools":"Installable, offline-capable tools built for phones as much as laptops.",
+  "Manuals & Field Guides":"Reference documents for compliance decisions and daily practice.",
+  "Curriculum & Instructional Materials":"Classroom-ready instruction, leveled and aligned.",
+  "Professional Development":"Sessions and modules for whole-faculty use.",
+  "Publications":"Long-form work."
+};
+const LABEL = {live:"Live", deploy:"Ready to deploy", archive:"Archive"};
+
+function card(t){
+  const url = t.url || (t.repo ? gh(t.repo) : null);
+  const linkable = t.status === "live" && url;
+  return `<article class="title s-${t.status}" data-tags="${(t.tags||[]).join(' ')} ${t.status}"
+      data-text="${(t.name+' '+t.desc+' '+t.kind).toLowerCase().replace(/"/g,'')}">
+    <div class="kind">${t.kind}</div>
+    <h3>${t.name}</h3>
+    <p>${t.desc}</p>
+    ${t.repo ? `<div class="meta">${USER}.github.io/${t.repo}/</div>` : ``}
+    <div class="foot">
+      <span class="badge b-${t.status}">${LABEL[t.status]}</span>
+      ${linkable
+        ? `<a class="open" href="${url}">Open →</a>`
+        : `<a class="open" aria-disabled="true" href="#">Not yet hosted</a>`}
+    </div>
+  </article>`;
+}
+
+document.getElementById('shelves').innerHTML = SHELVES.map(s=>{
+  const items = CATALOG.filter(t=>t.shelf===s);
+  if(!items.length) return '';
+  return `<section class="shelf" data-shelf>
+    <div class="shelfhead"><h2>${s}</h2><span class="ct">${items.length} title${items.length>1?'s':''}</span></div>
+    <p class="note">${NOTES[s]||''}</p>
+    <div class="rack">${items.map(card).join('')}</div>
+  </section>`;
+}).join('');
+
+/* ---------- search + filter ---------- */
+const q = document.getElementById('q');
+const empty = document.getElementById('empty');
+let active = 'all';
+
+function apply(){
+  const term = q.value.trim().toLowerCase();
+  let shown = 0;
+  document.querySelectorAll('.title').forEach(el=>{
+    const tagOK  = active==='all' || el.dataset.tags.split(' ').includes(active);
+    const textOK = !term || el.dataset.text.includes(term);
+    const on = tagOK && textOK;
+    el.style.display = on ? '' : 'none';
+    if(on) shown++;
+  });
+  document.querySelectorAll('[data-shelf]').forEach(sec=>{
+    sec.style.display = [...sec.querySelectorAll('.title')].some(t=>t.style.display!=='none') ? '' : 'none';
+  });
+  empty.style.display = shown ? 'none' : 'block';
+}
+
+q.addEventListener('input', apply);
+document.querySelectorAll('.filt').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    active = b.dataset.f;
+    document.querySelectorAll('.filt').forEach(x=>x.setAttribute('aria-pressed', x===b ? 'true':'false'));
+    apply();
+  });
+});
+</script>
+
+</body>
+</html>
