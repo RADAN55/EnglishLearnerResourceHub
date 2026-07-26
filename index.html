@@ -3,255 +3,1784 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The EL Publishing Library · Midnight Executive</title>
-<meta name="description" content="Free downloadable curriculum, manuals, and professional development for teachers of English learners. Richard A. Daniel, M.Ed.">
-<meta property="og:title" content="The EL Publishing Library">
+<title>Midnight Executive · EL Publishing</title>
+<meta name="description" content="Free curriculum, compliance manuals, and professional development for teachers of English learners. Richard A. Daniel, M.Ed. — Many Voices, One Storm.">
+<meta property="og:title" content="Midnight Executive · EL Publishing">
 <meta property="og:description" content="Free resources for teachers of English learners. Many Voices · One Storm.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1E2761;--gold:#C9A227;--ink:#12172E;--paper:#FBFAF7;
-  --slate:#5A627A;--go:#2A6B4F;--line:#E3DFD4;--wash:#F2F0E9}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1000px;margin:0 auto;padding:0 28px}
-a{color:var(--navy)}
 
-.mast{background:var(--navy);color:#fff;padding:60px 0 48px;position:relative}
-.mast::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
-  background:linear-gradient(90deg,var(--gold) 0 50%,#fff 50% 100%)}
-.imprint{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.32em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.mast h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.3rem,6vw,3.8rem);
-  line-height:.96;margin:0;letter-spacing:-.026em}
-.mast h1 em{font-style:normal;color:var(--gold)}
-.mast .sub{font-family:'Fraunces',serif;font-size:clamp(1rem,2.2vw,1.3rem);color:#D7DCEC;
-  max-width:600px;margin:18px 0 0;line-height:1.44}
-.mast .who{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);
-  font-size:.86rem;color:#C3CAE2;max-width:600px}
-.mast .who strong{color:#fff}
-.storm{margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:.66rem;
+:root{
+  --navy:#1E2761; --gold:#C9A227; --ink:#12172E; --paper:#FBFAF7;
+  --slate:#5A627A; --go:#2A6B4F; --stop:#A5342B; --line:#E3DFD4;
+  --wash:#F2F0E9; --navywash:#EDEFF6;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif; font-size:16px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:0 28px}
+
+/* ---------- COVER ---------- */
+.cover{background:var(--navy);color:#fff;padding:76px 0 64px;position:relative;overflow:hidden}
+.cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;
+  background:linear-gradient(90deg,var(--gold) 0 33%, #fff 33% 66%, var(--stop) 66% 100%)}
+.crest{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:26px}
+.cover h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.7rem,7vw,4.6rem);
+  line-height:.94;margin:0 0 6px;letter-spacing:-.025em}
+.cover h1 em{font-style:normal;color:var(--gold)}
+.cover .sub{font-family:'Fraunces',serif;font-size:clamp(1.05rem,2.4vw,1.45rem);
+  font-weight:400;color:#D7DCEC;max-width:640px;margin:18px 0 34px;line-height:1.4}
+.plate{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid rgba(255,255,255,.22);padding-top:22px}
+.plate div{flex:1 1 170px;padding-right:22px}
+.plate dt{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.plate dd{margin:0;font-size:.88rem;color:#E8EBF4}
+.tagline{margin-top:30px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
   letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 
-.bar{position:sticky;top:0;z-index:50;background:var(--ink)}
-.bar .inner{max-width:1000px;margin:0 auto;padding:11px 28px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-#q{flex:1 1 200px;min-width:170px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
-  color:#fff;border-radius:4px;padding:9px 13px;font-size:.9rem;font-family:'Inter',sans-serif}
-#q::placeholder{color:#7E88AC}
-#q:focus{outline:2px solid var(--gold);outline-offset:1px}
-.filt{appearance:none;border:1px solid rgba(255,255,255,.18);background:transparent;color:#9AA3C4;
-  cursor:pointer;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:.61rem;
-  letter-spacing:.16em;text-transform:uppercase;padding:8px 12px}
-.filt:hover{color:#fff}
-.filt[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:600}
-.filt:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+/* ---------- STRUCTURE ---------- */
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:9px}
+h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(1.65rem,3.6vw,2.35rem);
+  line-height:1.08;margin:0 0 8px;letter-spacing:-.02em;color:var(--navy)}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.22rem;margin:32px 0 10px;color:var(--ink)}
+h4{font-family:'Inter',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--slate);margin:24px 0 8px}
+p{margin:0 0 14px}
+.lede{font-size:1.06rem;color:var(--slate);max-width:74ch;margin-bottom:22px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin-bottom:7px}
+strong{font-weight:600}
+code,.code{font-family:'IBM Plex Mono',monospace;font-size:.86em;
+  background:var(--navywash);color:var(--navy);padding:1px 6px;border-radius:3px;font-weight:600}
 
-main{padding:40px 0 24px}
-.grp{margin-bottom:38px}
-.grphead{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--navy);
-  padding-bottom:8px;margin-bottom:16px}
-.grphead h2{font-family:'Fraunces',serif;font-weight:900;font-size:1.55rem;color:var(--navy);margin:0}
-.grphead .ct{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--gold);margin-left:auto}
-.rack{display:grid;gap:13px;grid-template-columns:repeat(auto-fill,minmax(305px,1fr))}
+/* ---------- TOC ---------- */
+.toc{background:var(--wash);border:1px solid var(--line);padding:26px 30px;margin:0 0 8px}
+.toc ol{columns:2;column-gap:38px;padding-left:18px;margin:0;font-size:.9rem}
+.toc a{color:var(--navy);text-decoration:none;border-bottom:1px solid transparent}
+.toc a:hover{border-bottom-color:var(--gold)}
+@media(max-width:640px){.toc ol{columns:1}}
 
-.doc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);
-  padding:17px 19px;display:flex;flex-direction:column}
-.doc:hover{box-shadow:0 5px 16px rgba(30,39,97,.08)}
-.doc .fmt{font-family:'IBM Plex Mono',monospace;font-size:.57rem;letter-spacing:.19em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
-.doc h3{font-family:'Fraunces',serif;font-size:1.06rem;font-weight:600;margin:0 0 6px;
-  color:var(--navy);line-height:1.25}
-.doc p{font-size:.86rem;color:var(--slate);margin:0 0 12px;flex:1}
-.doc .get{display:flex;align-items:center;gap:9px;border-top:1px solid var(--line);padding-top:10px}
-.doc .sz{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:#8A90A6}
-.doc a.dl{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.61rem;letter-spacing:.16em;
-  text-transform:uppercase;text-decoration:none;color:var(--navy);
-  border-bottom:1px solid var(--gold);padding-bottom:1px}
-.doc a.dl:hover{color:var(--gold)}
-.empty{display:none;text-align:center;padding:40px 0;color:var(--slate);font-style:italic}
+/* ---------- SIGNATURE: THE RED LINE ---------- */
+.redline{margin:38px 0;border:1px solid var(--line);background:#fff}
+.redline .side{padding:22px 24px}
+.redline .above{border-bottom:0}
+.redline .bar{background:var(--stop);color:#fff;padding:9px 24px;
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase}
+.redline h5{margin:0 0 8px;font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600}
+.redline .above h5{color:var(--go)} .redline .below h5{color:var(--stop)}
+.redline ul{margin:0;font-size:.9rem}
 
-footer{background:var(--navy);color:#B9C1DA;padding:40px 0;font-size:.84rem;margin-top:16px}
+/* ---------- CARDS / GRID ---------- */
+.grid{display:grid;gap:16px;margin:22px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:#fff;border:1px solid var(--line);padding:20px 22px}
+.card .n{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:7px}
+.card h5{margin:0 0 8px;font-family:'Fraunces',serif;font-size:1.06rem;font-weight:600;color:var(--navy)}
+.card p,.card li{font-size:.89rem;margin-bottom:8px}
+.card ul{padding-left:18px;margin-bottom:0}
+
+/* door cards */
+.door{border-top:4px solid}
+.door.d1{border-top-color:var(--slate)}
+.door.d2{border-top-color:var(--gold)}
+.door.d3{border-top-color:var(--navy)}
+
+/* ---------- TABLES ---------- */
+.tw{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:.86rem;background:#fff}
+th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-weight:600;
+  font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;vertical-align:bottom}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#FCFCFA}
+.lane{font-family:'IBM Plex Mono',monospace;font-weight:600;color:#fff;
+  display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;
+  border-radius:3px;font-size:.72rem}
+.lT{background:#4A5578}.lS{background:#6B5E8C}.lP{background:var(--navy)}.lR{background:#2F5A6B}
+.cd{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--navy);white-space:nowrap}
+.yes{color:var(--go);font-weight:600}
+.no{color:var(--stop);font-weight:600}
+
+/* ---------- CALLOUTS ---------- */
+.call{border-left:4px solid var(--gold);background:var(--wash);padding:18px 22px;margin:22px 0}
+.call.warn{border-left-color:var(--stop);background:#FBF2F1}
+.call.ok{border-left-color:var(--go);background:#F1F7F3}
+.call h5{margin:0 0 7px;font-family:'IBM Plex Mono',monospace;font-size:.65rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--slate)}
+.call.warn h5{color:var(--stop)} .call.ok h5{color:var(--go)}
+.call p:last-child,.call ul:last-child{margin-bottom:0}
+
+/* ---------- ACCESS PROTOCOL ---------- */
+.gate{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.gate:last-child{border-bottom:0}
+.gate .letter{font-family:'Fraunces',serif;font-weight:900;font-size:2.5rem;line-height:.8;
+  color:var(--gold);flex:0 0 46px}
+.gate .body h5{margin:0 0 5px;font-family:'Inter',sans-serif;font-size:.98rem;font-weight:700;color:var(--navy)}
+.gate .body p{margin:0 0 6px;font-size:.9rem}
+.gate .ask{font-size:.84rem;color:var(--slate);font-style:italic}
+
+/* ---------- FORMS ---------- */
+.form{background:#fff;border:1px solid var(--line);padding:24px;margin:22px 0}
+.form .fh{border-bottom:2px solid var(--navy);padding-bottom:9px;margin-bottom:16px;
+  display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.form .fh strong{font-family:'Fraunces',serif;font-size:1.06rem;color:var(--navy)}
+.form .fh span{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold)}
+.fline{border-bottom:1px solid #C9C6BB;min-height:26px;margin:0 0 12px}
+.frow{display:flex;gap:16px;flex-wrap:wrap}
+.frow>div{flex:1 1 180px}
+.flabel{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--slate);display:block;margin-bottom:3px}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--navy);color:#B9C1DA;padding:44px 0;font-size:.83rem}
 footer a{color:var(--gold)}
-footer .fl{font-family:'IBM Plex Mono',monospace;font-size:.61rem;letter-spacing:.26em;
+footer .fl{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.26em;
   text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-@media print{.bar{display:none}}
+
+/* ---------- PRINT ---------- */
+@media print{
+  body{font-size:10.5pt;background:#fff}
+  .cover{padding:40px 0 30px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{padding:22px 0;page-break-inside:auto}
+  h2,h3{page-break-after:avoid} table,.form,.card,.redline,.call{page-break-inside:avoid}
+  .toc{page-break-after:always}
+  th,.cover,footer,.redline .bar,.lane{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{text-decoration:none;color:inherit}
+  @page{margin:0.6in}
+}
+
+
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 28px}
+
+.cover{background:var(--navy);color:#fff;padding:66px 0 56px;position:relative}
+.cover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;
+  background:linear-gradient(90deg,var(--gold) 0 33%,#fff 33% 66%,var(--stop) 66% 100%)}
+.crest{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.cover h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.3rem,6vw,3.9rem);
+  line-height:.98;margin:0;letter-spacing:-.025em}
+.cover h1 em{font-style:normal;color:var(--gold)}
+.cover .sub{font-family:'Fraunces',serif;font-size:clamp(1rem,2.2vw,1.32rem);font-weight:400;
+  color:#D7DCEC;max-width:640px;margin:16px 0 30px;line-height:1.42}
+.plate{display:flex;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.22);padding-top:20px}
+.plate div{flex:1 1 150px;padding-right:20px}
+.plate dt{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.plate dd{margin:0;font-size:.86rem;color:#E8EBF4}
+.tagline{margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:.66rem;
+  letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:9px}
+h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.2rem);
+  line-height:1.1;margin:0 0 8px;letter-spacing:-.02em;color:var(--navy)}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;margin:30px 0 10px}
+h4{font-family:'Inter',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--slate);margin:22px 0 8px}
+p{margin:0 0 14px}
+.lede{font-size:1.04rem;color:var(--slate);max-width:74ch;margin-bottom:20px}
+ul,ol{margin:0 0 16px;padding-left:22px} li{margin-bottom:7px}
+code,.code{font-family:'IBM Plex Mono',monospace;font-size:.86em;background:var(--navywash);
+  color:var(--navy);padding:1px 6px;border-radius:3px;font-weight:600}
+
+/* SIGNATURE: run of show timeline */
+.ros{border-left:2px solid var(--navy);margin:26px 0 26px 8px;padding-left:0}
+.seg{position:relative;padding:0 0 26px 30px}
+.seg::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;
+  background:var(--gold);border:2px solid var(--navy);border-radius:50%}
+.seg .clock{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;
+  color:var(--stop);font-weight:600;text-transform:uppercase}
+.seg h5{margin:3px 0 6px;font-family:'Fraunces',serif;font-size:1.12rem;font-weight:600;color:var(--navy)}
+.seg p{margin:0 0 6px;font-size:.92rem}
+.seg .mat{font-size:.8rem;color:var(--slate);font-style:italic}
+
+.call{border-left:4px solid var(--gold);background:var(--wash);padding:17px 21px;margin:20px 0}
+.call.warn{border-left-color:var(--stop);background:#FBF2F1}
+.call.ok{border-left-color:var(--go);background:#F1F7F3}
+.call.say{border-left-color:var(--navy);background:var(--navywash)}
+.call h5{margin:0 0 7px;font-family:'IBM Plex Mono',monospace;font-size:.64rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--slate)}
+.call.warn h5{color:var(--stop)} .call.ok h5{color:var(--go)} .call.say h5{color:var(--navy)}
+.call p:last-child,.call ul:last-child{margin-bottom:0}
+.call.say p{font-family:'Fraunces',serif;font-size:1.02rem;line-height:1.5}
+
+.tw{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:.86rem;background:#fff}
+th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-weight:600;
+  font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;vertical-align:bottom}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#FCFCFA}
+.yes{color:var(--go);font-weight:600} .no{color:var(--stop);font-weight:600}
+.cd{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--navy);white-space:nowrap}
+
+.card{background:#fff;border:1px solid var(--line);padding:20px 22px;margin:16px 0}
+.card .n{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:7px}
+.card h5{margin:0 0 8px;font-family:'Fraunces',serif;font-size:1.08rem;font-weight:600;color:var(--navy)}
+.grid{display:grid;gap:16px;margin:20px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+
+/* case files */
+.case{background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);
+  padding:22px 24px;margin:18px 0}
+.case .tag{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
+.case h5{margin:0 0 4px;font-family:'Fraunces',serif;font-size:1.14rem;font-weight:600;color:var(--navy)}
+.case .prof{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--slate);
+  margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.case p{font-size:.93rem}
+.case .q{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:.88rem}
+.case .q strong{color:var(--navy)}
+
+/* sorter items */
+.sorter{display:grid;gap:0;border:1px solid var(--line);background:#fff;margin:20px 0}
+.si{display:flex;gap:14px;padding:12px 18px;border-bottom:1px solid var(--line);align-items:flex-start}
+.si:last-child{border-bottom:0}
+.si .num{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--gold);flex:0 0 26px}
+.si .txt{flex:1;font-size:.91rem}
+.si .box{flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--slate);white-space:nowrap}
+
+.fline{border-bottom:1px solid #C9C6BB;min-height:26px;margin:0 0 12px}
+.flabel{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--slate);display:block;margin-bottom:3px}
+.frow{display:flex;gap:16px;flex-wrap:wrap}.frow>div{flex:1 1 180px}
+
+.cert{border:3px double var(--navy);padding:38px 34px;text-align:center;background:#fff;margin:24px 0}
+.cert .k{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold)}
+.cert h3{font-family:'Fraunces',serif;font-weight:900;font-size:1.9rem;color:var(--navy);margin:12px 0 4px}
+.cert .nm{border-bottom:1px solid var(--ink);max-width:420px;margin:26px auto 6px;height:32px}
+
+footer{background:var(--navy);color:#B9C1DA;padding:42px 0;font-size:.83rem}
+footer .fl{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+
+@media print{
+  body{font-size:10.5pt;background:#fff}
+  .cover{padding:36px 0 28px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{padding:20px 0}
+  h2,h3{page-break-after:avoid}
+  table,.card,.case,.call,.cert,.seg,.sorter{page-break-inside:avoid}
+  th,.cover,footer,.seg::before{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{text-decoration:none;color:inherit}
+  @page{margin:0.6in}
+}
+
+
+/* ===================== SHELL (combined edition) ===================== */
+.navbar{position:sticky;top:0;z-index:80;background:var(--ink);
+  border-bottom:1px solid rgba(255,255,255,.12)}
+.navbar .inner{max-width:1000px;margin:0 auto;padding:0 28px;
+  display:flex;align-items:center;gap:4px;flex-wrap:wrap;min-height:54px}
+.navbar .mk{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gold);margin-right:auto;padding:9px 0}
+.nb{appearance:none;border:0;background:transparent;cursor:pointer;color:#9AA3C4;
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.19em;
+  text-transform:uppercase;padding:10px 14px;border-bottom:3px solid transparent}
+.nb:hover{color:#fff}
+.nb[aria-selected="true"]{color:#fff;border-bottom-color:var(--gold)}
+.nb:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.pbtn{appearance:none;cursor:pointer;background:transparent;color:var(--gold);
+  border:1px solid rgba(201,162,39,.5);border-radius:3px;margin-left:8px;
+  font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;
+  text-transform:uppercase;padding:7px 11px}
+.pbtn:hover{background:var(--gold);color:var(--ink)}
+.panel[hidden]{display:none}
+
+/* ---- home ---- */
+.hero{background:var(--navy);color:#fff;padding:62px 0 50px;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+  background:linear-gradient(90deg,var(--gold) 0 33%,#fff 33% 66%,var(--stop) 66% 100%)}
+.hero .imp{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.3rem,6vw,3.9rem);
+  line-height:.95;margin:0;letter-spacing:-.026em}
+.hero h1 em{font-style:normal;color:var(--gold);display:block}
+.hero .sb{font-family:'Fraunces',serif;font-size:clamp(1rem,2.2vw,1.3rem);color:#D7DCEC;
+  max-width:600px;margin:18px 0 0;line-height:1.44}
+.hero .who{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);
+  font-size:.86rem;color:#C3CAE2;max-width:600px}
+.hero .who strong{color:#fff}
+.hero .st{margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:.65rem;
+  letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:34px 0 26px}
+#hq{flex:1 1 220px;min-width:180px;background:#fff;border:1px solid var(--line);
+  color:var(--ink);border-radius:4px;padding:10px 13px;font-size:.9rem;font-family:'Inter',sans-serif}
+#hq:focus{outline:2px solid var(--gold);outline-offset:1px}
+.hf{appearance:none;border:1px solid var(--line);background:#fff;color:var(--slate);
+  cursor:pointer;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+  letter-spacing:.15em;text-transform:uppercase;padding:9px 12px}
+.hf:hover{border-color:var(--gold)}
+.hf[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy);font-weight:600}
+.hf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+.grp{margin-bottom:36px}
+.gh{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--navy);
+  padding-bottom:8px;margin-bottom:14px}
+.gh h2{font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--navy);margin:0}
+.gh .ct{font-family:'IBM Plex Mono',monospace;font-size:.61rem;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--gold);margin-left:auto}
+.rk{display:grid;gap:13px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.entry{background:#fff;border:1px solid var(--line);border-left:4px solid var(--slate);
+  padding:17px 19px;display:flex;flex-direction:column}
+.entry.a-tab{border-left-color:var(--navy)}
+.entry.a-link{border-left-color:var(--go)}
+.entry.a-file{border-left-color:var(--gold)}
+.entry.a-soon{border-left-color:var(--line)}
+.entry:hover{box-shadow:0 5px 16px rgba(30,39,97,.08)}
+.entry .fm{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.entry h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;margin:0 0 6px;
+  color:var(--navy);line-height:1.25}
+.entry p{font-size:.86rem;color:var(--slate);margin:0 0 12px;flex:1}
+.entry .go{display:flex;align-items:center;gap:9px;border-top:1px solid var(--line);padding-top:10px}
+.entry a.act,.entry button.act{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+  letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--navy);
+  border:0;background:transparent;cursor:pointer;border-bottom:1px solid var(--gold);padding:0 0 1px}
+.entry a.act:hover,.entry button.act:hover{color:var(--gold)}
+.entry .soon{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.56rem;
+  letter-spacing:.15em;text-transform:uppercase;color:#A9AEBE}
+.tagpill{font-family:'IBM Plex Mono',monospace;font-size:.54rem;letter-spacing:.14em;
+  text-transform:uppercase;padding:3px 7px;border-radius:3px;background:var(--wash);color:var(--slate)}
+#hempty{display:none;text-align:center;padding:40px 0;color:var(--slate);font-style:italic}
+
+.sitefoot{background:var(--navy);color:#B9C1DA;padding:42px 0;font-size:.84rem;margin-top:24px}
+.sitefoot .fl{font-family:'IBM Plex Mono',monospace;font-size:.61rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{.navbar,.tools,.hero{display:none}.panel[hidden]{display:none!important}}
 </style>
 </head>
 <body>
 
-<header class="mast">
-  <div class="wrap">
-    <div class="imprint">Midnight Executive · EL Publishing</div>
-    <h1>The <em>Library</em></h1>
-    <p class="sub">Curriculum, manuals, and professional development for teachers of English learners. Every file free to download, print, copy, and share.</p>
-    <p class="who"><strong>Richard A. Daniel, M.Ed.</strong> — ENL/EL Specialist, Laurel High School, Mississippi. Class AA license with ESL and Spanish endorsements.</p>
-    <div class="storm">Many Voices · One Storm</div>
-  </div>
-</header>
-
-<nav class="bar">
+<nav class="navbar" role="tablist" aria-label="Sections">
   <div class="inner">
-    <input id="q" type="search" placeholder="Search the library…" aria-label="Search the library">
-    <button class="filt" data-f="all" aria-pressed="true">All</button>
-    <button class="filt" data-f="curriculum" aria-pressed="false">Curriculum</button>
-    <button class="filt" data-f="compliance" aria-pressed="false">Compliance</button>
-    <button class="filt" data-f="pd" aria-pressed="false">PD</button>
-    <button class="filt" data-f="student" aria-pressed="false">Student-facing</button>
+    <span class="mk">Midnight Executive · EL Publishing</span>
+    <button class="nb" id="t-home"   role="tab" aria-controls="p-home"   aria-selected="true">Home</button>
+    <button class="nb" id="t-manual" role="tab" aria-controls="p-manual" aria-selected="false">The Manual</button>
+    <button class="nb" id="t-module" role="tab" aria-controls="p-module" aria-selected="false">The Module</button>
+    <button class="pbtn" id="pnow">Print / PDF</button>
   </div>
 </nav>
 
-<main class="wrap">
-  <div id="out"></div>
-  <p class="empty" id="empty">Nothing in the library matches that.</p>
-</main>
+<!-- ============ HOME ============ -->
+<div class="panel" id="p-home" role="tabpanel" aria-labelledby="t-home">
+  <header class="hero">
+    <div class="wrap">
+      <div class="imp">Midnight Executive</div>
+      <h1>EL<em>Publishing</em></h1>
+      <p class="sb">Curriculum, compliance manuals, and professional development for teachers of English learners. Everything here is free to read, print, copy, and share.</p>
+      <p class="who"><strong>Richard A. Daniel, M.Ed.</strong> — ENL/EL Specialist, Laurel High School, Laurel City School District. Thirty-one years in education across Mississippi, Alabama, and Georgia. Class AA license with ESL and Spanish endorsements.</p>
+      <div class="st">Many Voices · One Storm</div>
+    </div>
+  </header>
 
-<footer>
   <div class="wrap">
-    <div class="fl">Midnight Executive · EL Publishing</div>
-    <p>Free for classroom, school, and district professional development use.<br>
-    Materials are field guides, not policy. Verify all compliance guidance against current Mississippi Department of Education publications.</p>
-    <p style="margin-top:16px" class="fl">Many Voices · One Storm</p>
+    <div class="tools">
+      <input id="hq" type="search" placeholder="Search everything…" aria-label="Search">
+      <button class="hf" data-f="all" aria-pressed="true">All</button>
+      <button class="hf" data-f="open" aria-pressed="false">Available now</button>
+      <button class="hf" data-f="compliance" aria-pressed="false">Compliance</button>
+      <button class="hf" data-f="curriculum" aria-pressed="false">Curriculum</button>
+      <button class="hf" data-f="pd" aria-pressed="false">PD</button>
+    </div>
+    <div id="hout"></div>
+    <p id="hempty">Nothing here matches that.</p>
   </div>
-</footer>
+
+  <footer class="sitefoot">
+    <div class="wrap">
+      <div class="fl">Midnight Executive · EL Publishing</div>
+      <p><strong style="color:#fff">Richard A. Daniel, M.Ed.</strong><br>
+      Free for classroom, school, and district professional development use.<br>
+      Materials are field guides, not policy. Verify all compliance guidance against current Mississippi Department of Education publications.</p>
+      <p style="margin-top:16px" class="fl">Many Voices · One Storm</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ MANUAL ============ -->
+<div class="panel" id="p-manual" role="tabpanel" aria-labelledby="t-manual" hidden>
+
+
+
+
+<div class="wrap">
+
+<section id="toc" style="padding-top:44px">
+  <span class="eyebrow">Contents</span>
+  <h2>Sixteen parts</h2>
+  <p class="lede">Parts 1–6 are the reasoning. Parts 7–9 are the registers you will actually reach for during a SET meeting. Parts 10–16 are the paperwork that keeps you audit-clean.</p>
+  <div class="toc"><ol>
+    <li><a href="#p1">Why this manual exists</a></li>
+    <li><a href="#p2">The legal floor</a></li>
+    <li><a href="#p3">What an LSP must contain</a></li>
+    <li><a href="#p4">The Three Doors</a></li>
+    <li><a href="#p5">The Four Lanes (T·S·P·R)</a></li>
+    <li><a href="#p6">The Red Line</a></li>
+    <li><a href="#p7">LSP-eligible accommodation register</a></li>
+    <li><a href="#p8">Accessibility feature register</a></li>
+    <li><a href="#p9">The prohibition matrix</a></li>
+    <li><a href="#p10">The ACCESS Protocol</a></li>
+    <li><a href="#p11">Proficiency-level starter menus</a></li>
+    <li><a href="#p12">Classroom vs. state testing</a></li>
+    <li><a href="#p13">Dually identified students</a></li>
+    <li><a href="#p14">Fidelity, monitoring, non-implementation</a></li>
+    <li><a href="#p15">Forms bank</a></li>
+    <li><a href="#p16">Glossary &amp; sources</a></li>
+  </ol></div>
+</section>
+
+<!-- ============ PART 1 ============ -->
+<section id="p1">
+  <span class="eyebrow">Part One</span>
+  <h2>Why this manual exists</h2>
+  <p class="lede">Most accommodation errors in Mississippi are not acts of bad faith. They are acts of kindness applied at the wrong altitude.</p>
+
+  <p>A well-meaning biology teacher shortens the test from forty items to twenty because the newcomer "can't finish." A history teacher gives the student a word bank. An algebra teacher lets a bilingual peer explain the problem in Spanish. Every one of those adults believed they were helping. Two of the three just reduced what the student was expected to learn, and one of them — if repeated on a state assessment — would trigger a test irregularity investigation.</p>
+
+  <p>The difference between an <strong>accommodation</strong> and a <strong>modification</strong> is not a difference of generosity. It is a difference of <em>construct</em>. An accommodation removes the language barrier standing between the student and the content. A modification removes the content. The first is a civil right. The second, applied without disclosure, is a slow-motion denial of one.</p>
+
+  <p>This manual gives you three things: a defensible way to <em>decide</em> what goes on a Language Service Plan, a clean register of what Mississippi actually permits, and the paperwork to prove you did both. Everything here is written for a high school block where you may be the only person in the building who knows the difference.</p>
+
+  <div class="call">
+    <h5>How to use this book</h5>
+    <p>Read Parts 1–6 once, in order, before your first SET meeting. Keep Parts 7–9 open on the table <em>during</em> the meeting. Photocopy Part 15 and never write an LSP without it.</p>
+  </div>
+</section>
+
+<!-- ============ PART 2 ============ -->
+<section id="p2">
+  <span class="eyebrow">Part Two</span>
+  <h2>The legal floor</h2>
+  <p class="lede">You are not offering a service. You are discharging an obligation that predates you by fifty years.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:26%">Authority</th><th>What it obligates you to do</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Title VI, Civil Rights Act of 1964</strong></td><td>Prohibits national-origin discrimination in federally funded programs. Failure to address a language barrier is discrimination, whether or not anyone intended it.</td></tr>
+      <tr><td><strong>Lau v. Nichols</strong> (1974)</td><td>Identical materials, teachers, and curriculum do not equal equal opportunity when the student cannot understand the language of instruction. Sameness is not equity.</td></tr>
+      <tr><td><strong>EEOA §1703(f)</strong> (1974)</td><td>Districts must take <em>appropriate action</em> to overcome language barriers impeding equal participation. "Appropriate action" is the statutory hook that makes accommodations non-optional.</td></tr>
+      <tr><td><strong>Castañeda v. Pickard</strong> (1981)</td><td>The three-prong test: (1) the program rests on sound educational theory; (2) it is implemented with adequate resources and staff; (3) it produces results, or is revised. Prong two is where undelivered accommodations become a finding.</td></tr>
+      <tr><td><strong>Plyler v. Doe</strong> (1982)</td><td>Immigration status is irrelevant to the right to a public education — and therefore to LSP services.</td></tr>
+      <tr><td><strong>ESSA §1111(b)(2); Title III</strong></td><td>All ELs must be assessed annually for English language proficiency and included in academic assessments with appropriate supports.</td></tr>
+      <tr><td><strong>34 C.F.R. §200.6</strong></td><td>Accommodation decisions must be made <em>individually</em> by the student's team — for ELs, the LSP team. Not by grade level. Not by proficiency level. Not by default.</td></tr>
+      <tr><td><strong>MS EL Guidelines</strong></td><td>Every identified EL must have an LSP, developed by a Student Evaluation Team (SET), reviewed and updated annually until exit, with copies to every teacher who serves the student.</td></tr>
+      <tr><td><strong>MTAM</strong> (rev. 2/19/2026)</td><td>The operative list. Defines universal features, accessibility features, and accommodations, and states which apply to an LSP versus an IEP or 504 Plan.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="call warn">
+    <h5>The sentence that decides most OCR cases</h5>
+    <p>A plan that exists on paper but is not implemented in the classroom is, for compliance purposes, worse than no plan at all — because it documents that the district knew what the student needed and did not deliver it. <strong>Write nothing you cannot verify.</strong></p>
+  </div>
+</section>
+
+<!-- ============ PART 3 ============ -->
+<section id="p3">
+  <span class="eyebrow">Part Three</span>
+  <h2>What an LSP must contain</h2>
+  <p class="lede">Mississippi requires a Language Service Plan for every identified EL. Lack of English fluency is not a disability — the LSP is a language document, not a special education document.</p>
+
+  <h3>Required contents</h3>
+  <ul>
+    <li>Student demographic information and date of first enrollment in a U.S. school</li>
+    <li>Yearly English Language Proficiency Test scores (domain and composite)</li>
+    <li><strong>Classroom accommodations and modifications</strong></li>
+    <li><strong>State testing accommodations</strong> — each specified by code and by assessment</li>
+    <li>Signatures of all SET members</li>
+  </ul>
+
+  <h3>The Student Evaluation Team</h3>
+  <p>The SET convenes at the start of each academic year to develop the plan and meets quarterly to evaluate progress and adjust. Membership should include the EL specialist, at least one general education content teacher who serves the student, an administrator or designee, a counselor, and the parent or guardian — with interpretation provided in a language the family understands. Where the student is old enough to speak for himself, seat him at the table.</p>
+
+  <h3>Distribution</h3>
+  <p>A copy of the LSP goes to <em>every</em> teacher who works with the student — including electives, career and technical education, and the athletic staff who administer eligibility paperwork. Distribution is not courtesy; it is the evidentiary link between the plan and its implementation. Track it (Form D, Part 15).</p>
+
+  <div class="call ok">
+    <h5>High school reality check</h5>
+    <p>A ninth grader on a seven-period rotation may sit with eight adults in a week. Eight signatures on the acknowledgment log is the difference between "the district provided services" and "the district wrote a plan."</p>
+  </div>
+</section>
+
+<!-- ============ PART 4 ============ -->
+<section id="p4">
+  <span class="eyebrow">Part Four</span>
+  <h2>The Three Doors</h2>
+  <p class="lede">Mississippi organizes every support into three tiers. Nearly every LSP error in the field is a support written through the wrong door.</p>
+
+  <div class="grid g3">
+    <div class="card door d1">
+      <span class="n">Door One</span>
+      <h5>Universal Features</h5>
+      <p>Available to <strong>every student</strong>, no documentation required.</p>
+      <ul>
+        <li>Highlighter, line guide, color contrast</li>
+        <li>Answer masking / eliminator</li>
+        <li>Scratch paper, embedded ruler and calculator</li>
+        <li>Noise-reducing headphones, stress ball</li>
+        <li>Flag for review; volume control</li>
+      </ul>
+      <p style="margin-top:10px"><strong>Do not write these on an LSP.</strong> Listing a universal feature makes the plan look padded and buries the supports that matter.</p>
+    </div>
+    <div class="card door d2">
+      <span class="n">Door Two</span>
+      <h5>Accessibility Features</h5>
+      <p>For students with an identified need, determined by the <strong>SET</strong> and documented in <strong>SET minutes</strong> filed in the cumulative folder.</p>
+      <ul>
+        <li>Small group; individual testing</li>
+        <li>Scheduled rest breaks</li>
+        <li>Stay-on-task reminder</li>
+        <li>Student reads test aloud to self</li>
+        <li><strong>Word-to-word bilingual glossary</strong></li>
+      </ul>
+      <p style="margin-top:10px">These are not "lesser." For most ELs they are the workhorses.</p>
+    </div>
+    <div class="card door d3">
+      <span class="n">Door Three</span>
+      <h5>Accommodations</h5>
+      <p>Require documentation on an <strong>IEP, 504 Plan, or LSP</strong>. Each is coded and must be specified by assessment.</p>
+      <ul>
+        <li>Extra time</li>
+        <li>Testing across consecutive days</li>
+        <li>Read-aloud of items and answer choices</li>
+        <li>Paper test</li>
+        <li>Scribe / transcription</li>
+      </ul>
+      <p style="margin-top:10px">Only a subset carries the LSP label. See Part 7.</p>
+    </div>
+  </div>
+
+  <div class="call warn">
+    <h5>The most common single error in Mississippi EL files</h5>
+    <p>Writing the <strong>word-to-word bilingual glossary</strong> in the accommodations block of the LSP. It is an <em>accessibility feature</em>, decided by the SET and recorded in SET minutes. Getting the door wrong doesn't deny the student the tool — but it does mean the documentation trail is in the wrong file when a monitor asks for it.</p>
+  </div>
+
+  <h3>The authorization question</h3>
+  <p>Before you write anything, answer: <em>who has the authority to grant this, and where does the evidence live?</em></p>
+  <div class="tw"><table>
+    <thead><tr><th>Tier</th><th>Who decides</th><th>Where it is documented</th><th>Goes on the LSP?</th></tr></thead>
+    <tbody>
+      <tr><td>Universal feature</td><td>No one — it is open to all</td><td>Nowhere</td><td class="no">No</td></tr>
+      <tr><td>Accessibility feature</td><td>SET / MET</td><td>SET minutes → cum folder</td><td class="no">No (minutes instead)</td></tr>
+      <tr><td>Accommodation (LSP-eligible)</td><td>LSP team / SET</td><td>LSP, specified by assessment</td><td class="yes">Yes</td></tr>
+      <tr><td>Accommodation (IEP/504-only)</td><td>IEP team or 504 team</td><td>IEP or 504 Plan</td><td class="no">No — requires a disability</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ PART 5 ============ -->
+<section id="p5">
+  <span class="eyebrow">Part Five</span>
+  <h2>The Four Lanes</h2>
+  <p class="lede">Every accommodation and accessibility feature in Mississippi travels in one of four lanes. Naming the lane forces you to name the barrier.</p>
+
+  <div class="grid g2">
+    <div class="card"><span class="n"><span class="lane lT">T</span> &nbsp;Lane One</span><h5>Timing</h5>
+      <p>Changes how much time is allowed and how it is organized.</p>
+      <p><strong>Barrier it answers:</strong> the student processes a second language more slowly than a first — decoding, translating, re-encoding. Time is the purest language accommodation there is, because it changes nothing about the task.</p></div>
+    <div class="card"><span class="n"><span class="lane lS">S</span> &nbsp;Lane Two</span><h5>Setting</h5>
+      <p>Changes the environment or how it is structured.</p>
+      <p><strong>Barrier it answers:</strong> cognitive load. A newcomer working in a second language has no spare attention for a loud room, and often carries affective filters that a small group lowers.</p></div>
+    <div class="card"><span class="n"><span class="lane lP">P</span> &nbsp;Lane Three</span><h5>Presentation</h5>
+      <p>Changes how directions and information reach the student.</p>
+      <p><strong>Barrier it answers:</strong> receptive language. This is the highest-risk lane — presentation supports are the ones most likely to cross into modification, because changing <em>how</em> something is presented can quietly change <em>what</em> is being measured.</p></div>
+    <div class="card"><span class="n"><span class="lane lR">R</span> &nbsp;Lane Four</span><h5>Response</h5>
+      <p>Changes how the student demonstrates learning.</p>
+      <p><strong>Barrier it answers:</strong> productive language. The student knows the mitochondria answer and cannot spell it. Response supports separate content knowledge from English output.</p></div>
+  </div>
+
+  <div class="call">
+    <h5>Lane discipline</h5>
+    <p>If you cannot name the lane, you have not named the barrier — and if you have not named the barrier, you are guessing. Write the lane letter beside every entry on the plan. It takes four seconds and it makes the logic of the plan legible to the next person who opens the folder.</p>
+  </div>
+</section>
+
+<!-- ============ PART 6 ============ -->
+<section id="p6">
+  <span class="eyebrow">Part Six · The signature idea</span>
+  <h2>The Red Line</h2>
+  <p class="lede">There is one line in this work. Above it, you change the path to the content. Below it, you change the content. Everything in this manual exists to keep you above the line — or to make you disclose it when you go below.</p>
+
+  <div class="redline">
+    <div class="side above">
+      <h5>Above the line — ACCOMMODATION</h5>
+      <p style="font-size:.9rem;margin-bottom:10px">Changes procedures or materials so the student can access the same grade-level expectation. The construct is untouched.</p>
+      <ul>
+        <li>Extra time to read a passage — the passage is unchanged</li>
+        <li>A word-to-word glossary — the student still supplies the reasoning</li>
+        <li>Testing in a small group — the items are identical</li>
+        <li>Scribing a dictated response verbatim — the ideas are the student's</li>
+        <li>Sentence frames <em>for oral rehearsal</em> before an independent written response</li>
+      </ul>
+    </div>
+    <div class="bar">↓ &nbsp;The Red Line — below here, the expectation itself changes &nbsp; ↓</div>
+    <div class="side below">
+      <h5>Below the line — MODIFICATION</h5>
+      <p style="font-size:.9rem;margin-bottom:10px">Changes, lowers, or reduces the state-required learning expectation. The construct is altered.</p>
+      <ul>
+        <li>Fewer objectives, fewer standards, or an easier text on the same standard</li>
+        <li>Answering ten of forty items; removing distractors</li>
+        <li>Word banks and answer choices provided on a constructed response</li>
+        <li>Reading the passage aloud on a <em>reading</em> assessment</li>
+        <li>Paraphrasing, explaining, or translating an item during an assessment</li>
+        <li>Grading on effort or participation in place of mastery</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>The Red Line Test — three questions</h3>
+  <ol>
+    <li><strong>Does it change what the student must know?</strong> If yes → modification.</li>
+    <li><strong>Does it change how much the student must produce or master?</strong> If yes → modification.</li>
+    <li><strong>Does it remove a language barrier while leaving the content demand fully intact?</strong> If yes → accommodation.</li>
+  </ol>
+  <p>All three must resolve cleanly. A support that passes questions 1 and 2 but fails 3 isn't a modification — it's usually just noise, and it doesn't belong on the plan either.</p>
+
+  <div class="call warn">
+    <h5>Modifications on a state assessment</h5>
+    <p>Providing a modification during a state accountability assessment constitutes a <strong>test irregularity</strong>. It invalidates the score and triggers a state investigation of the school's or district's testing practices. There is no version of this that ends well for the student, the teacher, or the building.</p>
+  </div>
+
+  <div class="call">
+    <h5>When a modification is genuinely warranted</h5>
+    <p>Modifications are not forbidden in instruction. They are forbidden <em>in silence</em>. If the SET determines a modification is necessary in the classroom, three things must follow: (1) it is written on the LSP in the modifications block, not the accommodations block; (2) the student and family are told plainly, in their language, that this support <strong>will not be available on state assessments</strong>; and (3) the plan states how the student will be moved off it. Modification without an exit ramp is tracking.</p>
+  </div>
+
+  <h3>The grading corollary</h3>
+  <p>Accommodations do not change grading criteria. A student who writes a claim-evidence-reasoning paragraph with extra time and a glossary is graded on the same rubric as every other student. If a teacher tells you they "gave the EL a break on the grade," you have found a modification that was never documented — and a §15 accountability problem waiting to surface.</p>
+</section>
+
+<!-- ============ PART 7 ============ -->
+<section id="p7">
+  <span class="eyebrow">Part Seven · Register A</span>
+  <h2>LSP-eligible accommodations</h2>
+  <p class="lede">These are the supports Mississippi permits an EL to receive <em>on the basis of language alone</em>. Verify every code against the current MTAM before a SET meeting — codes are revised.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:6%">Lane</th><th style="width:8%">Code</th><th style="width:32%">Accommodation</th><th>Assessment restrictions &amp; specification requirements</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lane lT">T</span></td><td class="cd">#20</td><td><strong>Extra time</strong></td>
+        <td>Specify the amount — extra minutes, extra hours, or the full instructional day. Cannot extend past the end of the instructional day. The single most defensible EL accommodation; it never touches the construct.</td></tr>
+      <tr><td><span class="lane lT">T</span></td><td class="cd">#25</td><td><strong>Administer across consecutive days</strong></td>
+        <td>Specify the number of days. <span class="no">Not allowable for the ELPT Speaking domain.</span></td></tr>
+      <tr><td><span class="lane lP">P</span></td><td class="cd">#55</td><td><strong>Read test questions and answer choices</strong><br><span style="font-size:.82rem;color:var(--slate)">Human reader or text-to-speech</span></td>
+        <td>Specify the delivery method on the plan. <span class="no">Not allowable for the ELPT Reading domain or the 3rd Grade Reading Summative.</span> On MAAP ELA (3–8) and English II, <span class="no">passages may not be read to the student</span> — questions and answer choices only. ASL is not allowable on the ELPT.</td></tr>
+      <tr><td><span class="lane lP">P</span></td><td class="cd">#62</td><td><strong>Paper test</strong></td>
+        <td>Order through the school test coordinator. Frequently paired with #55 when a human reader is used.</td></tr>
+      <tr><td><span class="lane lR">R</span></td><td class="cd">#70</td><td><strong>Scribe / transcription</strong></td>
+        <td>Follow the MTAM scribe procedure exactly. <span class="no">Not allowable for the ELPT Writing domain.</span> Generally requires individual testing, an alternate location, and extended time. Scribe must be a certificated employee, trained, and under a signed confidentiality agreement.</td></tr>
+      <tr><td><span class="lane lT">T</span><span class="lane lS">S</span><span class="lane lP">P</span><span class="lane lR">R</span></td><td class="cd">#93–99</td><td><strong>Additional allowable accommodations</strong></td>
+        <td>Use one number per accommodation. Any non-standard request goes to the MDE Office of Student Assessment through the District Test Coordinator via an Accommodation Request Form, filed as far ahead of the window as possible.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Accommodations an EL may <em>not</em> claim on language alone</h3>
+  <p>These carry an IEP or 504 label only. An EL receives them solely when dually identified with a disability — never because English is difficult.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:8%">Code</th><th style="width:34%">Accommodation</th><th>Why it is disability-only</th></tr></thead>
+    <tbody>
+      <tr><td class="cd">#40</td><td>Large print / online enlargement</td><td>Addresses a visual access need, not a language need.</td></tr>
+      <tr><td class="cd">#41</td><td>Braille</td><td>Visual disability.</td></tr>
+      <tr><td class="cd">#48</td><td>Supplemental aids (blank organizers, math and science graphics, mnemonics)</td><td>Addresses memory, organization, and processing needs. Tempting for ELs — and not available to them absent an IEP or 504.</td></tr>
+      <tr><td class="cd">#75</td><td>Braille writer / notetaker</td><td>Visual disability.</td></tr>
+      <tr><td class="cd">#77</td><td>Speech-to-text without autocorrect</td><td>Motor or written-expression disability. Note that scribe (#70) <em>is</em> LSP-eligible — the distinction is human versus software mediation.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="call">
+    <h5>Why #48 is the trap</h5>
+    <p>Graphic organizers are the bread and butter of sheltered instruction, and they belong in your classroom every single day. But <strong>on a state assessment</strong>, a supplemental aid is an IEP/504 accommodation. Teach the organizer relentlessly in instruction; do not write it as a state testing accommodation for a language-only EL.</p>
+  </div>
+</section>
+
+<!-- ============ PART 8 ============ -->
+<section id="p8">
+  <span class="eyebrow">Part Eight · Register B</span>
+  <h2>Accessibility features</h2>
+  <p class="lede">SET-determined, documented in SET minutes and filed in the cumulative folder — not written in the accommodations block of the LSP. For most ELs this is where the real support lives.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:6%">Lane</th><th style="width:8%">Code</th><th style="width:30%">Feature</th><th>Notes for EL use</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lane lS">S</span></td><td class="cd">#3</td><td>Small group (2–9 students)</td><td>The default setting feature for newcomers. Lowers affective filter and permits closer monitoring of fatigue.</td></tr>
+      <tr><td><span class="lane lS">S</span></td><td class="cd">#4</td><td>Test individually</td><td>Required whenever a scribe or read-aloud is delivered by a human.</td></tr>
+      <tr><td><span class="lane lS">S</span></td><td class="cd">#7</td><td>At home or in a facility</td><td>Homebound, medical, behavioral, or detention placements.</td></tr>
+      <tr><td><span class="lane lS">S</span></td><td class="cd">#12</td><td>Medical monitoring device</td><td>Glucose monitors and medical alert devices held for medical reasons.</td></tr>
+      <tr><td><span class="lane lT">T</span></td><td class="cd">#21</td><td>Scheduled rest breaks</td><td>Specify the time and duration of each break. Second-language testing fatigue is real and measurable — build breaks in rather than watching a student flatten in hour two.</td></tr>
+      <tr><td><span class="lane lP">P</span></td><td class="cd">#43</td><td>Amplification device</td><td>Speakers, FM system.</td></tr>
+      <tr><td><span class="lane lP">P</span></td><td class="cd">#44</td><td>Turn off universal features</td><td>For students distracted by the digital toolset.</td></tr>
+      <tr><td><span class="lane lP">P</span></td><td class="cd">#49</td><td>Stay-on-task reminder</td><td>A neutral prompt to continue working. Not a content cue, ever.</td></tr>
+      <tr><td><span class="lane lP">P</span></td><td class="cd">#57</td><td>Student reads test aloud to self</td><td>Requires individual testing or a whisper-phone device. Powerful for ELs who subvocalize while decoding.</td></tr>
+      <tr><td><span class="lane lR">R</span></td><td class="cd">#76</td><td>Assistive technology / communication software</td><td>For limited expressive language ability.</td></tr>
+      <tr><td><span class="lane lR">R</span></td><td class="cd">#81</td><td><strong>Bilingual dictionary or glossary — word-to-word format</strong></td>
+        <td>Paperback, hardback, or approved electronic. <strong>No pictures, definitions, conjugations, or sample sentences.</strong> Electronic versions must have audio off and no internet or added software. <span class="no">Not allowable on the ELPT.</span> Verify the district's approved list before the window opens — an unapproved dictionary in a testing room is an irregularity.</td></tr>
+      <tr><td><span class="lane lP">P</span></td><td class="cd">—</td><td>Embedded glossing translation</td><td>Available for MAAP Mathematics and Science in the current manual. <span class="no">Not allowable on the ELPT.</span> Confirm platform availability with your DTC each cycle.</td></tr>
+      <tr><td><span class="lane lT">T</span><span class="lane lS">S</span><span class="lane lP">P</span><span class="lane lR">R</span></td><td class="cd">#83–89</td><td>Additional allowable accessibility features</td><td>One number per feature.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="call warn">
+    <h5>Two rules that end careers</h5>
+    <p><strong>The student's primary language is not permitted on the ELPT.</strong> No glossary, no translation, no signing, no reading in Spanish. The ELPT measures English proficiency; supporting it in another language destroys the measurement.</p>
+    <p style="margin-top:8px"><strong>Paraphrasing is never permitted on any assessment.</strong> Not directions, not items, not "let me say that another way." Verbatim or not at all.</p>
+  </div>
+</section>
+
+<!-- ============ PART 9 ============ -->
+<section id="p9">
+  <span class="eyebrow">Part Nine</span>
+  <h2>The prohibition matrix</h2>
+  <p class="lede">Which supports die at which door. Print this page and tape it inside the testing coordinator's binder.</p>
+
+  <div class="tw"><table>
+    <thead><tr>
+      <th style="width:24%">Support</th>
+      <th>MAAP ELA / English&nbsp;II</th>
+      <th>MAAP Math / Science / U.S.&nbsp;History / Algebra&nbsp;I / Biology</th>
+      <th>3rd Grade Reading Summative</th>
+      <th>ELPT</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><span class="cd">#20</span> Extra time</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td class="yes">Allowed</td></tr>
+      <tr><td><span class="cd">#25</span> Consecutive days</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td class="no">Not — Speaking domain</td></tr>
+      <tr><td><span class="cd">#55</span> Read items &amp; answers</td><td><span class="no">Passages: no.</span><br><span class="yes">Questions &amp; choices: yes</span></td><td class="yes">Allowed</td><td class="no">Not allowable</td><td class="no">Not — Reading domain<br>ASL not allowed at all</td></tr>
+      <tr><td><span class="cd">#62</span> Paper test</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td>Confirm with DTC</td></tr>
+      <tr><td><span class="cd">#70</span> Scribe</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td class="no">Not — Writing domain</td></tr>
+      <tr><td><span class="cd">#81</span> Word-to-word glossary</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td class="yes">Allowed</td><td class="no">Not allowable</td></tr>
+      <tr><td>Embedded glossing translation</td><td class="no">Not available</td><td class="yes">Math &amp; Science</td><td class="no">Not available</td><td class="no">Not allowable</td></tr>
+      <tr><td>Primary-language support of any kind</td><td>Per code only</td><td>Per code only</td><td>Per code only</td><td class="no">Never</td></tr>
+      <tr><td>Paraphrasing / explaining</td><td class="no">Never</td><td class="no">Never</td><td class="no">Never</td><td class="no">Never</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The logic underneath</h3>
+  <p>Two reasons a support gets struck: it <strong>interferes with what the test measures</strong>, or it <strong>alters the construct</strong>. Reading a passage aloud on a reading test does the first — you have measured listening comprehension and called it reading. Providing a Spanish glossary on the ELPT does the second — you have measured bilingual dictionary skill and called it English proficiency. Learn to run this test yourself and you will rarely need the chart.</p>
+
+  <div class="call ok">
+    <h5>Disability preclusion — the narrow exception</h5>
+    <p>Where a disability makes assessment in an ELPT domain impossible and no appropriate accommodation exists, the IEP or 504 team may determine a preclusion for that domain. The overall score is then computed from the remaining domains, and the precluded domain counts neither for nor against the student for exit purposes. This is rare by design. Neither team may exempt an EL from the ELPT entirely or strip the EL designation.</p>
+  </div>
+</section>
+
+<!-- ============ PART 10 ============ -->
+<section id="p10">
+  <span class="eyebrow">Part Ten · The decision protocol</span>
+  <h2>The ACCESS Protocol</h2>
+  <p class="lede">Six gates. A support goes on the plan only if it clears all six. Run this aloud in the SET meeting — it converts a vague conversation into a defensible record.</p>
+
+  <div class="gate"><div class="letter">A</div><div class="body">
+    <h5>Aligned to the language barrier</h5>
+    <p>The support answers a documented <em>language</em> need in a named domain — listening, speaking, reading, or writing — not a general academic weakness, not behavior, not motivation.</p>
+    <p class="ask">Ask: which ELPT domain score sent us here, and what does the student's work show?</p>
+  </div></div>
+
+  <div class="gate"><div class="letter">C</div><div class="body">
+    <h5>Consistently used in instruction</h5>
+    <p>The student already uses this support routinely in class. A support introduced for the first time on test day is a distraction, not an accommodation — and Mississippi requires prior consistent use.</p>
+    <p class="ask">Ask: can a content teacher name the last three times this student used it?</p>
+  </div></div>
+
+  <div class="gate"><div class="letter">C</div><div class="body">
+    <h5>Construct-safe</h5>
+    <p>It does not interfere with what the assessment measures and does not alter the construct. Run the Red Line Test (Part 6) and check the prohibition matrix (Part 9).</p>
+    <p class="ask">Ask: after this support, is the student still doing the thing the standard requires?</p>
+  </div></div>
+
+  <div class="gate"><div class="letter">E</div><div class="body">
+    <h5>Evidenced in data</h5>
+    <p>Something in the file justifies it: ELPT domain scores, screener results, work samples, formative data, observation notes, or documented parent input.</p>
+    <p class="ask">Ask: if a monitor asks "why this support for this student," what document do I hand them?</p>
+  </div></div>
+
+  <div class="gate"><div class="letter">S</div><div class="body">
+    <h5>Specified</h5>
+    <p>Written with the code, the amount, the delivery method, and the assessments it applies to. "Extra time" is not a plan. "<span class="code">#20</span> Extra time — 50% additional, MAAP Algebra I and MAAP English II" is a plan.</p>
+    <p class="ask">Ask: could a substitute test coordinator implement this correctly with no phone calls?</p>
+  </div></div>
+
+  <div class="gate"><div class="letter">S</div><div class="body">
+    <h5>Signed and shared</h5>
+    <p>SET members have signed, the family has received it in an understandable language, and every teacher who serves the student has acknowledged receipt in writing.</p>
+    <p class="ask">Ask: who is holding a copy right now, and can I prove it?</p>
+  </div></div>
+
+  <div class="call">
+    <h5>The subtraction rule</h5>
+    <p>A plan with four supports the student actually uses outperforms a plan with twelve that no one implements. Every accommodation you add is a promise the building has to keep seven periods a day. Add slowly. Remove without sentiment when the data says the student has outgrown it — and record the removal as growth, in front of the student.</p>
+  </div>
+</section>
+
+<!-- ============ PART 11 ============ -->
+<section id="p11">
+  <span class="eyebrow">Part Eleven</span>
+  <h2>Proficiency-level starter menus</h2>
+  <p class="lede">Starting points for SET discussion — never a checkbox. Federal regulation requires individual determination. Use these to open the conversation, then narrow to what this student actually needs.</p>
+
+  <h3>Levels 1–2 · Emerging</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">Lane</th><th style="width:42%">Classroom (daily instruction)</th><th>State testing candidates</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lane lT">T</span> Timing</td><td>Extended time on all written tasks; chunked assignments with checkpoints; extra wait time after questioning (5–7 seconds minimum)</td><td><span class="cd">#20</span> Extra time; <span class="cd">#25</span> consecutive days; <span class="cd">#21</span> scheduled breaks</td></tr>
+      <tr><td><span class="lane lS">S</span> Setting</td><td>Preferential seating near the point of instruction; strategic partnering with a bilingual peer for clarification of <em>directions</em>; low-traffic work area</td><td><span class="cd">#3</span> small group; <span class="cd">#4</span> individual; <span class="cd">#7</span> as applicable</td></tr>
+      <tr><td><span class="lane lP">P</span> Presentation</td><td>Visuals and realia paired with all key terms; pre-taught vocabulary with images; directions given orally and in writing; native-language previewing of concepts before the English lesson; total physical response for procedures</td><td><span class="cd">#55</span> read items and answer choices (per assessment limits); <span class="cd">#62</span> paper test; <span class="cd">#81</span> word-to-word glossary; embedded glossing on Math and Science</td></tr>
+      <tr><td><span class="lane lR">R</span> Response</td><td>Draw, label, point, sort, or match as evidence of comprehension; oral response in place of extended writing during acquisition; sentence frames for productive output; accept phonetic spelling in content classes</td><td><span class="cd">#70</span> scribe (per assessment limits); <span class="cd">#57</span> student reads aloud to self</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Levels 3–4 · Progressing</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">Lane</th><th style="width:42%">Classroom (daily instruction)</th><th>State testing candidates</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lane lT">T</span> Timing</td><td>Extended time on reading-heavy and timed writing tasks; advance notice of assessments</td><td><span class="cd">#20</span> Extra time</td></tr>
+      <tr><td><span class="lane lS">S</span> Setting</td><td>Small-group instruction for academic language work; structured collaborative protocols</td><td><span class="cd">#3</span> small group</td></tr>
+      <tr><td><span class="lane lP">P</span> Presentation</td><td>Explicit academic and Tier 2 vocabulary instruction; annotated and chunked complex text at grade level; graphic organizers taught to independence; teacher modeling with think-alouds</td><td><span class="cd">#81</span> word-to-word glossary; embedded glossing on Math and Science; <span class="cd">#62</span> paper test if habitual</td></tr>
+      <tr><td><span class="lane lR">R</span> Response</td><td>Fade sentence frames toward independent construction; structured revision cycles; oral rehearsal before writing</td><td>Usually none — most Level 3–4 students should be moving toward unaccommodated response</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Level 5 and monitored students</h3>
+  <p>Students at Level 5 and those in the four-year monitoring window generally need no testing accommodations. What they need is <em>attention</em>: quarterly grade checks, teacher input on academic language demands in new courses, and a documented re-entry pathway if performance drops. Monitoring is not a filing status. It is a service.</p>
+
+  <div class="call warn">
+    <h5>Do not build the menu into a checkbox form</h5>
+    <p>The fastest way to generate an OCR finding is a district LSP template where every Level 1 student receives an identical set of pre-checked accommodations. That is a group determination wearing an individual's name. Individualize, and let the plans differ visibly from one another.</p>
+  </div>
+</section>
+
+<!-- ============ PART 12 ============ -->
+<section id="p12">
+  <span class="eyebrow">Part Twelve</span>
+  <h2>Classroom versus state testing</h2>
+  <p class="lede">One sentence governs this entire relationship: every state testing accommodation must also be a classroom accommodation, but not every classroom accommodation may be used on a state test.</p>
+
+  <div class="grid g2">
+    <div class="card"><span class="n">The wide circle</span><h5>Classroom accommodations</h5>
+      <p>Broad. Includes everything you do to make grade-level content reachable — visuals, native-language preview, cooperative structures, extended time, glossaries, organizers, oral response options, chunked text.</p>
+      <p>Also the place where documented <em>modifications</em> may legitimately live, if the SET decides they are necessary and the family is told what that means.</p></div>
+    <div class="card"><span class="n">The narrow circle, fully inside it</span><h5>State testing accommodations</h5>
+      <p>Narrow. Only what appears in the current MTAM with an LSP label, specified by code and by assessment, and used consistently in class beforehand.</p>
+      <p>Nothing may appear here that has not been living in the classroom for months.</p></div>
+  </div>
+
+  <div class="call">
+    <h5>The practical consequence</h5>
+    <p>You cannot decide in March that a student will get read-aloud on the MAAP. You decide in August, you deliver it every week, you log it, and in March the state assessment simply looks like a Tuesday. Accommodation is a habit before it is a form.</p>
+  </div>
+
+  <h3>What to tell the family</h3>
+  <p>Parents deserve to know, in their own language and in plain terms, three things: which supports their child receives in the classroom, which of those will be present on state tests, and — where a modification is in place — that their child's grades may not reflect grade-level mastery. That last conversation is uncomfortable. Have it anyway, and document that you had it. Families who are surprised at graduation are families who file complaints, and they are right to.</p>
+</section>
+
+<!-- ============ PART 13 ============ -->
+<section id="p13">
+  <span class="eyebrow">Part Thirteen</span>
+  <h2>Dually identified students</h2>
+  <p class="lede">An EL with a disability requires <strong>two</strong> plans in Mississippi: an IEP and an LSP, or a 504 Plan and an LSP. Never one standing in for the other.</p>
+
+  <h3>The rule</h3>
+  <ul>
+    <li>Lack of English fluency <strong>is not a disability</strong>. Language need alone never justifies disability-based accommodations.</li>
+    <li>An IEP does not replace the LSP. The language obligation is independent of the disability obligation and survives it.</li>
+    <li>A student may not be exempted from the ELPT by an IEP team or a 504 team, and the EL designation may not be removed by either.</li>
+    <li>Accommodations must be reasoned separately: which barrier is this addressing — language, or disability? Then document it in the correct plan. Many will appear in both.</li>
+  </ul>
+
+  <h3>The sequencing question</h3>
+  <p>Before referring an EL for special education evaluation, the team must be able to answer: <em>have we ruled out language acquisition as the explanation?</em> That requires documented, appropriate EL services delivered with fidelity over sufficient time, progress data across all four domains, native-language assessment where feasible, and educational history including interrupted schooling. Under-identification and over-identification are both civil rights failures. The defense against either is the same: a paper trail showing you asked the right question in the right order.</p>
+
+  <div class="call ok">
+    <h5>Where the specialist earns the room</h5>
+    <p>You are frequently the only person at the eligibility table who can say, with data, "this profile is consistent with second-language acquisition at year two, not a specific learning disability" — or, just as importantly, "this is not a language issue, and we have waited long enough." Bring the ELPT domain trajectory, the work samples, and the schooling history. Say it plainly.</p>
+  </div>
+</section>
+
+<!-- ============ PART 14 ============ -->
+<section id="p14">
+  <span class="eyebrow">Part Fourteen</span>
+  <h2>Fidelity, monitoring, and non-implementation</h2>
+  <p class="lede">Writing the plan is one-fifth of the work. Proving it happened is the other four-fifths.</p>
+
+  <h3>The quarterly cycle</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:18%">Quarter</th><th>SET action</th><th>Evidence generated</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Q1 · August</strong></td><td>Develop or renew the LSP; distribute to all teachers; collect acknowledgment signatures; hold the family conference with interpretation</td><td>Signed LSP; distribution log; family conference note</td></tr>
+      <tr><td><strong>Q2 · October</strong></td><td>First fidelity check: two classroom observations per student focus group; collect implementation logs; review formative data</td><td>Walkthrough forms; implementation logs; grade check</td></tr>
+      <tr><td><strong>Q3 · January</strong></td><td>Mid-year adjustment; confirm state testing accommodations with the DTC; verify platform flags are set in the testing systems</td><td>Amended LSP if changed; DTC confirmation email</td></tr>
+      <tr><td><strong>Q4 · April</strong></td><td>Post-ELPT review; exit determinations; plan next-year supports and monitoring status</td><td>Exit documentation; monitoring roster</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>What fidelity looks like in a walkthrough</h3>
+  <p>You are not checking whether the teacher is nice. You are checking four observable things: the accommodation was <strong>available</strong>, the student <strong>used</strong> it, it was delivered <strong>as written</strong>, and the work product shows the student was held to the <strong>same standard</strong>. Anything less is a coaching conversation, not a gotcha — start there.</p>
+
+  <h3>When accommodations are not being delivered</h3>
+  <p>Escalate in this order, documenting at every step:</p>
+  <ol>
+    <li><strong>Coach.</strong> Assume unfamiliarity, not resistance. Model the accommodation in the teacher's own classroom with the teacher's own material. Most non-implementation ends here.</li>
+    <li><strong>Support in writing.</strong> Send a short, warm, dated email restating the specific accommodation and offering materials. You now have a record and the teacher has a resource.</li>
+    <li><strong>Document the pattern.</strong> Three dated instances across a grading period, with the specific accommodation and the observed practice. Facts only, no adjectives.</li>
+    <li><strong>Report to administration.</strong> Written notice to the principal referencing the LSP, the EEOA obligation, and the Castañeda prong-two exposure. Request a remedy and a date.</li>
+    <li><strong>District-level notice.</strong> If unremedied, written notice to the federal programs director or EL coordinator. Keep a personal, dated copy of everything.</li>
+  </ol>
+
+  <div class="call warn">
+    <h5>Your own exposure</h5>
+    <p>A specialist who knows accommodations are not being delivered and does not document the knowledge is in a worse position than one who never knew. Documentation is not disloyalty to colleagues. It is the only thing that converts a private frustration into a fixable institutional problem — and the only thing that protects you.</p>
+  </div>
+
+  <h3>Twelve findings monitors actually write</h3>
+  <ol>
+    <li>LSPs on file but no evidence of distribution to content teachers</li>
+    <li>Identical accommodation sets across all students at a proficiency level</li>
+    <li>State testing accommodations listed without codes or without naming the assessment</li>
+    <li>Accommodations on the plan that were never used in the classroom</li>
+    <li>Accessibility features written in the accommodations block; SET minutes absent</li>
+    <li>Modifications recorded as accommodations, with no family notification</li>
+    <li>Bilingual glossary accommodation with no approved dictionary on site</li>
+    <li>Read-aloud flagged for the ELPT Reading domain or the 3rd Grade Reading Summative</li>
+    <li>Missing SET signatures, particularly the parent or guardian</li>
+    <li>Parent communication in English only, with no documentation of interpretation</li>
+    <li>Dually identified students holding an IEP with no LSP</li>
+    <li>Monitored students with no quarterly review evidence for the full four years</li>
+  </ol>
+</section>
+
+<!-- ============ PART 15 ============ -->
+<section id="p15">
+  <span class="eyebrow">Part Fifteen · Forms bank</span>
+  <h2>Six forms that make the file defensible</h2>
+  <p class="lede">Reproduce freely within the district. Each form generates one specific piece of evidence a monitor will ask for.</p>
+
+  <div class="form">
+    <div class="fh"><strong>Form A · LSP Accommodation Determination Worksheet</strong><span>ACCESS Protocol</span></div>
+    <div class="frow">
+      <div><span class="flabel">Student</span><div class="fline"></div></div>
+      <div><span class="flabel">Grade / Block</span><div class="fline"></div></div>
+      <div><span class="flabel">SET date</span><div class="fline"></div></div>
+    </div>
+    <div class="frow">
+      <div><span class="flabel">ELPT — Listening</span><div class="fline"></div></div>
+      <div><span class="flabel">Speaking</span><div class="fline"></div></div>
+      <div><span class="flabel">Reading</span><div class="fline"></div></div>
+      <div><span class="flabel">Writing</span><div class="fline"></div></div>
+      <div><span class="flabel">Overall</span><div class="fline"></div></div>
+    </div>
+    <span class="flabel" style="margin-top:14px;display:block">Support under consideration &nbsp;·&nbsp; Lane (T/S/P/R) &nbsp;·&nbsp; MTAM code</span>
+    <div class="fline"></div>
+    <div class="tw"><table>
+      <thead><tr><th style="width:52%">Gate</th><th style="width:14%">Cleared</th><th>Evidence cited</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A</strong> — Aligned to a named language barrier</td><td>☐ Yes ☐ No</td><td></td></tr>
+        <tr><td><strong>C</strong> — Consistently used in instruction</td><td>☐ Yes ☐ No</td><td></td></tr>
+        <tr><td><strong>C</strong> — Construct-safe (Red Line Test passed)</td><td>☐ Yes ☐ No</td><td></td></tr>
+        <tr><td><strong>E</strong> — Evidenced in student data</td><td>☐ Yes ☐ No</td><td></td></tr>
+        <tr><td><strong>S</strong> — Specified by code, amount, method, assessment</td><td>☐ Yes ☐ No</td><td></td></tr>
+        <tr><td><strong>S</strong> — Signed by SET and shared with all teachers</td><td>☐ Yes ☐ No</td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:.86rem;margin-top:6px"><strong>Determination:</strong> ☐ Add to LSP as accommodation &nbsp;&nbsp; ☐ Record in SET minutes as accessibility feature &nbsp;&nbsp; ☐ Classroom only &nbsp;&nbsp; ☐ Modification — family notification required &nbsp;&nbsp; ☐ Decline</p>
+    <div class="frow" style="margin-top:12px">
+      <div><span class="flabel">SET chair signature</span><div class="fline"></div></div>
+      <div><span class="flabel">Date</span><div class="fline"></div></div>
+    </div>
+  </div>
+
+  <div class="form">
+    <div class="fh"><strong>Form B · State Testing Accommodation Specification Sheet</strong><span>One per student, per cycle</span></div>
+    <div class="tw"><table>
+      <thead><tr><th style="width:9%">Code</th><th style="width:7%">Lane</th><th style="width:26%">Accommodation as written</th><th style="width:22%">Specification (amount / method)</th><th>Assessments it applies to</th></tr></thead>
+      <tbody>
+        <tr><td style="height:34px"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td style="height:34px"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td style="height:34px"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td style="height:34px"></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:.84rem"><strong>Verification:</strong> ☐ Cross-checked against the current MTAM &nbsp; ☐ Confirmed with District Test Coordinator &nbsp; ☐ Flagged in the online testing platform &nbsp; ☐ Paper materials ordered &nbsp; ☐ Approved bilingual dictionary on site</p>
+    <div class="frow"><div><span class="flabel">EL Specialist</span><div class="fline"></div></div><div><span class="flabel">DTC / STC confirmation</span><div class="fline"></div></div><div><span class="flabel">Date</span><div class="fline"></div></div></div>
+  </div>
+
+  <div class="form">
+    <div class="fh"><strong>Form C · Modification Disclosure &amp; Exit Plan</strong><span>Required whenever a modification is used</span></div>
+    <div class="frow"><div><span class="flabel">Student</span><div class="fline"></div></div><div><span class="flabel">Course / Teacher</span><div class="fline"></div></div></div>
+    <span class="flabel">Modification in use and educational rationale</span><div class="fline"></div><div class="fline"></div>
+    <span class="flabel">Standards affected</span><div class="fline"></div>
+    <p style="font-size:.86rem"><strong>Family notification:</strong> ☐ Family informed that this support <strong>will not</strong> be available on state assessments &nbsp; ☐ Family informed that grades may not reflect grade-level mastery &nbsp; ☐ Notification delivered in the family's language</p>
+    <span class="flabel">Exit plan — what must be true for this modification to be removed, and by when</span>
+    <div class="fline"></div><div class="fline"></div>
+    <div class="frow"><div><span class="flabel">Parent / guardian signature</span><div class="fline"></div></div><div><span class="flabel">Interpreter</span><div class="fline"></div></div><div><span class="flabel">Date</span><div class="fline"></div></div></div>
+  </div>
+
+  <div class="form">
+    <div class="fh"><strong>Form D · Teacher Receipt &amp; Acknowledgment Log</strong><span>The single most requested document in an audit</span></div>
+    <div class="tw"><table>
+      <thead><tr><th style="width:24%">Teacher</th><th style="width:20%">Course / Period</th><th style="width:14%">Date received</th><th style="width:22%">Signature</th><th>Follow-up training provided</th></tr></thead>
+      <tbody>
+        <tr><td style="height:32px"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td style="height:32px"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td style="height:32px"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td style="height:32px"></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td style="height:32px"></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:.84rem;color:var(--slate)">By signing, the teacher confirms receipt of the student's Language Service Plan and understanding of the accommodations required in his or her classroom.</p>
+  </div>
+
+  <div class="form">
+    <div class="fh"><strong>Form E · Implementation Log</strong><span>Kept by the content teacher</span></div>
+    <div class="tw"><table>
+      <thead><tr><th style="width:12%">Date</th><th style="width:26%">Accommodation delivered</th><th style="width:26%">Task or assessment</th><th style="width:18%">Student used it?</th><th>Observed effect</th></tr></thead>
+      <tbody>
+        <tr><td style="height:32px"></td><td></td><td></td><td>☐ Yes ☐ No ☐ Declined</td><td></td></tr>
+        <tr><td style="height:32px"></td><td></td><td></td><td>☐ Yes ☐ No ☐ Declined</td><td></td></tr>
+        <tr><td style="height:32px"></td><td></td><td></td><td>☐ Yes ☐ No ☐ Declined</td><td></td></tr>
+        <tr><td style="height:32px"></td><td></td><td></td><td>☐ Yes ☐ No ☐ Declined</td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:.84rem;color:var(--slate)">A student who repeatedly declines an accommodation is telling the SET something. Bring the log to the quarterly review.</p>
+  </div>
+
+  <div class="form">
+    <div class="fh"><strong>Form F · Fidelity Walkthrough</strong><span>Five minutes, non-evaluative</span></div>
+    <div class="frow"><div><span class="flabel">Teacher</span><div class="fline"></div></div><div><span class="flabel">Course</span><div class="fline"></div></div><div><span class="flabel">Date / Time</span><div class="fline"></div></div></div>
+    <div class="tw"><table>
+      <thead><tr><th style="width:56%">Look-for</th><th style="width:20%">Observed</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>The accommodation was physically available to the student</td><td>☐ Yes ☐ No ☐ N/A</td><td></td></tr>
+        <tr><td>The student used it during the observed task</td><td>☐ Yes ☐ No ☐ N/A</td><td></td></tr>
+        <tr><td>It was delivered as written on the LSP</td><td>☐ Yes ☐ No ☐ N/A</td><td></td></tr>
+        <tr><td>The student was held to the same standard as peers</td><td>☐ Yes ☐ No ☐ N/A</td><td></td></tr>
+        <tr><td>No undocumented modification was observed</td><td>☐ Yes ☐ No ☐ N/A</td><td></td></tr>
+      </tbody>
+    </table></div>
+    <div class="frow"><div><span class="flabel">Coaching offered</span><div class="fline"></div></div><div><span class="flabel">Follow-up date</span><div class="fline"></div></div></div>
+  </div>
+</section>
+
+<!-- ============ PART 16 ============ -->
+<section id="p16">
+  <span class="eyebrow">Part Sixteen</span>
+  <h2>Glossary &amp; sources</h2>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:26%">Term</th><th>Working definition</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Accessibility feature</strong></td><td>A support that meets a specific student need without changing learning expectations. SET-determined; documented in SET minutes.</td></tr>
+      <tr><td><strong>Accommodation</strong></td><td>A change in procedure or material that ensures equitable access and produces valid results. Documented on an IEP, 504 Plan, or LSP. Never reduces learning expectations.</td></tr>
+      <tr><td><strong>Construct</strong></td><td>The hypothesized ability an assessment is designed to measure. If a support alters the construct, it is not an accommodation.</td></tr>
+      <tr><td><strong>ELPT</strong></td><td>English Language Proficiency Test — Mississippi's annual K–12 proficiency assessment across Listening, Speaking, Reading, and Writing.</td></tr>
+      <tr><td><strong>Embedded / non-embedded</strong></td><td>Embedded supports live inside the online testing platform. Non-embedded supports are supplied locally by the school.</td></tr>
+      <tr><td><strong>LSP</strong></td><td>Language Service Plan — required for every identified EL in Mississippi, updated annually until exit.</td></tr>
+      <tr><td><strong>MAAP</strong></td><td>Mississippi Academic Assessment Program.</td></tr>
+      <tr><td><strong>Modification</strong></td><td>A change that lowers or reduces state-required learning expectations. Prohibited on state assessments; permitted in instruction only with documentation and family notification.</td></tr>
+      <tr><td><strong>MTAM</strong></td><td>Mississippi Testing Accommodations Manual — the operative list of universal features, accessibility features, and accommodations.</td></tr>
+      <tr><td><strong>SET</strong></td><td>Student Evaluation Team — the body that develops, reviews, and adjusts the LSP.</td></tr>
+      <tr><td><strong>Test irregularity</strong></td><td>Any deviation from prescribed administration procedures. Invalidates scores and triggers state investigation.</td></tr>
+      <tr><td><strong>Universal feature</strong></td><td>A support available to every student, requiring no documentation.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Primary sources</h3>
+  <ul>
+    <li><strong>Mississippi Testing Accommodations Manual</strong>, MDE Office of Student Assessment (revised February 19, 2026) — the controlling document for codes, tiers, and prohibitions</li>
+    <li><strong>Mississippi English Learner Guidelines</strong>, MDE — LSP requirements, SET composition, identification and exit procedures</li>
+    <li><strong>Mississippi English Language Proficiency Standards</strong> — the ten ELP standards and their relationship to the MS College- and Career-Readiness Standards</li>
+    <li><strong>34 C.F.R. §200.6</strong> — individual determination of accommodations; disability preclusion for ELP assessment domains</li>
+    <li><strong>ESEA §1111(b)(2)</strong>; Title III; Title VI, Civil Rights Act of 1964; EEOA §1703(f)</li>
+    <li><em>Lau v. Nichols</em> (1974); <em>Castañeda v. Pickard</em> (1981); <em>Plyler v. Doe</em> (1982)</li>
+    <li><strong>Dear Colleague Letter on English Learner Students</strong>, U.S. Dept. of Education OCR &amp; DOJ</li>
+  </ul>
+
+  <div class="call warn">
+    <h5>Verify before every cycle</h5>
+    <p>Accommodation codes, allowability notes, and platform features are revised. Everything in Parts 7–9 is aligned to the manual revised February 19, 2026. Before each testing window, pull the current MTAM from the MDE Office of Student Assessment and reconcile it against your specification sheets. When this manual and the MTAM disagree, <strong>the MTAM governs</strong>.</p>
+  </div>
+</section>
+
+</div>
+
+
+
+
+</div>
+
+<!-- ============ MODULE ============ -->
+<div class="panel" id="p-module" role="tabpanel" aria-labelledby="t-module" hidden>
+
+
+
+
+<div class="wrap">
+
+<!-- ===== FACILITATOR OVERVIEW ===== -->
+<section>
+  <span class="eyebrow">Facilitator overview</span>
+  <h2>What this session has to accomplish</h2>
+  <p class="lede">Your faculty does not need to memorize the MTAM. They need to leave able to do four things they cannot currently do.</p>
+
+  <h4>Outcomes</h4>
+  <ol>
+    <li>Sort any support into the correct tier — universal feature, accessibility feature, or accommodation — and name who authorizes it.</li>
+    <li>Apply the Red Line Test to distinguish an accommodation from a modification in under ten seconds.</li>
+    <li>Name the four supports Mississippi permits an EL on the basis of language alone, and the two prohibitions that invalidate a state test.</li>
+    <li>Locate the accommodations on a real LSP and describe what those look like in their own classroom on Monday.</li>
+  </ol>
+
+  <h4>What to prepare</h4>
+  <ul>
+    <li><strong>Printed:</strong> participant packet (the activity pages of this module), one Red Line manual per table, one blank LSP template per participant</li>
+    <li><strong>Physical:</strong> a length of red painter's tape down the center of a table or wall — you will be sorting cards across an actual red line</li>
+    <li><strong>Cut in advance:</strong> the twelve sorter statements from Activity 2, one set per table</li>
+    <li><strong>On hand:</strong> the current MTAM (open on the projector), an approved word-to-word bilingual dictionary, and one deidentified LSP from your building</li>
+  </ul>
+
+  <div class="call warn">
+    <h5>The tone to set in the first thirty seconds</h5>
+    <p>Nobody in the room broke a rule on purpose. Say that out loud, early, and mean it. The moment a content teacher believes this session is about catching them, you lose the next eighty-nine minutes. This is a session about a line most people were never shown.</p>
+  </div>
+</section>
+
+<!-- ===== RUN OF SHOW ===== -->
+<section>
+  <span class="eyebrow">Run of show</span>
+  <h2>Ninety minutes</h2>
+  <p class="lede">Timings assume table groups of four. The 60-minute compression is noted at the end.</p>
+
+  <div class="ros">
+    <div class="seg">
+      <div class="clock">0:00 – 0:08 · Hook</div>
+      <h5>Three teachers, three kindnesses</h5>
+      <p>Open cold with the three vignettes below. No slides, no agenda. Ask each table to decide which of the three teachers did something a state monitor would flag.</p>
+      <p class="mat">Materials: none. Reveal the answer at 0:06, not before.</p>
+    </div>
+    <div class="seg">
+      <div class="clock">0:08 – 0:20 · Frame</div>
+      <h5>The Three Doors</h5>
+      <p>Direct instruction. Universal features, accessibility features, accommodations — and the authorization question: <em>who decides, and where does the evidence live?</em> Land the point that the bilingual glossary is a Door Two support, not Door Three.</p>
+      <p class="mat">Materials: Manual, Part 4. Activity 1 sort follows immediately.</p>
+    </div>
+    <div class="seg">
+      <div class="clock">0:20 – 0:32 · Activity 1</div>
+      <h5>Door sort</h5>
+      <p>Tables place fifteen supports behind the correct door and identify the documentation location for each. Debrief only the three that groups get wrong most often.</p>
+      <p class="mat">Materials: Activity 1 page, one per participant.</p>
+    </div>
+    <div class="seg">
+      <div class="clock">0:32 – 0:44 · The core idea</div>
+      <h5>The Red Line</h5>
+      <p>Direct instruction with the physical tape line. Construct versus generosity. The Red Line Test — three questions. Close with the test irregularity consequence, stated plainly and without drama.</p>
+      <p class="mat">Materials: red tape on the table; Manual, Part 6.</p>
+    </div>
+    <div class="seg">
+      <div class="clock">0:44 – 0:58 · Activity 2</div>
+      <h5>The sorter — twelve cards across the line</h5>
+      <p>The heart of the session. Tables physically place twelve cards above or below the tape and must justify each with one of the three Red Line questions. Expect argument at cards 4, 7, and 11 — that argument is the learning.</p>
+      <p class="mat">Materials: pre-cut card sets; the tape line.</p>
+    </div>
+    <div class="seg">
+      <div class="clock">0:58 – 1:12 · Activity 3</div>
+      <h5>Case files</h5>
+      <p>Each table takes one of five student case files, writes two defensible accommodations using the ACCESS Protocol, and identifies one support they were tempted to write but cannot.</p>
+      <p class="mat">Materials: case file pages; Manual, Parts 7–10.</p>
+    </div>
+    <div class="seg">
+      <div class="clock">1:12 – 1:22 · Application</div>
+      <h5>Monday morning walk-through</h5>
+      <p>Participants open a real deidentified LSP, find the accommodations block, and write one sentence describing what each accommodation looks like in <em>their</em> classroom, in their content, next week.</p>
+      <p class="mat">Materials: deidentified LSP; exit ticket.</p>
+    </div>
+    <div class="seg">
+      <div class="clock">1:22 – 1:30 · Close</div>
+      <h5>Check for understanding &amp; commitments</h5>
+      <p>Ten-item check (five minutes), then each participant names one accommodation they will deliver differently starting Monday. Collect exit tickets — these become your coaching list.</p>
+      <p class="mat">Materials: check for understanding; exit ticket.</p>
+    </div>
+  </div>
+
+  <div class="call">
+    <h5>The 60-minute compression</h5>
+    <p>Cut Activity 1 to a five-minute whole-group sort on the projector, drop the Monday walk-through, and reduce the case files to two tables working the same file. Do <strong>not</strong> cut Activity 2. If you only have thirty minutes, teach the Red Line and run the sorter — everything else is elaboration.</p>
+  </div>
+</section>
+
+<!-- ===== HOOK ===== -->
+<section>
+  <span class="eyebrow">0:00 – 0:08</span>
+  <h2>Hook · Three teachers, three kindnesses</h2>
+  <p class="lede">Read these aloud. Give tables ninety seconds. Ask: which of these three did something that would invalidate a state test score?</p>
+
+  <div class="grid g2">
+    <div class="card"><span class="n">Teacher One</span><h5>The biology teacher</h5>
+      <p>Maritza is a newcomer from Honduras, four months in the country. The unit test is forty items. Ms. Blake gives her the twenty items she thinks Maritza has the best chance at, and grades out of twenty.</p></div>
+    <div class="card"><span class="n">Teacher Two</span><h5>The algebra teacher</h5>
+      <p>Same student. Mr. Ruiz gives Maritza the full test, a word-to-word Spanish–English dictionary, and until the end of the school day to finish it.</p></div>
+    <div class="card"><span class="n">Teacher Three</span><h5>The history teacher</h5>
+      <p>Same student. Mrs. Coy reads each question aloud to Maritza and, when Maritza looks confused, rephrases it in simpler English.</p></div>
+  </div>
+
+  <div class="call ok">
+    <h5>The reveal — at 0:06, not before</h5>
+    <p><strong>Teacher One</strong> modified. She reduced what the student was required to know, and the grade no longer means what a grade means.</p>
+    <p><strong>Teacher Two</strong> accommodated, correctly, in both lanes — timing and response — and did not touch the construct.</p>
+    <p><strong>Teacher Three</strong> did both. Reading questions aloud is a legitimate accommodation. <em>Rephrasing is paraphrasing</em>, and paraphrasing is never permitted on any assessment. On a MAAP administration, that is a test irregularity.</p>
+    <p style="margin-top:10px"><strong>The line to say next:</strong> "All three of them were being kind. Two of them cost the student something. That's what the next eighty minutes is about."</p>
+  </div>
+</section>
+
+<!-- ===== ACTIVITY 1 ===== -->
+<section>
+  <span class="eyebrow">Activity One · 12 minutes</span>
+  <h2>Door sort</h2>
+  <p class="lede">Place each support behind the correct door. Then name where the documentation lives.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:44%">Support</th><th style="width:30%">Door 1 / 2 / 3</th><th>Documented where?</th></tr></thead>
+    <tbody>
+      <tr><td>Highlighter tool during an online test</td><td></td><td></td></tr>
+      <tr><td>Word-to-word bilingual dictionary</td><td></td><td></td></tr>
+      <tr><td>Extra time on the MAAP English II</td><td></td><td></td></tr>
+      <tr><td>Noise-reducing headphones</td><td></td><td></td></tr>
+      <tr><td>Testing in a small group of six</td><td></td><td></td></tr>
+      <tr><td>Human reader for math items</td><td></td><td></td></tr>
+      <tr><td>Blank graphic organizer on a state test</td><td></td><td></td></tr>
+      <tr><td>Scheduled ten-minute rest break</td><td></td><td></td></tr>
+      <tr><td>Scratch paper</td><td></td><td></td></tr>
+      <tr><td>Scribe for a constructed response</td><td></td><td></td></tr>
+      <tr><td>Testing across two consecutive days</td><td></td><td></td></tr>
+      <tr><td>Student whisper-reads the test to himself</td><td></td><td></td></tr>
+      <tr><td>Paper test instead of the online platform</td><td></td><td></td></tr>
+      <tr><td>Answer choice eliminator</td><td></td><td></td></tr>
+      <tr><td>Stay-on-task reminder from the proctor</td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="call ok">
+    <h5>Facilitator key</h5>
+    <p><strong>Door 1 — universal, no documentation:</strong> highlighter; noise-reducing headphones; scratch paper; answer choice eliminator.</p>
+    <p><strong>Door 2 — accessibility feature, SET minutes in the cum folder:</strong> word-to-word bilingual dictionary <span class="cd">#81</span>; small group <span class="cd">#3</span>; rest breaks <span class="cd">#21</span>; student reads aloud to self <span class="cd">#57</span>; stay-on-task reminder <span class="cd">#49</span>.</p>
+    <p><strong>Door 3 — accommodation, written on the plan:</strong> extra time <span class="cd">#20</span>; human reader <span class="cd">#55</span>; scribe <span class="cd">#70</span>; consecutive days <span class="cd">#25</span>; paper test <span class="cd">#62</span> — all LSP-eligible. <strong>Blank graphic organizer <span class="cd">#48</span> is Door 3 but IEP/504 only</strong> — an EL cannot receive it on language alone.</p>
+    <p style="margin-top:10px"><strong>Debrief only these three:</strong> the bilingual dictionary (nearly everyone puts it in Door 3), the graphic organizer (nearly everyone assumes ELs qualify), and the stay-on-task reminder (people assume it needs no documentation).</p>
+  </div>
+</section>
+
+<!-- ===== ACTIVITY 2 ===== -->
+<section>
+  <span class="eyebrow">Activity Two · 14 minutes · The centerpiece</span>
+  <h2>The sorter</h2>
+  <p class="lede">Twelve cards. One red line. For each card, place it above or below and justify with one of the three Red Line questions.</p>
+
+  <div class="call say">
+    <h5>The three questions, read aloud before you start</h5>
+    <p>1 · Does it change <strong>what</strong> the student must know?<br>
+    2 · Does it change <strong>how much</strong> the student must produce or master?<br>
+    3 · Does it remove a <strong>language barrier</strong> while leaving the content demand fully intact?</p>
+  </div>
+
+  <div class="sorter">
+    <div class="si"><span class="num">01</span><span class="txt">A student gets fifty percent additional time on a chemistry unit test.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">02</span><span class="txt">A teacher provides a word bank for a short-answer response about the causes of the Civil War.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">03</span><span class="txt">A student uses a word-to-word Spanish–English dictionary during a geometry test.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">04</span><span class="txt">A teacher assigns the newcomer a fourth-grade article on photosynthesis while the class reads the ninth-grade text.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">05</span><span class="txt">A student dictates a constructed response to a trained scribe, who writes it verbatim.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">06</span><span class="txt">A teacher removes two of the four answer choices on every multiple-choice item.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">07</span><span class="txt">A teacher reads the reading passage aloud to a student during the English II assessment.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">08</span><span class="txt">A teacher pre-teaches the twelve academic vocabulary terms in a unit, with images, three days before the unit test.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">09</span><span class="txt">A student takes the MAAP Biology over two consecutive days.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">10</span><span class="txt">A teacher grades a newcomer's lab report on content accuracy only, ignoring grammar and spelling errors that do not obscure meaning.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">11</span><span class="txt">A student uses sentence frames to rehearse an argument orally, then writes the paragraph independently without the frames.</span><span class="box">☐ Above ☐ Below</span></div>
+    <div class="si"><span class="num">12</span><span class="txt">A teacher gives a student a Spanish translation of a passage on the ELPT Reading domain.</span><span class="box">☐ Above ☐ Below</span></div>
+  </div>
+
+  <div class="call ok">
+    <h5>Facilitator key — with the reasoning to say out loud</h5>
+    <div class="tw"><table>
+      <thead><tr><th style="width:7%">#</th><th style="width:16%">Verdict</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td class="yes">Above</td><td>Timing lane. The content demand is untouched. The cleanest accommodation there is.</td></tr>
+        <tr><td>02</td><td class="no">Below</td><td>A word bank supplies the answer. The construct — recall and expression of causes — is gone.</td></tr>
+        <tr><td>03</td><td class="yes">Above</td><td>Word-to-word only. The student still supplies every bit of the mathematical reasoning.</td></tr>
+        <tr><td>04</td><td class="no">Below</td><td><em>Expect argument here.</em> A lower-Lexile text on the same standard reduces the grade-level expectation. The accommodation would be scaffolding the grade-level text — chunking, annotating, front-loading vocabulary — not replacing it.</td></tr>
+        <tr><td>05</td><td class="yes">Above</td><td>Response lane. The ideas, organization, and reasoning are entirely the student's.</td></tr>
+        <tr><td>06</td><td class="no">Below</td><td>Odds go from one in four to one in two. The measurement is altered.</td></tr>
+        <tr><td>07</td><td class="no">Below</td><td><em>Expect argument here.</em> Reading the passage on a reading assessment measures listening comprehension. Questions and answer choices may be read on ELA; the passage may not.</td></tr>
+        <tr><td>08</td><td class="yes">Above</td><td>This is instruction, not an accommodation at all — and it is exactly what should be happening every week.</td></tr>
+        <tr><td>09</td><td class="yes">Above</td><td>Timing lane, <span class="cd">#25</span>, LSP-eligible. Not permitted on the ELPT Speaking domain.</td></tr>
+        <tr><td>10</td><td class="yes">Above</td><td><em>Conditional.</em> Above the line in a biology class, where the construct is biology. Below the line in English II, where written conventions <em>are</em> part of what is being measured. The lesson: the same practice changes sides depending on the construct.</td></tr>
+        <tr><td>11</td><td class="yes">Above</td><td><em>Expect argument here.</em> Frames used for rehearsal, then removed before independent production, support access without supplying the product. Frames left in place during the graded writing would fall below.</td></tr>
+        <tr><td>12</td><td class="no">Below</td><td>Not merely below the line — prohibited outright. Primary language is never permitted on the ELPT.</td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:12px"><strong>The closing point for this activity:</strong> cards 4, 7, 10, and 11 are the ones that generate argument, and they are the ones your building gets wrong. Notice that in every case the question that settles it is the same — <em>what is this assessment actually measuring?</em></p>
+  </div>
+</section>
+
+<!-- ===== ACTIVITY 3 ===== -->
+<section>
+  <span class="eyebrow">Activity Three · 14 minutes</span>
+  <h2>Case files</h2>
+  <p class="lede">One file per table. Using the ACCESS Protocol, write two defensible accommodations — with lane, code, and specification — and name one support you were tempted to write but cannot.</p>
+
+  <div class="case">
+    <span class="tag">Case File 01</span>
+    <h5>Maritza R. · Grade 9</h5>
+    <div class="prof">ELPT Overall 1 · L 2 · S 1 · R 1 · W 1 &nbsp;|&nbsp; Honduras, 5 months in U.S. &nbsp;|&nbsp; 2 years interrupted schooling &nbsp;|&nbsp; Literate in Spanish at approx. grade 5</div>
+    <p>Maritza participates eagerly in the EL block and freezes in her content classes. Her biology teacher reports she "just sits." Her algebra grade is a 71 — the highest of her four content courses. She has never taken a state assessment in the United States.</p>
+    <div class="q"><strong>Consider:</strong> Which domain scores are driving the classroom picture? Why might algebra be her strongest course, and what does that tell the SET about the barrier? What does her Spanish literacy make possible that a non-literate newcomer's profile would not?</div>
+  </div>
+
+  <div class="case">
+    <span class="tag">Case File 02</span>
+    <h5>Dawit T. · Grade 11</h5>
+    <div class="prof">ELPT Overall 3 · L 4 · S 4 · R 2 · W 2 &nbsp;|&nbsp; Eritrea, 3 years in U.S. &nbsp;|&nbsp; Tigrinya &nbsp;|&nbsp; Strong oral English; conversationally indistinguishable from peers</div>
+    <p>Every teacher describes Dawit as fluent. He fails written assessments across the board. His U.S. History teacher believes he "doesn't try" and has referred him for a special education evaluation. He passed MAAP Algebra I on the second attempt.</p>
+    <div class="q"><strong>Consider:</strong> What is the gap between his oral and literacy domains telling you? What is the risk in the special education referral, and what must the team document before proceeding? Which lane addresses his actual barrier?</div>
+  </div>
+
+  <div class="case">
+    <span class="tag">Case File 03</span>
+    <h5>Ana Sofía M. · Grade 10</h5>
+    <div class="prof">ELPT Overall 4 · L 5 · S 5 · R 4 · W 3 &nbsp;|&nbsp; Mexico, 7 years in U.S. &nbsp;|&nbsp; Currently receives extended time and small group on all assessments</div>
+    <p>Ana Sofía has a 3.4 GPA and is enrolled in Algebra II and Honors English. She has told her counselor she is "embarrassed" to leave class for testing and has begun declining the small-group setting. Her mother wants to know when the EL label comes off.</p>
+    <div class="q"><strong>Consider:</strong> What does the implementation log tell you when a student repeatedly declines a support? Which accommodations should the SET <em>remove</em>, and how do you frame removal as growth? What does Mississippi require before exit, and what happens for four years afterward?</div>
+  </div>
+
+  <div class="case">
+    <span class="tag">Case File 04</span>
+    <h5>Kevin N. · Grade 9 · Dually identified</h5>
+    <div class="prof">ELPT Overall 2 · L 2 · S 2 · R 2 · W 1 &nbsp;|&nbsp; Vietnam, 4 years in U.S. &nbsp;|&nbsp; IEP — specific learning disability in reading &nbsp;|&nbsp; IEP includes read-aloud and supplemental aids</div>
+    <p>Kevin holds an IEP. The special education case manager assumed the IEP covered everything and no LSP was written. His IEP lists read-aloud for all assessments, including the ELPT Reading domain and the 3rd Grade Reading Summative equivalent.</p>
+    <div class="q"><strong>Consider:</strong> What is missing from Kevin's file, and what is the compliance exposure? Which accommodation on his IEP is not allowable on the assessments named — and who has to fix it before the window opens? Which of his supports come from the disability and which from the language?</div>
+  </div>
+
+  <div class="case">
+    <span class="tag">Case File 05</span>
+    <h5>Yeni C. · Grade 12</h5>
+    <div class="prof">ELPT Overall 2 · L 3 · S 3 · R 2 · W 2 &nbsp;|&nbsp; Guatemala, 2 years in U.S. &nbsp;|&nbsp; Mam first language, Spanish second &nbsp;|&nbsp; Works 30 hrs/week; needs English II to graduate</div>
+    <p>Yeni must pass MAAP English II. Her LSP lists a word-to-word Spanish–English dictionary. She is a heritage Mam speaker whose Spanish literacy is limited, and no Mam dictionary exists on the district's approved list. Her English teacher has been reading her the passages during practice tests "so she can keep up."</p>
+    <div class="q"><strong>Consider:</strong> Is the Spanish dictionary actually serving this student? What has the English teacher been doing during practice, and what will happen if that continues on test day? What can this SET legitimately put in place with eleven weeks left?</div>
+  </div>
+
+  <div class="card">
+    <span class="n">Table response sheet</span>
+    <h5>Write it as it would appear on the plan</h5>
+    <div class="frow"><div><span class="flabel">Case file</span><div class="fline"></div></div><div><span class="flabel">Table</span><div class="fline"></div></div></div>
+    <span class="flabel">Accommodation 1 — lane · code · specification · assessments</span><div class="fline"></div>
+    <span class="flabel">Which ACCESS gate was hardest to clear, and what evidence did you cite?</span><div class="fline"></div>
+    <span class="flabel">Accommodation 2 — lane · code · specification · assessments</span><div class="fline"></div>
+    <span class="flabel">One support we wanted to write but cannot — and why</span><div class="fline"></div>
+    <span class="flabel">One thing this student needs that is <em>instruction</em>, not an accommodation</span><div class="fline"></div>
+  </div>
+
+  <div class="call ok">
+    <h5>Facilitator notes — the point of each file</h5>
+    <ul>
+      <li><strong>01 Maritza:</strong> Spanish literacy makes the word-to-word glossary genuinely useful. Algebra is strongest because its language load is lowest — that is diagnostic, not accidental. Extra time and glossary are defensible; "shorter assignments" is not.</li>
+      <li><strong>02 Dawit:</strong> The classic oral-fluency trap. Social language masks an academic literacy gap. The referral is premature until the team documents appropriate EL services delivered with fidelity over sufficient time. His barrier is receptive and productive literacy, not effort.</li>
+      <li><strong>03 Ana Sofía:</strong> Fading is a skill. A declining student and a Level 4 profile mean the SET should be removing supports and saying so in front of her. Exit is followed by four years of monitoring — which is a service, not a filing status.</li>
+      <li><strong>04 Kevin:</strong> He needs <em>both</em> an IEP and an LSP. Read-aloud is not allowable on the ELPT Reading domain, and that has to be corrected in the platform before the window. The IEP team and the EL specialist both own this.</li>
+      <li><strong>05 Yeni:</strong> A Spanish dictionary for a Mam-dominant student is a support on paper that does nothing in practice. The teacher's practice-test read-aloud of passages would be an irregularity on the real administration. Eleven weeks calls for honest triage and a conversation with the DTC — not a bigger accommodation list.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== CHECK ===== -->
+<section>
+  <span class="eyebrow">1:22 – 1:27</span>
+  <h2>Check for understanding</h2>
+  <p class="lede">Ten items, five minutes. Score it yourself; hand it in only if you want coaching.</p>
+
+  <ol>
+    <li>Name the three doors and who authorizes each.</li>
+    <li>A word-to-word bilingual dictionary is a universal feature, an accessibility feature, or an accommodation? Where is it documented?</li>
+    <li>Give the three questions of the Red Line Test.</li>
+    <li>Name four accommodations a Mississippi EL may receive <strong>on the basis of language alone</strong>.</li>
+    <li>Name one accommodation an EL may <em>not</em> receive without an IEP or 504 Plan, and say why.</li>
+    <li>On MAAP English II, what part of the assessment may <strong>not</strong> be read aloud to the student?</li>
+    <li>What two supports are never permitted on the ELPT, regardless of proficiency level?</li>
+    <li>What happens if a modification is provided during a state accountability assessment?</li>
+    <li>A student with an IEP is also an EL. How many plans does Mississippi require, and which ones?</li>
+    <li>Your colleague says: "I gave her the study guide as the test — she'd never have passed otherwise." What has happened, and what are your next two steps?</li>
+  </ol>
+
+  <div class="call ok">
+    <h5>Answer key</h5>
+    <p><strong>1.</strong> Universal features (no one — open to all); accessibility features (SET, documented in SET minutes); accommodations (IEP, 504, or LSP team, documented on the plan).
+    <strong>2.</strong> Accessibility feature <span class="cd">#81</span>; SET minutes filed in the cumulative folder.
+    <strong>3.</strong> Does it change what the student must know? Does it change how much they must produce or master? Does it remove a language barrier while leaving the content demand intact?
+    <strong>4.</strong> Extra time <span class="cd">#20</span>; consecutive days <span class="cd">#25</span>; read items and answer choices <span class="cd">#55</span>; paper test <span class="cd">#62</span>; scribe <span class="cd">#70</span> — any four.
+    <strong>5.</strong> Supplemental aids <span class="cd">#48</span>, large print <span class="cd">#40</span>, Braille <span class="cd">#41</span>, or speech-to-text <span class="cd">#77</span> — each addresses a disability-related barrier, not a language barrier.
+    <strong>6.</strong> The reading passages. Questions and answer choices may be read; passages may not.
+    <strong>7.</strong> The student's primary language in any form, and paraphrasing.
+    <strong>8.</strong> It is a test irregularity — the score is invalidated and the state investigates the school's or district's testing practices.
+    <strong>9.</strong> Two: an IEP <em>and</em> an LSP (or a 504 Plan and an LSP).
+    <strong>10.</strong> An undocumented modification, and a grade that no longer reflects mastery. Steps: coach the colleague privately with a concrete alternative, and bring the case to the SET so the support is either written correctly or replaced.</p>
+  </div>
+</section>
+
+<!-- ===== EXIT ===== -->
+<section>
+  <span class="eyebrow">1:27 – 1:30</span>
+  <h2>Exit ticket</h2>
+  <p class="lede">Collect these. They are your coaching list for the next six weeks.</p>
+
+  <div class="card">
+    <div class="frow"><div><span class="flabel">Name</span><div class="fline"></div></div><div><span class="flabel">Course / Grade</span><div class="fline"></div></div><div><span class="flabel">Date</span><div class="fline"></div></div></div>
+    <span class="flabel">One accommodation I will deliver differently starting Monday</span><div class="fline"></div>
+    <span class="flabel">One thing I have been doing that I now believe falls below the Red Line</span><div class="fline"></div>
+    <span class="flabel">One question I still have</span><div class="fline"></div>
+    <span class="flabel">Support I need from the EL specialist &nbsp; ☐ Materials &nbsp; ☐ Modeling in my room &nbsp; ☐ Co-planning &nbsp; ☐ A copy of a student's LSP</span>
+    <div class="fline"></div>
+  </div>
+
+  <div class="call">
+    <h5>The follow-up cycle — this is where the session actually lands</h5>
+    <ul>
+      <li><strong>Week 1:</strong> Email every participant one sentence — the accommodation they committed to — and offer materials.</li>
+      <li><strong>Weeks 2–3:</strong> Model in the classroom of every teacher who checked "modeling." Their room, their content, their students.</li>
+      <li><strong>Week 4:</strong> Fidelity walkthroughs (Manual, Form F). Non-evaluative, five minutes, coaching offered on the spot.</li>
+      <li><strong>Week 6:</strong> Fifteen-minute booster at a faculty meeting. Bring one anonymized win from a walkthrough. Name the teacher privately, celebrate the practice publicly.</li>
+      <li><strong>Quarterly:</strong> Re-run the sorter with the four cards that generated argument. Retention on this content decays fast.</li>
+    </ul>
+  </div>
+
+  <div class="cert">
+    <div class="k">Midnight Executive · EL Publishing</div>
+    <h3>Certificate of Completion</h3>
+    <p style="font-family:'Fraunces',serif;font-size:1.02rem;color:var(--slate);margin:0">The Red Line · Mississippi LSP Accommodations &amp; Modifications</p>
+    <div class="nm"></div>
+    <p style="font-size:.72rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin:0">Participant</p>
+    <div class="frow" style="max-width:560px;margin:30px auto 0;text-align:left">
+      <div><div class="fline"></div><span class="flabel">Facilitator</span></div>
+      <div><div class="fline"></div><span class="flabel">Date</span></div>
+      <div><div class="fline"></div><span class="flabel">Contact hours: 1.5</span></div>
+    </div>
+    <p style="margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)">Many Voices · One Storm</p>
+  </div>
+</section>
+
+<!-- ===== FACILITATOR APPENDIX ===== -->
+<section>
+  <span class="eyebrow">Appendix</span>
+  <h2>Questions you will be asked</h2>
+  <p class="lede">Prepared answers for the four that come up in every faculty room.</p>
+
+  <h3>"So I just can't help them?"</h3>
+  <p>You can help enormously — and most of what helps is instruction, not accommodation. Pre-teaching vocabulary with images, chunking complex text, modeling with think-alouds, structured oral rehearsal before writing, visuals paired with every key term. None of that requires a plan and none of it approaches the line. The line only governs what happens on a graded measure of what the student knows.</p>
+
+  <h3>"How am I supposed to give one kid extra time when I have twenty-eight others?"</h3>
+  <p>Real problem, and worth taking seriously rather than deflecting. Practical answers: build assessments that most students finish in two-thirds of the period; establish a standing arrangement for finishing in the EL block or during an intervention period; use the small-group setting during common assessment windows. Bring the logistics to the SET — the plan should specify something the building can actually deliver seven periods a day.</p>
+
+  <h3>"Isn't a lower-level text just meeting them where they are?"</h3>
+  <p>Meeting them where they are is how you begin a lesson. It cannot be how you end one. A replacement text on the same standard means the student never encounters the grade-level expectation, and after four years of that the transcript says one thing and the student's readiness says another. The accommodation is scaffolding the grade-level text — annotate it, chunk it, front-load the vocabulary, read it together first. Same text, more support.</p>
+
+  <h3>"What if I've been doing this wrong all year?"</h3>
+  <p>Then you are in the majority, and today is when it changes. Nothing in this session is retroactive discipline. Bring the student to the next SET, get the support written correctly, and start Monday. The only version of this that becomes a problem is the one where someone knows and keeps going.</p>
+
+  <div class="call warn">
+    <h5>One thing not to do as facilitator</h5>
+    <p>Do not name a teacher's error in the room. Ever. If someone volunteers a practice that falls below the line, thank them for the honesty, use it as the group's example without attaching it to them, and follow up privately. The willingness to say it out loud is the most valuable thing in the room, and you will only get it once.</p>
+  </div>
+</section>
+
+</div>
+
+
+
+
+</div>
 
 <script>
-/* ===========================================================================
-   THE LIBRARY LIST
+/* =========================================================================
+   ONE LIST DRIVES THE HOME PAGE.
 
-   `file` is just the filename as it sits in this repository. Nothing else.
-   Upload the PDF, add a line here, done — the link builds itself.
+   action: "tab"  -> opens a section of this site        (target = panel key)
+           "link" -> opens another live site             (target = full URL)
+           "file" -> downloads a file from this repo     (target = filename)
+           "soon" -> shows but is not clickable          (no target)
 
-   DELETE any line for a file you don't upload. A card with no file behind it
-   is a dead link, and a dead link on a public resource page costs you more
-   than a missing one.
-   =========================================================================== */
+   Upload a PDF to this repository, switch an entry from "soon" to "file",
+   and set target to the exact filename. That is the whole workflow.
+   ========================================================================= */
 
-const DOCS = [
+const ITEMS = [
 
-  /* ---------- COMPLIANCE ---------- */
-  { grp:"Compliance & Program Operation", fmt:"Manual · PDF", tags:["compliance"],
+  /* ---------- IN THIS SITE ---------- */
+  { grp:"Compliance & Program Operation", fmt:"Manual · 16 parts", tags:["compliance"],
     name:"The Red Line",
-    desc:"Mississippi LSP accommodations and modifications: the Three Doors, the Four Lanes, the ACCESS Protocol, accommodation registers, a prohibition matrix, and six reproducible forms.",
-    file:"The-Red-Line-LSP-Manual.pdf", size:"" },
+    desc:"Mississippi LSP accommodations and modifications. The Three Doors, the Four Lanes, the ACCESS Protocol, full accommodation and accessibility registers, a prohibition matrix, and six reproducible forms.",
+    action:"tab", target:"manual", label:"Read it" },
 
-  { grp:"Compliance & Program Operation", fmt:"Facilitator Guide · PDF", tags:["compliance","pd"],
-    name:"The Red Line — 90-Minute Module",
-    desc:"A full faculty session with run of show, three activities, five student case files, answer keys, and a completion certificate.",
-    file:"The-Red-Line-Module.pdf", size:"" },
+  { grp:"Compliance & Program Operation", fmt:"Facilitator Guide · 90 min", tags:["compliance","pd"],
+    name:"The Red Line — Faculty Module",
+    desc:"A ready-to-run professional development session: run of show, three activities including a twelve-card sorter, five student case files, answer keys, a check for understanding, and a completion certificate.",
+    action:"tab", target:"module", label:"Open session" },
 
-  /* ---------- CURRICULUM ---------- */
+  /* ---------- LIVE ELSEWHERE ---------- */
+  { grp:"Professional Development", fmt:"Guide · reads aloud", tags:["pd"],
+    name:"Every Teacher Is a Language Teacher",
+    desc:"Seven research-based principles for general education teachers and staff, with a Monday Morning Checklist and full references. The web version reads itself aloud.",
+    action:"link", target:"https://radan55.github.io/freeenglishlanguagelearnerpd/", label:"Open" },
+
+  { grp:"Professional Development", fmt:"Graphic Playbook · PDF", tags:["pd","curriculum"],
+    name:"The SIOP Model at a Glance",
+    desc:"Six pages of visual reference on the SIOP components and features, built for a faculty meeting or a planning binder.",
+    action:"link", target:"https://radan55.github.io/freeenglishlanguagelearnerpd/SIOP-Model-At-a-Glance-Graphic.pdf", label:"Download" },
+
+  { grp:"Curriculum & Instruction", fmt:"Curriculum · web", tags:["curriculum","pd"],
+    name:"The Vocabulary Engine",
+    desc:"A complete word-growth curriculum: six PD modules, a five-day teaching cycle at fifteen minutes a day, ten no-prep activities, and six reproducible student handouts.",
+    action:"link", target:"https://radan55.github.io/elvocabularycurriculumengine/", label:"Open" },
+
+  { grp:"Compliance & Program Operation", fmt:"Field Guide · web", tags:["compliance","curriculum"],
+    name:"ELPA21 Growth Manual",
+    desc:"How growth is calculated, what actually moves a student a proficiency level, and how to plan instruction against it.",
+    action:"link", target:"https://radan55.github.io/elpa21growthmanual/", label:"Open" },
+
+  /* ---------- UPLOAD A PDF, THEN FLIP "soon" TO "file" ---------- */
   { grp:"Curriculum & Instruction", fmt:"Curriculum Suite · PDF", tags:["curriculum"],
     name:"ELPA21 ASCENT — Teacher Edition",
     desc:"A full ELPA21-aligned curriculum system for the EL block.",
-    file:"ELPA21-ASCENT-Teacher-Edition.pdf", size:"" },
+    action:"file", target:"ELPA21-ASCENT-Teacher-Edition.pdf|ASCENT-Teacher-Edition.pdf|ELPA21-ASCENT-Teacher-Edition-566pp.pdf|ELPA21-Ascent-Teacher-Edition.pdf", label:"Download" },
 
-  { grp:"Curriculum & Instruction", fmt:"Workbook · PDF", tags:["curriculum","student"],
+  { grp:"Curriculum & Instruction", fmt:"Workbook · PDF", tags:["curriculum"],
     name:"ELPA21 ASCENT — Student Workbook",
     desc:"The student-facing companion to the ASCENT teacher edition.",
-    file:"ELPA21-ASCENT-Student-Workbook.pdf", size:"" },
+    action:"file", target:"ELPA21-ASCENT-Student-Workbook.pdf|ASCENT-Student-Workbook.pdf|ELPA21-Ascent-Student-Workbook.pdf", label:"Download" },
 
-  { grp:"Curriculum & Instruction", fmt:"Library Series · PDF", tags:["curriculum"],
-    name:"The Classroom Shelf",
-    desc:"Mississippi EL Library Series II — eleven volumes on block architecture, standards, lesson plans, domain handbooks, and field books.",
-    file:"The-Classroom-Shelf.pdf", size:"" },
+  { grp:"The Classroom Shelf · Series II", fmt:"Complete Series · 93 pp", tags:["curriculum"],
+    name:"The Classroom Shelf — Complete Series II",
+    desc:"All six volumes and three appendices in one fully bookmarked PDF. Start here if you want the whole teaching system.",
+    action:"file", target:"Mississippi-EL-Library-Series-II.pdf|The-Classroom-Shelf.pdf|Classroom-Shelf.pdf", label:"Download" },
 
-  { grp:"Curriculum & Instruction", fmt:"Leveled Texts · PDF", tags:["curriculum","student"],
+  { grp:"The Classroom Shelf · Series II", fmt:"Volume VI · 18 pp", tags:["curriculum"],
+    name:"The 90-Minute Block: A Conductor's Guide",
+    desc:"Five movements of the block, research foundations, an annotated model day, the evidence trail, an installation plan, a walkthrough crosswalk, and an administrator one-pager.",
+    action:"file", target:"volume-06-conductors-guide.html|The-90-Minute-Block-Conductors-Guide.pdf|Conductors-Guide.pdf|The-90-Minute-Block.pdf|Volume-VI-Conductors-Guide.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Volume VII · 12 pp", tags:["curriculum"],
+    name:"The Standards Ascent",
+    desc:"All ten MS ELP and ELPA21 standards at three proficiency levels, a 36-week year map, ten standard teaching pages, and a walkthrough pack.",
+    action:"file", target:"volume-07-standards-ascent.html|The-Standards-Ascent.pdf|Standards-Ascent.pdf|Volume-VII-Standards-Ascent.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Volume VIII · 19 pp", tags:["curriculum"],
+    name:"Standards Ascent — Lessons &amp; Resources Companion",
+    desc:"Six complete model 94-minute lessons including one full week at all three altitudes, five reproducibles, a stem mega-bank, and roughly forty vetted free resources across eight categories.",
+    action:"file", target:"volume-08-lessons-companion.html|Standards-Ascent-Lessons-Resources-Companion.pdf|Lessons-Resources-Companion.pdf|Standards-Ascent-Companion.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Volume IX · 15 pp", tags:["curriculum"],
+    name:"The Domain &amp; Level Handbook",
+    desc:"Twelve teaching pages covering every domain at every level in plain English, with real student samples, move-up targets, and test connections.",
+    action:"file", target:"volume-09-domain-level-handbook.html|The-Domain-Level-Handbook.pdf|Domain-Level-Handbook.pdf|Domain-and-Level-Handbook.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Volume X · 11 pp", tags:["curriculum"],
+    name:"The EL Specialist's Field Book",
+    desc:"About one hundred field-tested instructional moves across nine sections. Built to be opened mid-lesson.",
+    action:"file", target:"volume-10-field-book.html|EL-Specialists-Field-Book.pdf|The-EL-Specialists-Field-Book.pdf|Field-Book.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Volume XI · 6 pp", tags:["curriculum"],
+    name:"The Flexible Block Guide",
+    desc:"One system, any bell. Converting the whole block architecture to 50- and 60-minute periods, A/B days, push-in, and co-teaching.",
+    action:"file", target:"volume-11-flexible-block-guide.html|The-Flexible-Block-Guide.pdf|Flexible-Block-Guide.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Student Consumable · 39 pp", tags:["curriculum"],
+    name:"The Summit Workbook — Year Edition",
+    desc:"A twelve-unit exit-year consumable for Intermediate and Advanced students, carrying the Week One characters through the year, with four checkpoints, two test rehearsals, an Exit Ledger, and a certificate.",
+    action:"file", target:"Summit-Workbook-Year-Edition.pdf|The-Summit-Workbook.pdf|Summit-Workbook.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Program Document · 6 pp", tags:["compliance"],
+    name:"EL Program Design &amp; Scope",
+    desc:"The program rationale written against Castañeda's three prongs, with five in-depth implementation examples. The document to hand an administrator or a monitor.",
+    action:"file", target:"EL-Program-Design-Scope.pdf|EL-Program-Design-and-Scope.pdf|Program-Design-Scope.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Room Kit · 10 posters", tags:["curriculum"],
+    name:"EL Classroom Wall Pack",
+    desc:"Ten landscape posters for the classroom walls.",
+    action:"file", target:"EL-Classroom-Wall-Pack.pdf|Classroom-Wall-Pack.pdf|Wall-Pack.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Coverage · 2 pp", tags:["curriculum"],
+    name:"Emergency Sub Kit",
+    desc:"What a substitute needs to run the block when you are out. Two pages, no preparation required.",
+    action:"file", target:"Emergency-Sub-Kit.pdf|Sub-Kit.pdf", label:"Download" },
+
+  { grp:"The Classroom Shelf · Series II", fmt:"Crosswalk · 2 pp", tags:["pd"],
+    name:"NBCT Portfolio Crosswalk Memo",
+    desc:"Components 2 through 4 mapped against the Series II materials, for candidates assembling a portfolio.",
+    action:"file", target:"NBCT-Portfolio-Crosswalk-Memo.pdf|NBCT-Crosswalk.pdf|NBCT-Portfolio-Crosswalk.pdf", label:"Download" },
+
+
+  { grp:"Curriculum & Instruction", fmt:"Leveled Texts · PDF", tags:["curriculum"],
     name:"Leveled Readables — Emerging",
     desc:"187 one-page readables across fifteen content strands for ELPA21 Levels 1–2. Every topic unique.",
-    file:"Leveled-Readables-Emerging.pdf", size:"" },
+    action:"file", target:"187_Readables_Emerging_Gr9-12.pdf|Leveled-Readables-Emerging.pdf|Emerging-Readables.pdf", label:"Download" },
 
-  { grp:"Curriculum & Instruction", fmt:"Leveled Texts · PDF", tags:["curriculum","student"],
+  { grp:"Curriculum & Instruction", fmt:"Leveled Texts · PDF", tags:["curriculum"],
     name:"Leveled Readables — Progressing",
     desc:"187 one-page readables across fifteen content strands for ELPA21 Levels 3–4.",
-    file:"Leveled-Readables-Progressing.pdf", size:"" },
+    action:"file", target:"187_Readables_Progressing_Gr9-12.pdf|Leveled-Readables-Progressing.pdf|Progressing-Readables.pdf", label:"Download" },
 
   { grp:"Curriculum & Instruction", fmt:"Curriculum · PDF", tags:["curriculum"],
     name:"Reading Foundations for Multilingual Learners",
     desc:"Science of Reading phonics and foundational skills built for students acquiring English.",
-    file:"Reading-Foundations-Manual.pdf", size:"" },
+    action:"file", target:"Reading-Foundations-Manual.pdf|Reading-Foundations.pdf|Science-of-Reading-EL.pdf", label:"Download" },
 
-  { grp:"Curriculum & Instruction", fmt:"Unit · PDF", tags:["curriculum","student"],
+  { grp:"Curriculum & Instruction", fmt:"Unit · PDF", tags:["curriculum"],
     name:"World Geography for English Learners",
     desc:"A leveled world geography unit with a 195-country reference and lesson packets for emerging students.",
-    file:"World-Geography-EL-Unit.pdf", size:"" },
-
-  /* ---------- PROFESSIONAL DEVELOPMENT ---------- */
-  { grp:"Professional Development", fmt:"Graphic Playbook · PDF", tags:["pd","curriculum"],
-    name:"The SIOP Model at a Glance",
-    desc:"Six pages of visual reference on the SIOP components and features — built for a faculty meeting or a planning binder.",
-    file:"SIOP-Model-At-a-Glance-Graphic.pdf", size:"" },
-
-  { grp:"Professional Development", fmt:"Guide · PDF", tags:["pd"],
-    name:"Every Teacher Is a Language Teacher",
-    desc:"Seven research-based principles for general education teachers, with a Monday Morning Checklist and full references.",
-    file:"Every-Teacher-Is-a-Language-Teacher-EL-Guide.pdf", size:"" },
-
-  { grp:"Professional Development", fmt:"Curriculum · PDF", tags:["pd","curriculum"],
-    name:"The Vocabulary Engine",
-    desc:"Six PD modules, a five-day teaching cycle, ten no-prep activities, and six reproducible student handouts.",
-    file:"Vocabulary-Engine-Curriculum.pdf", size:"" },
+    action:"file", target:"World-Geography-EL-Unit.pdf|World-Geography-Unit.pdf|World-Geography-for-English-Learners.pdf", label:"Download" },
 
   { grp:"Professional Development", fmt:"Course · PDF", tags:["pd"],
     name:"ELL Strategies for Mainstreamed Students",
     desc:"A professional development course for content teachers serving English learners in mainstream classrooms.",
-    file:"ELL-Strategies-Mainstreamed.pdf", size:"" },
+    action:"file", target:"ELL-Strategies-Mainstreamed.pdf|ELL-Strategies-for-Mainstreamed-Students.pdf|EL-Strategies-Mainstreamed.pdf", label:"Download" },
 
-  /* ---------- PUBLICATIONS ---------- */
   { grp:"Publications", fmt:"Book · PDF", tags:["pd"],
     name:"Making Them Count",
     desc:"Teaching English Learners in Mississippi's Overlooked Districts — thirty chapters, five parts, an epilogue, and four appendices.",
-    file:"Making-Them-Count.pdf", size:"" },
+    action:"file", target:"Making-Them-Count.pdf|Making-Them-Count-Book.pdf", label:"Download" },
 ];
 
-/* ---------- render ---------- */
-const ORDER = ["Compliance & Program Operation","Curriculum & Instruction",
-               "Professional Development","Publications"];
+const ORDER = ["Compliance & Program Operation","The Classroom Shelf · Series II",
+               "Curriculum & Instruction","Professional Development","Publications"];
 
-const card = d => `<article class="doc" data-tags="${d.tags.join(' ')}"
-    data-text="${(d.name+' '+d.desc+' '+d.fmt).toLowerCase().replace(/"/g,'')}">
-  <div class="fmt">${d.fmt}</div>
-  <h3>${d.name}</h3>
-  <p>${d.desc}</p>
-  <div class="get">
-    <span class="sz">${d.size || ''}</span>
-    <a class="dl" href="${d.file}" download>Download →</a>
-  </div>
-</article>`;
+function entry(it){
+  const cls = "a-" + it.action;
+  const open = it.action==="soon"
+    ? `<span class="soon">Coming soon</span>`
+    : it.action==="tab"
+      ? `<button class="act" data-tab="${it.target}">${it.label} &rarr;</button>`
+      : it.action==="file"
+        ? (/\.html?(\||$)/i.test(it.target)
+            ? `<a class="act" href="${it.target.split('|')[0]}">${it.label||'Read it'} &rarr;</a>`
+            : `<a class="act" href="${it.target}" download>${it.label||'Download'} &rarr;</a>`)
+        : `<a class="act" href="${it.target}">${it.label||'Open'} &rarr;</a>`;
+  const searchable = it.action==="soon" ? it.tags.join(' ') : it.tags.join(' ')+' open';
+  const probe = it.action==="file" ? ` data-probe="${it.target}"` : '';
+  return `<article class="entry ${cls}"${probe} data-tags="${searchable}"
+      data-text="${(it.name+' '+it.desc+' '+it.fmt).toLowerCase().replace(/"/g,'')}">
+    <div class="fm">${it.fmt}</div>
+    <h3>${it.name}</h3>
+    <p>${it.desc}</p>
+    <div class="go"><span class="tagpill">${it.tags[0]}</span>${open}</div>
+  </article>`;
+}
 
-document.getElementById('out').innerHTML = ORDER.map(g=>{
-  const items = DOCS.filter(d=>d.grp===g);
-  if(!items.length) return '';
+document.getElementById('hout').innerHTML = ORDER.map(g=>{
+  const its = ITEMS.filter(i=>i.grp===g);
+  if(!its.length) return '';
   return `<section class="grp" data-grp>
-    <div class="grphead"><h2>${g}</h2><span class="ct">${items.length} file${items.length>1?'s':''}</span></div>
-    <div class="rack">${items.map(card).join('')}</div>
+    <div class="gh"><h2>${g}</h2><span class="ct">${its.length} item${its.length>1?'s':''}</span></div>
+    <div class="rk">${its.map(entry).join('')}</div>
   </section>`;
 }).join('');
 
-const q = document.getElementById('q'), empty = document.getElementById('empty');
-let active = 'all';
+/* ---- panels ---- */
+const T={home:'t-home',manual:'t-manual',module:'t-module'};
+const P={home:'p-home',manual:'p-manual',module:'p-module'};
+function show(k,push){
+  Object.keys(T).forEach(x=>{
+    const on = x===k;
+    document.getElementById(T[x]).setAttribute('aria-selected', on?'true':'false');
+    document.getElementById(P[x]).hidden = !on;
+  });
+  if(push) history.replaceState(null,'','#'+k);
+  window.scrollTo({top:0,behavior:'instant'});
+}
+Object.keys(T).forEach(k=>document.getElementById(T[k]).addEventListener('click',()=>show(k,true)));
+document.getElementById('hout').addEventListener('click',e=>{
+  const b=e.target.closest('[data-tab]'); if(b) show(b.dataset.tab,true);
+});
+document.getElementById('pnow').addEventListener('click',()=>window.print());
+
+/* ---- search + filter ---- */
+const hq=document.getElementById('hq'), hempty=document.getElementById('hempty');
+let act='all';
 function apply(){
-  const term = q.value.trim().toLowerCase();
-  let shown = 0;
-  document.querySelectorAll('.doc').forEach(el=>{
-    const ok = (active==='all' || el.dataset.tags.split(' ').includes(active))
-            && (!term || el.dataset.text.includes(term));
-    el.style.display = ok ? '' : 'none';
-    if(ok) shown++;
+  const t=hq.value.trim().toLowerCase(); let n=0;
+  document.querySelectorAll('.entry').forEach(el=>{
+    const ok=(act==='all'||el.dataset.tags.split(' ').includes(act))
+          &&(!t||el.dataset.text.includes(t));
+    const probed = el.hasAttribute('data-probe');
+    const present = !probed || el.dataset.found==='1';
+    el.style.display=(ok&&present)?'':'none'; if(ok&&present)n++;
   });
   document.querySelectorAll('[data-grp]').forEach(s=>{
-    s.style.display = [...s.querySelectorAll('.doc')].some(d=>d.style.display!=='none') ? '' : 'none';
+    s.style.display=[...s.querySelectorAll('.entry')].some(e=>e.style.display!=='none')?'':'none';
   });
-  empty.style.display = shown ? 'none' : 'block';
+  hempty.style.display=n?'none':'block';
 }
-q.addEventListener('input', apply);
-document.querySelectorAll('.filt').forEach(b=>b.addEventListener('click',()=>{
-  active=b.dataset.f;
-  document.querySelectorAll('.filt').forEach(x=>x.setAttribute('aria-pressed', x===b?'true':'false'));
+hq.addEventListener('input',apply);
+document.querySelectorAll('.hf').forEach(b=>b.addEventListener('click',()=>{
+  act=b.dataset.f;
+  document.querySelectorAll('.hf').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
   apply();
 }));
+
+
+/* ---- file detection ----------------------------------------------------
+   Every downloadable entry checks whether its file is actually in this
+   repository. Present -> the card shows. Absent -> the card hides itself.
+   Upload a PDF and it appears. Remove one and it disappears. No code edits.
+   (Only runs on the live site; opening index.html locally hides them all.) */
+(async function(){
+  const cards=[...document.querySelectorAll('[data-probe]')];
+  cards.forEach(c=>c.style.display='none');
+  const live=await Promise.all(cards.map(async c=>{
+    for(const f of c.dataset.probe.split('|')){
+      try{ const r=await fetch(f,{method:'HEAD'}); if(r.ok) return f; }catch(e){}
+    }
+    return null;
+  }));
+  cards.forEach((c,i)=>{
+    if(live[i]){
+      c.dataset.found='1'; c.style.display='';
+      const a=c.querySelector('a.act');
+      if(a){
+        a.setAttribute('href', live[i]);
+        if(/\.html?$/i.test(live[i])){ a.removeAttribute('download'); a.textContent='Read it \u2192'; }
+      }
+    }
+  });
+  document.querySelectorAll('[data-grp]').forEach(s=>{
+    const vis=[...s.querySelectorAll('.entry')].filter(e=>e.style.display!=='none').length;
+    s.style.display = vis ? '' : 'none';
+    const ct=s.querySelector('.ct');
+    if(ct) ct.textContent = vis + (vis===1?' item':' items');
+  });
+  apply();
+})();
+
+/* ---- deep links: #module, #manual, or any manual anchor like #p9 ---- */
+const h=(location.hash||'').replace('#','');
+if(h==='module'||h==='manual'){ show(h,false); }
+else if(h){
+  show('manual',false);
+  const el=document.getElementById(h);
+  if(el) setTimeout(()=>el.scrollIntoView(),80); else show('home',false);
+}
 </script>
 
 </body>
