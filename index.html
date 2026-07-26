@@ -1540,6 +1540,11 @@ const ITEMS = [
     action:"tab", target:"module", label:"Open session" },
 
   /* ---------- LIVE ELSEWHERE ---------- */
+  { grp:"Professional Development", fmt:"Interactive Module · gated", tags:["pd","compliance"],
+    name:"Every Teacher Is a Language Teacher — Interactive Module",
+    desc:"Six mastery-gated sections for general and special education teachers: second-language acquisition basics, the legal foundations, implementing LSP accommodations, comprehensible input, the difference-versus-disability framework, and an applied scenario gauntlet ending in a printable certificate.",
+    action:"link", target:"https://radan55.github.io/el-pd/", label:"Start module" },
+
   { grp:"Professional Development", fmt:"Guide · reads aloud", tags:["pd"],
     name:"Every Teacher Is a Language Teacher",
     desc:"Seven research-based principles for general education teachers and staff, with a Monday Morning Checklist and full references. The web version reads itself aloud.",
@@ -1560,6 +1565,22 @@ const ITEMS = [
     desc:"How growth is calculated, what actually moves a student a proficiency level, and how to plan instruction against it.",
     action:"link", target:"https://radan55.github.io/elpa21growthmanual/", label:"Open" },
 
+
+  { grp:"ELPA21 Practice & Test Preparation", fmt:"Interactive Suite · all grades", tags:["curriculum"],
+    name:"The ELPA21 Practice Suite",
+    desc:"The hub for both practice modules. Blueprint-aligned tasks in every domain, built to be worked on a phone or a Chromebook with no login.",
+    action:"link", target:"https://radan55.github.io/elpa21/", label:"Open" },
+
+  { grp:"ELPA21 Practice & Test Preparation", fmt:"Practice Module · K\u201312", tags:["curriculum"],
+    name:"ELPA21 All-Bands Practice \u2014 K through 12",
+    desc:"All six ELPA21 grade bands (K, 1, 2\u20133, 4\u20135, 6\u20138, 9\u201312) with 96 blueprint tasks and 173 items. Includes 59 original drawings and a 36-icon library for picture-choice items in the K\u20133 bands, plus tile-tap Word Builder and Sentence Builder interactions.",
+    action:"link", target:"https://radan55.github.io/elpa21/k12.html", label:"Open" },
+
+  { grp:"ELPA21 Practice & Test Preparation", fmt:"Blueprint Simulation · 9\u201312", tags:["curriculum"],
+    name:"ELPA21 Blueprint Simulation \u2014 Grades 9\u201312",
+    desc:"The full high school blueprint: 31 tasks, 82 items, 22 tasks illustrated with original drawings. Tracks a streak that turns gold at three correct in a row, and shows a live 31-chip board of blueprint coverage as students work.",
+    action:"link", target:"https://radan55.github.io/elpa21/hs.html", label:"Open" },
+
   /* ---------- UPLOAD A PDF, THEN FLIP "soon" TO "file" ---------- */
   { grp:"Curriculum & Instruction", fmt:"Curriculum Suite · PDF", tags:["curriculum"],
     name:"ELPA21 ASCENT — Teacher Edition",
@@ -1574,7 +1595,7 @@ const ITEMS = [
   { grp:"The Classroom Shelf · Series II", fmt:"Complete Series · 93 pp", tags:["curriculum"],
     name:"The Classroom Shelf — Complete Series II",
     desc:"All six volumes and three appendices in one fully bookmarked PDF. Start here if you want the whole teaching system.",
-    action:"file", target:"Mississippi-EL-Library-Series-II.pdf|The-Classroom-Shelf.pdf|Classroom-Shelf.pdf", label:"Download" },
+    action:"file", target:"classroom-shelf.html|Mississippi-EL-Library-Series-II.pdf|The-Classroom-Shelf.pdf", label:"Download" },
 
   { grp:"The Classroom Shelf · Series II", fmt:"Volume VI · 18 pp", tags:["curriculum"],
     name:"The 90-Minute Block: A Conductor's Guide",
@@ -1663,8 +1684,9 @@ const ITEMS = [
     action:"file", target:"Making-Them-Count.pdf|Making-Them-Count-Book.pdf", label:"Download" },
 ];
 
-const ORDER = ["Compliance & Program Operation","The Classroom Shelf · Series II",
-               "Curriculum & Instruction","Professional Development","Publications"];
+const ORDER = ["Compliance & Program Operation","ELPA21 Practice & Test Preparation",
+               "The Classroom Shelf · Series II","Curriculum & Instruction",
+               "Professional Development","Publications"];
 
 function entry(it){
   const cls = "a-" + it.action;

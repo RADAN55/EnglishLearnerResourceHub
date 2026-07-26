@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Classroom Shelf — Mississippi EL Library, Series II</title>
+<meta name="description" content="The teaching system: block architecture, standards, lessons, domain handbook, field book, and flexible scheduling for EL specialists.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E2761;--gold:#C9A227;--ink:#12172E;--paper:#FBFAF7;--slate:#5A627A;
+  --go:#2A6B4F;--stop:#A5342B;--line:#E3DFD4;--wash:#F2F0E9;--navywash:#EDEFF6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 28px}
+
+.navbar{position:sticky;top:0;z-index:80;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.12)}
+.navbar .inner{max-width:940px;margin:0 auto;padding:0 28px;display:flex;align-items:center;
+  gap:2px;flex-wrap:wrap;min-height:52px}
+.navbar .mk{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin-right:auto;padding:9px 0}
+.nb{appearance:none;border:0;background:transparent;cursor:pointer;color:#9AA3C4;
+  font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;
+  padding:9px 11px;border-bottom:3px solid transparent}
+.nb:hover{color:#fff}
+.nb[aria-selected="true"]{color:#fff;border-bottom-color:var(--gold)}
+.nb:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.pbtn{appearance:none;cursor:pointer;background:transparent;color:var(--gold);
+  border:1px solid rgba(201,162,39,.5);border-radius:3px;margin-left:8px;
+  font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.14em;
+  text-transform:uppercase;padding:6px 10px}
+.pbtn:hover{background:var(--gold);color:var(--ink)}
+.panel[hidden]{display:none}
+
+.vh{background:var(--navy);color:#fff;padding:52px 0 44px;position:relative}
+.vh::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+  background:linear-gradient(90deg,var(--gold) 0 50%,#fff 50%)}
+.vh .vn{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.vh h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2rem,5.4vw,3.3rem);
+  line-height:1;margin:0;letter-spacing:-.025em}
+.vh h1 em{font-style:normal;color:var(--gold)}
+.vh .sb{font-family:'Fraunces',serif;font-size:clamp(1rem,2.2vw,1.28rem);color:#D7DCEC;
+  max-width:620px;margin:16px 0 0;line-height:1.42}
+.vh .st{margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+  letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.61rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(1.5rem,3.2vw,2.1rem);
+  line-height:1.1;margin:0 0 8px;letter-spacing:-.02em;color:var(--navy)}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.18rem;margin:28px 0 9px}
+h4{font-family:'Inter',sans-serif;font-weight:700;font-size:.79rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--slate);margin:22px 0 7px}
+p{margin:0 0 13px}
+.lede{font-size:1.03rem;color:var(--slate);max-width:74ch;margin-bottom:20px}
+ul,ol{margin:0 0 15px;padding-left:21px}li{margin-bottom:6px}
+code{font-family:'IBM Plex Mono',monospace;font-size:.85em;background:var(--navywash);
+  color:var(--navy);padding:1px 6px;border-radius:3px;font-weight:600}
+
+.tw{overflow-x:auto;margin:18px 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;background:#fff}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 11px;font-weight:600;
+  font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;vertical-align:bottom}
+td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#FCFCFA}
+
+.call{border-left:4px solid var(--gold);background:var(--wash);padding:16px 20px;margin:18px 0}
+.call.warn{border-left-color:var(--stop);background:#FBF2F1}
+.call.ok{border-left-color:var(--go);background:#F1F7F3}
+.call h5{margin:0 0 6px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--slate)}
+.call.warn h5{color:var(--stop)}.call.ok h5{color:var(--go)}
+.call p:last-child,.call ul:last-child{margin-bottom:0}
+
+/* movement blocks */
+.mv{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mv:last-child{border-bottom:0}
+.mv .clock{flex:0 0 78px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+  font-weight:600;color:var(--stop);padding-top:3px}
+.mv .b h5{margin:0 0 5px;font-family:'Fraunces',serif;font-size:1.08rem;font-weight:600;color:var(--navy)}
+.mv .b p{margin:0 0 7px;font-size:.9rem}
+.mv .b .look{font-size:.83rem;color:var(--slate);font-style:italic}
+
+.grid{display:grid;gap:14px;margin:18px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:#fff;border:1px solid var(--line);padding:17px 19px}
+.card h5{margin:0 0 7px;font-family:'Fraunces',serif;font-size:1.03rem;font-weight:600;color:var(--navy)}
+.card p,.card li{font-size:.87rem}.card ul{padding-left:17px;margin-bottom:0}
+.card .n{font-family:'IBM Plex Mono',monospace;font-size:.59rem;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
+
+/* field book moves */
+.move{border-left:3px solid var(--gold);padding:2px 0 2px 15px;margin:0 0 15px}
+.move b{color:var(--navy);font-family:'Fraunces',serif;font-size:1rem}
+.move span{display:block;font-size:.88rem;color:var(--slate);margin-top:2px}
+
+.lvl{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:600;
+  padding:2px 7px;border-radius:3px;letter-spacing:.1em;text-transform:uppercase}
+.l12{background:#EDE7F2;color:#5B3E7A}.l3{background:#FAF3DE;color:#8A6E12}.l45{background:#E5F0EA;color:var(--go)}
+
+footer{background:var(--navy);color:#B9C1DA;padding:40px 0;font-size:.83rem}
+footer .fl{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:11px}
+
+@media print{
+  .navbar{display:none}.panel[hidden]{display:none!important}
+  body{font-size:10.5pt}section{padding:18px 0}
+  h2,h3{page-break-after:avoid}table,.card,.call,.mv{page-break-inside:avoid}
+  .vh,th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{margin:.6in}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar" role="tablist" aria-label="Volumes">
+  <div class="inner">
+    <span class="mk">The Classroom Shelf</span>
+    <button class="nb" id="t-v6"  role="tab" aria-controls="p-v6"  aria-selected="true">VI · Block</button>
+    <button class="nb" id="t-v7"  role="tab" aria-controls="p-v7"  aria-selected="false">VII · Standards</button>
+    <button class="nb" id="t-v8"  role="tab" aria-controls="p-v8"  aria-selected="false">VIII · Lessons</button>
+    <button class="nb" id="t-v9"  role="tab" aria-controls="p-v9"  aria-selected="false">IX · Domains</button>
+    <button class="nb" id="t-v10" role="tab" aria-controls="p-v10" aria-selected="false">X · Field Book</button>
+    <button class="nb" id="t-v11" role="tab" aria-controls="p-v11" aria-selected="false">XI · Flex</button>
+    <button class="pbtn" id="pnow">Print</button>
+  </div>
+</nav>
+
+<!-- ================= VOLUME VI ================= -->
+<div class="panel" id="p-v6" role="tabpanel" aria-labelledby="t-v6">
+<header class="vh"><div class="wrap">
+  <div class="vn">Mississippi EL Library · Series II · Volume VI</div>
+  <h1>The 90-Minute Block<br><em>A Conductor's Guide</em></h1>
+  <p class="sb">Five movements, one arc. What to do with ninety minutes when nobody hands you a curriculum.</p>
+  <div class="st">Many Voices · One Storm</div>
+</div></header>
+<div class="wrap">
+
+<section>
+  <span class="eyebrow">Part One</span>
+  <h2>Structure replaces curriculum</h2>
+  <p class="lede">Most EL specialists are handed a roster, a room, and no program. The instinct is to go looking for a curriculum. The better move is to build a structure so reliable that content can be poured into it from any source.</p>
+  <p>An EL block is not a content course. It is a language course that borrows content. That distinction is the whole design. Where the content comes from matters less than whether the language work is systematic — and there are four legitimate sources, usually running at once:</p>
+  <ul>
+    <li><strong>The standards and the test blueprint.</strong> The ten ELP standards and the ELPA21 task types tell you what language behaviors must be built. This is the spine.</li>
+    <li><strong>A thematic progression from survival to academic.</strong> Newcomers need school, body, food, and time before they need cellular respiration. The arc is deliberate, not remedial.</li>
+    <li><strong>The students' own content classes.</strong> The biology unit they are failing this week is the most motivating text in the building.</li>
+    <li><strong>The students themselves.</strong> Their countries, their questions, their families, their plans. Interest is not a reward for language; it's a precondition.</li>
+  </ul>
+  <div class="call">
+    <h5>The principle</h5>
+    <p>If a visitor can walk into your room on any day and identify which movement you are in without asking, the structure is working. If every day looks improvised, no amount of good content will hold it together.</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Part Two · The architecture</span>
+  <h2>Five movements</h2>
+  <p class="lede">Ninety-four minutes, five movements. The proportions matter more than the exact minutes — protect the ratio when the bell changes.</p>
+
+  <div class="mv"><div class="clock">0–10<br>10 min</div><div class="b">
+    <h5>I · Entry &amp; Language Warm-Up</h5>
+    <p>A posted routine the students run without you. Sentence-frame response to a projected prompt, partner exchange, quick oral share. Attendance and materials happen underneath it.</p>
+    <p class="look">Look for: every student speaking English within the first four minutes. Not answering — speaking.</p>
+  </div></div>
+
+  <div class="mv"><div class="clock">10–35<br>25 min</div><div class="b">
+    <h5>II · Explicit Language Instruction</h5>
+    <p>The one thing being taught today. A structure, a function, a set of words — named, modeled, practiced, and used. This is the only movement where the teacher talks the most, and it should still be under half the time.</p>
+    <p class="look">Look for: a language objective posted in student-facing words, and a model the students can see, not just hear.</p>
+  </div></div>
+
+  <div class="mv"><div class="clock">35–60<br>25 min</div><div class="b">
+    <h5>III · Guided Practice in Small Groups</h5>
+    <p>Students at tables by need, not by seat. The teacher rotates. Levels 1–2 get more scaffolding and more repetition; Levels 3–4 get more independence and more complexity. Everyone works on the same objective at different altitudes.</p>
+    <p class="look">Look for: the teacher sitting down. If you are standing the whole movement, you are monitoring, not teaching.</p>
+  </div></div>
+
+  <div class="mv"><div class="clock">60–80<br>20 min</div><div class="b">
+    <h5>IV · Content Application</h5>
+    <p>The day's language move applied to real academic content — a science text, a historical document, a math word problem, something from a content class. This is where transfer either happens or doesn't.</p>
+    <p class="look">Look for: grade-level text with scaffolding, not below-grade text without it.</p>
+  </div></div>
+
+  <div class="mv"><div class="clock">80–94<br>14 min</div><div class="b">
+    <h5>V · Output &amp; Close</h5>
+    <p>Every student produces something in English that did not exist at the start of the block — spoken, written, or both. Then a named close: what we learned, what it's for, what's next.</p>
+    <p class="look">Look for: an artifact. Discussion is not output unless it leaves a trace you can collect.</p>
+  </div></div>
+
+  <div class="call ok">
+    <h5>Why output is last and non-negotiable</h5>
+    <p>Comprehensible input builds the system; output forces the learner to notice the gaps in it. A block that is all input produces students who understand a great deal and can say very little — the most common failure pattern in secondary EL. Protect the last fourteen minutes even when everything else runs long.</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Part Three</span>
+  <h2>The research underneath</h2>
+  <div class="tw"><table>
+    <thead><tr><th style="width:26%">Idea</th><th style="width:22%">Source</th><th>What it changes about the block</th></tr></thead>
+    <tbody>
+      <tr><td>Comprehensible input</td><td>Krashen</td><td>Input must be understandable and slightly beyond current level. Justifies visuals, gesture, and scaffolded grade-level text over simplified text.</td></tr>
+      <tr><td>Output hypothesis</td><td>Swain</td><td>Producing language forces syntactic processing that comprehension alone doesn't. Justifies Movement V.</td></tr>
+      <tr><td>Zone of proximal development</td><td>Vygotsky</td><td>Learning happens with support just beyond independence. Justifies Movement III grouping by need.</td></tr>
+      <tr><td>Affective filter</td><td>Krashen</td><td>Anxiety blocks acquisition. Justifies predictable routines and low-stakes rehearsal before public production.</td></tr>
+      <tr><td>BICS and CALP</td><td>Cummins</td><td>Social fluency arrives years before academic language. Justifies continuing services for students who "sound fine."</td></tr>
+      <tr><td>Sheltered instruction</td><td>Echevarría, Vogt, Short</td><td>Language and content objectives, building background, explicit interaction. Justifies the whole shape of Movements II and IV.</td></tr>
+      <tr><td>Translanguaging</td><td>García</td><td>The first language is a resource, not interference. Justifies native-language previewing and bilingual clarification.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <span class="eyebrow">Part Four</span>
+  <h2>The evidence trail</h2>
+  <p class="lede">Every movement should leave something a monitor can see without you narrating it.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:24%">Movement</th><th style="width:36%">Evidence it produces</th><th>Where it lives</th></tr></thead>
+    <tbody>
+      <tr><td>I · Warm-Up</td><td>Dated warm-up responses</td><td>Student notebook or folder</td></tr>
+      <tr><td>II · Explicit Instruction</td><td>Posted language objective; anchor chart</td><td>Wall; lesson plan</td></tr>
+      <tr><td>III · Guided Practice</td><td>Small-group notes; level groupings tied to domain data</td><td>Teacher data binder</td></tr>
+      <tr><td>IV · Content Application</td><td>Annotated text; completed organizer</td><td>Student folder</td></tr>
+      <tr><td>V · Output</td><td>Writing sample or recorded speaking task</td><td>Portfolio; growth folder</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call warn">
+    <h5>The one folder that ends most arguments</h5>
+    <p>Keep a dated growth folder per student holding one output artifact per week. When a colleague says a student "isn't making progress," or a monitor asks what services look like, you open a folder instead of making a case. Thirty-six artifacts a year is the difference between an opinion and a record.</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Part Five</span>
+  <h2>Installation — the first four weeks</h2>
+  <div class="grid g2">
+    <div class="card"><span class="n">Week 1</span><h5>Names, routines, baselines</h5>
+      <ul><li>Learn and correctly pronounce every name</li><li>Teach Movement I until it runs without you</li><li>Collect a baseline writing and speaking sample</li><li>Post the block structure where students can see it</li></ul></div>
+    <div class="card"><span class="n">Week 2</span><h5>Add the middle</h5>
+      <ul><li>Introduce Movements II and III</li><li>Form first small groups from baseline data</li><li>Establish partner protocols and turn-taking</li></ul></div>
+    <div class="card"><span class="n">Week 3</span><h5>Bring in content</h5>
+      <ul><li>Add Movement IV using a text from a student's content class</li><li>Begin the growth folder</li><li>First contact home for every student, in the family's language</li></ul></div>
+    <div class="card"><span class="n">Week 4</span><h5>Close the loop</h5>
+      <ul><li>Add Movement V and hold it</li><li>Run the full block start to finish</li><li>Invite an administrator to observe with the walkthrough crosswalk</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Part Six</span>
+  <h2>Walkthrough crosswalk</h2>
+  <p class="lede">Hand this to your administrator before the first observation. It translates what they'll see into the framework they evaluate with.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:30%">What the administrator sees</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td>Students talking in the first four minutes</td><td>Structured oral rehearsal — engagement and language production, not off-task chatter</td></tr>
+      <tr><td>Two objectives posted</td><td>A content objective and a language objective, per sheltered instruction design</td></tr>
+      <tr><td>Different tables doing different work</td><td>Differentiation by proficiency level, not by ability tracking</td></tr>
+      <tr><td>Students using their first language</td><td>Translanguaging — a documented strategy for building conceptual understanding, not avoidance</td></tr>
+      <tr><td>Teacher seated with a small group</td><td>Guided practice at the point of need</td></tr>
+      <tr><td>A grade-level text with heavy scaffolding</td><td>Equal access to grade-level content — the legal standard, not an accommodation</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call">
+    <h5>Administrator one-pager, in one paragraph</h5>
+    <p>This block runs a fixed five-movement structure so that students always know what comes next and instruction is never improvised. Every day includes explicit language instruction, small-group practice grouped by proficiency data, application to grade-level academic content, and required English output collected as evidence. Students are held to grade-level standards with scaffolding rather than given easier work. Progress is tracked by domain — listening, speaking, reading, writing — against ELPA21 growth targets, and every student has a dated growth folder available on request.</p>
+  </div>
+</section>
+</div></div>
+
+<!-- ================= VOLUME VII ================= -->
+<div class="panel" id="p-v7" role="tabpanel" aria-labelledby="t-v7" hidden>
+<header class="vh"><div class="wrap">
+  <div class="vn">Series II · Volume VII</div>
+  <h1>The <em>Standards Ascent</em></h1>
+  <p class="sb">Ten standards, three altitudes, thirty-six weeks. What each standard actually asks a student to do, and what it looks like at every level.</p>
+  <div class="st">Many Voices · One Storm</div>
+</div></header>
+<div class="wrap">
+
+<section>
+  <span class="eyebrow">How to read this volume</span>
+  <h2>Three altitudes</h2>
+  <p class="lede">Every standard is written once and taught three ways. The standard never changes. The altitude does.</p>
+  <div class="grid g2">
+    <div class="card"><span class="n">Levels 1–2</span><h5>Emerging <span class="lvl l12">Base camp</span></h5>
+      <p>Words and phrases. Heavy visual and gestural support. Recognition before production. Success looks like a labeled drawing, a matched pair, a two-word answer.</p></div>
+    <div class="card"><span class="n">Level 3</span><h5>Progressing <span class="lvl l3">Ascent</span></h5>
+      <p>Sentences becoming paragraphs. Frames provided then faded. Success looks like a claim with one piece of evidence, spoken or written.</p></div>
+    <div class="card"><span class="n">Levels 4–5</span><h5>Advanced <span class="lvl l45">Summit</span></h5>
+      <p>Extended, connected discourse. Register shifts by audience. Success looks like grade-level academic writing that a content teacher would accept without qualification.</p></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">The ten</span>
+  <h2>The standards, at three altitudes</h2>
+  <div class="tw"><table>
+    <thead><tr><th style="width:5%">#</th><th style="width:25%">The standard asks students to…</th>
+      <th style="width:23%">Levels 1–2</th><th style="width:23%">Level 3</th><th>Levels 4–5</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>Construct meaning from oral presentations and literary and informational text</td>
+        <td>Identify a few key words and the main topic with visual support</td>
+        <td>Determine the central idea and a few details</td>
+        <td>Determine central ideas, summarize, and cite specific evidence</td></tr>
+      <tr><td><strong>2</strong></td><td>Participate in grade-appropriate oral and written exchanges</td>
+        <td>Respond to simple yes/no and either/or questions; use short frames</td>
+        <td>Ask and answer questions; build on a partner's idea</td>
+        <td>Sustain and extend discussion; pose questions that move the group</td></tr>
+      <tr><td><strong>3</strong></td><td>Speak and write about grade-appropriate complex texts and topics</td>
+        <td>Communicate simple information with words, phrases, and drawings</td>
+        <td>Deliver short oral presentations and compose written texts</td>
+        <td>Deliver organized presentations and compose developed texts</td></tr>
+      <tr><td><strong>4</strong></td><td>Construct claims and support them with reasoning and evidence</td>
+        <td>Express an opinion about a familiar topic</td>
+        <td>Construct a claim and give a reason with some evidence</td>
+        <td>Construct a substantive claim, cite evidence, and address a counterclaim</td></tr>
+      <tr><td><strong>5</strong></td><td>Conduct research and evaluate and communicate findings</td>
+        <td>Gather information from a labeled picture or a single simple source</td>
+        <td>Gather from two sources and record findings</td>
+        <td>Gather from multiple sources, evaluate reliability, and integrate</td></tr>
+      <tr><td><strong>6</strong></td><td>Analyze and critique the arguments of others</td>
+        <td>Identify a point someone made</td>
+        <td>Identify the claim and tell whether the reasoning is supported</td>
+        <td>Evaluate reasoning and evidence and explain the weakness</td></tr>
+      <tr><td><strong>7</strong></td><td>Adapt language choices to purpose, task, and audience</td>
+        <td>Notice that we talk differently to a friend and a principal</td>
+        <td>Adjust word choice for a familiar audience</td>
+        <td>Shift register, tone, and structure deliberately across contexts</td></tr>
+      <tr><td><strong>8</strong></td><td>Determine the meaning of words and phrases in texts and presentations</td>
+        <td>Use pictures and cognates to get at meaning</td>
+        <td>Use context and common affixes</td>
+        <td>Analyze figurative, connotative, and technical meanings</td></tr>
+      <tr><td><strong>9</strong></td><td>Create clear and coherent grade-appropriate speech and text</td>
+        <td>Communicate a single idea clearly</td>
+        <td>Organize ideas with basic transitions</td>
+        <td>Produce cohesive text with varied structure and clear progression</td></tr>
+      <tr><td><strong>10</strong></td><td>Make accurate use of standard English</td>
+        <td>Use frequent nouns, verbs, and simple sentences</td>
+        <td>Use increasingly complex sentences with developing accuracy</td>
+        <td>Use a wide range of structures with accuracy appropriate to grade level</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call warn">
+    <h5>The standards are not sequential</h5>
+    <p>Standard 1 is not easier than Standard 10, and you do not finish one before starting the next. All ten run all year. What changes across the year is altitude, not which standard is "up."</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Planning</span>
+  <h2>The thirty-six week map</h2>
+  <p class="lede">Standards 1, 2, 8, and 9 run every single week — they are the load-bearing walls. The others rotate to the foreground in six-week cycles.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">Weeks</th><th style="width:22%">Foreground</th><th style="width:26%">Thematic anchor</th><th>Culminating output</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1–6</strong></td><td>Standards 2, 3</td><td>School, self, and the building</td><td>Oral introduction and a personal narrative paragraph</td></tr>
+      <tr><td><strong>7–12</strong></td><td>Standards 1, 8</td><td>How things work — science and process text</td><td>Sequenced explanation with academic vocabulary</td></tr>
+      <tr><td><strong>13–18</strong></td><td>Standards 4, 6</td><td>Community and civic questions</td><td>Claim with evidence; respond to a peer's claim</td></tr>
+      <tr><td><strong>19–24</strong></td><td>Standards 5, 9</td><td>Research on a country, career, or issue</td><td>Short researched presentation with sources</td></tr>
+      <tr><td><strong>25–30</strong></td><td>Standards 3, 7</td><td>Audience and purpose — formal and informal</td><td>The same message written two ways for two audiences</td></tr>
+      <tr><td><strong>31–36</strong></td><td>Standards 4, 10</td><td>Test rehearsal and transfer</td><td>Full ELPA21-format performance across four domains</td></tr>
+    </tbody>
+  </table></div>
+</section>
+</div></div>
+
+<!-- ================= VOLUME VIII ================= -->
+<div class="panel" id="p-v8" role="tabpanel" aria-labelledby="t-v8" hidden>
+<header class="vh"><div class="wrap">
+  <div class="vn">Series II · Volume VIII</div>
+  <h1>Lessons &amp;<br><em>Resources Companion</em></h1>
+  <p class="sb">Model blocks at all three altitudes, reproducibles, a stem bank, and where to get good material without a budget.</p>
+  <div class="st">Many Voices · One Storm</div>
+</div></header>
+<div class="wrap">
+
+<section>
+  <span class="eyebrow">Model Block A · Levels 1–2</span>
+  <h2>Describing a process</h2>
+  <p class="lede">Standard 3 and Standard 9. Content borrowed from biology: the water cycle. Ninety-four minutes.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">Movement</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td><strong>I · 10 min</strong></td><td>Projected image of rain. Frame on the board: <em>I see ___. The water is ___.</em> Students write two sentences, then say both to a partner. Three volunteers share aloud.</td></tr>
+      <tr><td><strong>II · 25 min</strong></td><td>Teach four sequence words — <em>first, next, then, finally</em> — with gesture and a four-box visual. Teach four content words with images: <em>evaporate, condense, precipitate, collect</em>. Model the full sequence orally twice while pointing at the diagram. Students echo, then chorally produce.</td></tr>
+      <tr><td><strong>III · 25 min</strong></td><td>Level 1 table: cut-and-paste the four stages into order, then label with the word bank. Level 2 table: same sequence, but write one sentence per stage using the frames. Teacher rotates, prompting oral production at both tables — pointing and asking <em>What happens next?</em></td></tr>
+      <tr><td><strong>IV · 20 min</strong></td><td>Grade-level biology textbook paragraph on the water cycle, chunked into four pieces with the diagram beside it. Students highlight the four content words where they appear in real academic prose. Partners read each chunk aloud.</td></tr>
+      <tr><td><strong>V · 14 min</strong></td><td>Each student explains the water cycle in four sentences to a partner using the sequence words, then writes those four sentences. Collected for the growth folder. Close: <em>Today you explained a process. Every science class asks you to do this.</em></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <span class="eyebrow">Model Block B · Level 3</span>
+  <h2>Claim and evidence</h2>
+  <p class="lede">Standard 4 and Standard 6. Content borrowed from civics: should the school day start later?</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">Movement</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td><strong>I · 10 min</strong></td><td>Prompt: <em>What time did you wake up? How did you feel?</em> Two sentences, partner exchange, quick tally on the board.</td></tr>
+      <tr><td><strong>II · 25 min</strong></td><td>Name the structure: claim, evidence, reasoning. Model with a non-academic example, then an academic one. Give the frames — <em>I claim that ___. The evidence is ___. This matters because ___.</em> — and a set of academic verbs: <em>argues, suggests, indicates, demonstrates</em>.</td></tr>
+      <tr><td><strong>III · 25 min</strong></td><td>Groups take a short article on adolescent sleep and highlight three pieces of usable evidence. Teacher rotates, pushing for the reasoning link — the sentence students most often skip.</td></tr>
+      <tr><td><strong>IV · 20 min</strong></td><td>Structured partner debate. Each student states a claim with evidence, then must restate the partner's claim accurately before responding. Restatement is the graded move, not winning.</td></tr>
+      <tr><td><strong>V · 14 min</strong></td><td>Independent written paragraph: claim, evidence, reasoning. Frames available but not required. Collected.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call ok">
+    <h5>Why restatement is the graded move</h5>
+    <p>Standard 6 asks students to analyze the arguments of others. Requiring accurate restatement before response makes listening comprehension visible and gradeable, and it produces a better argument than debate-as-competition. Content teachers notice this skill immediately.</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Reproducibles</span>
+  <h2>Five pages worth copying</h2>
+  <div class="grid g2">
+    <div class="card"><h5>1 · The Four-Box Sequence</h5><p>Blank four-panel organizer with sequence-word slots. Works for any process in any content area — water cycle, photosynthesis, how a bill becomes law, long division.</p></div>
+    <div class="card"><h5>2 · Claim–Evidence–Reasoning Frame</h5><p>Three stacked boxes with fading supports across three versions: full frames, partial frames, blank.</p></div>
+    <div class="card"><h5>3 · Word Study Card</h5><p>Word, image, first-language equivalent, sentence, and a related-forms box for morphology work.</p></div>
+    <div class="card"><h5>4 · Partner Talk Protocol</h5><p>Numbered turn-taking with restatement required at step three. Laminate it; put one on every table.</p></div>
+    <div class="card"><h5>5 · Weekly Self-Assessment</h5><p>Four domains, student-facing "I can" statements, a smiley scale, and one line for what to work on next.</p></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Stem bank</span>
+  <h2>Frames that carry the year</h2>
+  <div class="grid g2">
+    <div class="card"><span class="n">Describing</span><h5>Levels 1–2</h5>
+      <ul><li>I see ___ / I notice ___</li><li>It is ___ and ___</li><li>First ___, next ___, then ___, finally ___</li><li>This is like ___</li></ul></div>
+    <div class="card"><span class="n">Explaining</span><h5>Level 3</h5>
+      <ul><li>___ happens because ___</li><li>One reason is ___ and another is ___</li><li>According to the text, ___</li><li>This shows that ___</li></ul></div>
+    <div class="card"><span class="n">Arguing</span><h5>Levels 3–4</h5>
+      <ul><li>I claim that ___ because ___</li><li>The evidence indicates ___</li><li>Although some argue ___, ___</li><li>A stronger explanation would be ___</li></ul></div>
+    <div class="card"><span class="n">Discussing</span><h5>All levels</h5>
+      <ul><li>I agree with ___ because ___</li><li>I hear you saying ___. Is that right?</li><li>Could you say more about ___?</li><li>I want to add to what ___ said</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">The free shelf</span>
+  <h2>Where to get material with no budget</h2>
+  <div class="tw"><table>
+    <thead><tr><th style="width:24%">Category</th><th>What to look for</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Leveled news</strong></td><td>Current-events sites offering the same article at multiple reading levels — the cleanest way to give grade-level content at accessible complexity.</td></tr>
+      <tr><td><strong>Public-domain text</strong></td><td>Government and museum sites: primary documents, photographs, and process diagrams that are free to copy and legal to distribute.</td></tr>
+      <tr><td><strong>Content-class textbooks</strong></td><td>The single most underused resource in the building. Borrow the chapter your students are failing this week.</td></tr>
+      <tr><td><strong>State assessment samples</strong></td><td>ELPA21 and MAAP practice materials give you the exact task formats students will face. Use them as instruction, not just rehearsal.</td></tr>
+      <tr><td><strong>Bilingual dictionaries</strong></td><td>Verify against the district's approved list before testing season, and check that they're word-to-word.</td></tr>
+      <tr><td><strong>Image banks</strong></td><td>Free stock photography for word walls and vocabulary cards. Real photographs beat clip art for older students.</td></tr>
+      <tr><td><strong>Student work</strong></td><td>Last year's anonymized samples are the best models you will ever have, because your current students can imagine producing them.</td></tr>
+      <tr><td><strong>The students' phones</strong></td><td>Translation and text-to-speech tools they already own. Teach deliberate use rather than fighting it.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+</div></div>
+
+<!-- ================= VOLUME IX ================= -->
+<div class="panel" id="p-v9" role="tabpanel" aria-labelledby="t-v9" hidden>
+<header class="vh"><div class="wrap">
+  <div class="vn">Series II · Volume IX</div>
+  <h1>The Domain &amp;<br><em>Level Handbook</em></h1>
+  <p class="sb">Every domain at every level, in plain English. What the student can do now, what moves them up, and what the test will ask.</p>
+  <div class="st">Many Voices · One Storm</div>
+</div></header>
+<div class="wrap">
+
+<section>
+  <h2>Twelve teaching pages</h2>
+  <p class="lede">Four domains, three altitudes. Find your student, read the row, teach the move-up target.</p>
+</section>
+
+<section>
+  <span class="eyebrow">Domain</span><h2>Listening</h2>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">Level</th><th style="width:29%">What the student can do now</th><th style="width:29%">The move-up target</th><th>What the test asks</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lvl l12">1–2</span></td>
+        <td>Follows one-step directions with gesture. Catches familiar words in slow, supported speech.</td>
+        <td>Follow two-step directions without gesture. Identify the topic of a short exchange.</td>
+        <td>Short audio, picture-choice response. Everyday and school contexts.</td></tr>
+      <tr><td><span class="lvl l3">3</span></td>
+        <td>Understands the main idea of a short classroom talk. Misses detail and inference.</td>
+        <td>Hold two or three details while listening. Answer a "why" question about what was said.</td>
+        <td>Longer audio, multiple-choice on main idea and detail.</td></tr>
+      <tr><td><span class="lvl l45">4–5</span></td>
+        <td>Follows academic discussion. Struggles with rapid speech, idiom, and implied meaning.</td>
+        <td>Infer speaker purpose and attitude. Take usable notes while listening.</td>
+        <td>Extended academic audio; inference and purpose items.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call"><h5>The move that works at every level</h5><p>Listen twice. First pass for gist with no writing; second pass with a specific task. One additional exposure changes performance more than any amount of pre-teaching.</p></div>
+</section>
+
+<section>
+  <span class="eyebrow">Domain</span><h2>Speaking</h2>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">Level</th><th style="width:29%">What the student can do now</th><th style="width:29%">The move-up target</th><th>What the test asks</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lvl l12">1–2</span></td>
+        <td>Single words and memorized phrases. Long pauses. May be silent by choice.</td>
+        <td>Produce a full simple sentence unprompted. Answer a question in more than one word.</td>
+        <td>Name a picture; answer a short personal question.</td></tr>
+      <tr><td><span class="lvl l3">3</span></td>
+        <td>Connected sentences on familiar topics. Falters on academic content.</td>
+        <td>Speak for sixty seconds on an academic topic with two supporting details.</td>
+        <td>Describe a picture in detail; give a short opinion with a reason.</td></tr>
+      <tr><td><span class="lvl l45">4–5</span></td>
+        <td>Extended discourse. Register and precision are the remaining gaps.</td>
+        <td>Sustain an academic argument; adjust formality to audience.</td>
+        <td>Extended response comparing, arguing, or explaining from a source.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call warn"><h5>On the silent period</h5><p>Some newcomers say nothing for weeks or months. This is documented and normal, not defiance and not a disability. Keep providing input and low-stakes opportunities. Never force public production from a student in this stage — it raises the affective filter and extends the silence.</p></div>
+</section>
+
+<section>
+  <span class="eyebrow">Domain</span><h2>Reading</h2>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">Level</th><th style="width:29%">What the student can do now</th><th style="width:29%">The move-up target</th><th>What the test asks</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lvl l12">1–2</span></td>
+        <td>Recognizes high-frequency words and environmental print. May decode without comprehending.</td>
+        <td>Read a short simple text and answer a literal question about it.</td>
+        <td>Match word to picture; short sentence comprehension.</td></tr>
+      <tr><td><span class="lvl l3">3</span></td>
+        <td>Reads short informational text for main idea. Academic vocabulary blocks comprehension.</td>
+        <td>Locate specific evidence in a paragraph. Use context for unknown words.</td>
+        <td>Multi-paragraph passage; main idea, detail, and vocabulary items.</td></tr>
+      <tr><td><span class="lvl l45">4–5</span></td>
+        <td>Reads grade-level text with effort. Slow rate; misses figurative and connotative meaning.</td>
+        <td>Read at reasonable rate; analyze author's purpose and craft.</td>
+        <td>Complex passages; inference, purpose, and text-structure items.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call ok"><h5>Decoding is not comprehension</h5><p>A student who reads aloud fluently and understands nothing is common and frequently misidentified — sometimes as a strong reader, sometimes as learning disabled. Always check comprehension separately from oral reading. This distinction matters enormously at an eligibility meeting.</p></div>
+</section>
+
+<section>
+  <span class="eyebrow">Domain</span><h2>Writing</h2>
+  <div class="tw"><table>
+    <thead><tr><th style="width:14%">Level</th><th style="width:29%">What the student can do now</th><th style="width:29%">The move-up target</th><th>What the test asks</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lvl l12">1–2</span></td>
+        <td>Copies accurately. Labels pictures. Writes memorized phrases and simple sentences.</td>
+        <td>Write two or three original connected sentences on a familiar topic.</td>
+        <td>Label an image; write one or two sentences about a picture.</td></tr>
+      <tr><td><span class="lvl l3">3</span></td>
+        <td>Writes a paragraph with frames. Errors don't usually block meaning.</td>
+        <td>Write an organized paragraph without frames, using transitions.</td>
+        <td>Short constructed response drawing on a source.</td></tr>
+      <tr><td><span class="lvl l45">4–5</span></td>
+        <td>Multi-paragraph academic writing. Remaining errors are in article use, prepositions, and idiom.</td>
+        <td>Produce cohesive text with varied structure and appropriate register.</td>
+        <td>Extended writing integrating one or more sources.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call warn"><h5>Writing is last, and that is not a delay</h5><p>Writing lags the other three domains for nearly every EL, and it is the domain most often required for exit. Do not read a low writing score as a plateau. Read it as the normal shape of acquisition — and then teach writing every single day, because it will not close on its own.</p></div>
+</section>
+</div></div>
+
+<!-- ================= VOLUME X ================= -->
+<div class="panel" id="p-v10" role="tabpanel" aria-labelledby="t-v10" hidden>
+<header class="vh"><div class="wrap">
+  <div class="vn">Series II · Volume X</div>
+  <h1>The EL Specialist's<br><em>Field Book</em></h1>
+  <p class="sb">Field-tested moves, organized by the moment you need them. Built to be opened mid-lesson.</p>
+  <div class="st">Many Voices · One Storm</div>
+</div></header>
+<div class="wrap">
+
+<section>
+  <span class="eyebrow">Section One</span><h2>When they won't talk</h2>
+  <div class="move"><b>Write first, speak second.</b><span>Thirty seconds of silent writing before any share-out. Production anxiety drops when there's a script in hand.</span></div>
+  <div class="move"><b>Partner before public.</b><span>Never call on a student who hasn't already said it to one person. Rehearsal is the whole trick.</span></div>
+  <div class="move"><b>Give the answer, ask for the reason.</b><span>"The answer is evaporation. Tell me why." Removes the retrieval barrier and keeps the thinking.</span></div>
+  <div class="move"><b>Choral first.</b><span>Whole-class repetition lets a student produce sound with no exposure. Often the first English a newcomer says aloud.</span></div>
+  <div class="move"><b>Count to seven.</b><span>Average teacher wait time is about one second. Second-language processing needs five to seven. Count silently.</span></div>
+  <div class="move"><b>Accept the first language.</b><span>A right answer in Spanish is a right answer. Take it, restate it in English, move on.</span></div>
+
+  <span class="eyebrow" style="margin-top:34px">Section Two</span><h2>When the text is too hard</h2>
+  <div class="move"><b>Chunk and check.</b><span>Two or three sentences at a time with a one-question comprehension check. Never assign a full page cold.</span></div>
+  <div class="move"><b>Front-load five words.</b><span>Not twenty. Pick the five that block meaning and teach them with images before reading.</span></div>
+  <div class="move"><b>Read it aloud first.</b><span>Listening comprehension outruns reading comprehension for most ELs. Hearing it once makes the page navigable.</span></div>
+  <div class="move"><b>Hunt cognates.</b><span>Academic English is Latinate, and so is Spanish. <em>Observe/observar. Analyze/analizar.</em> Students find them faster than you can list them.</span></div>
+  <div class="move"><b>Number the paragraphs.</b><span>Costs ten seconds. Makes every subsequent direction precise and lets students locate evidence without hunting.</span></div>
+  <div class="move"><b>Preview in the first language.</b><span>Two minutes of concept preview in Spanish makes twenty minutes of English text accessible.</span></div>
+
+  <span class="eyebrow" style="margin-top:34px">Section Three</span><h2>When they finish early — or not at all</h2>
+  <div class="move"><b>Same task, more evidence.</b><span>Extension is depth, not volume. "Find a second piece of evidence," not "do ten more."</span></div>
+  <div class="move"><b>Promote them to teacher.</b><span>Explaining to a peer is the highest-value language task in the room, and it's free.</span></div>
+  <div class="move"><b>Cut quantity, hold the standard.</b><span>Three problems done well beats fifteen abandoned. Reducing volume is not modifying the expectation.</span></div>
+  <div class="move"><b>Bank the unfinished work.</b><span>A dated folder of incomplete tasks is data about pacing, not evidence of laziness.</span></div>
+
+  <span class="eyebrow" style="margin-top:34px">Section Four</span><h2>Vocabulary</h2>
+  <div class="move"><b>Teach the word family, not the word.</b><span><em>Analyze, analysis, analytical.</em> One lesson, three words, and the pattern generalizes.</span></div>
+  <div class="move"><b>Tier 2 over Tier 3.</b><span><em>Determine, contrast, significant</em> appear on every test in every subject. <em>Photosynthesis</em> appears in one unit.</span></div>
+  <div class="move"><b>Picture, not definition.</b><span>Below Level 3, a dictionary definition is another text to decode. An image is instant.</span></div>
+  <div class="move"><b>Ten exposures.</b><span>A word needs roughly ten meaningful encounters to stick. Plan them; don't hope for them.</span></div>
+  <div class="move"><b>Word wall they touch.</b><span>A wall students physically pull cards from beats a wall they read past.</span></div>
+
+  <span class="eyebrow" style="margin-top:34px">Section Five</span><h2>Newcomers, first two weeks</h2>
+  <div class="move"><b>Name first, correctly.</b><span>Ask how to say it. Practice until you have it. This is the single most important thing you do all year.</span></div>
+  <div class="move"><b>Survival language before academic.</b><span>Bathroom, hungry, help, I don't understand, again please. Dignity comes before content.</span></div>
+  <div class="move"><b>Assign a buddy who shares the language.</b><span>For directions and logistics, not for translating instruction.</span></div>
+  <div class="move"><b>Walk the building.</b><span>A map is abstract. Physically walking to the cafeteria, the nurse, and the bus line is not.</span></div>
+  <div class="move"><b>Call home in week one.</b><span>In the family's language. Say something good. You are building the relationship you'll need in March.</span></div>
+  <div class="move"><b>Expect nothing in writing for a while.</b><span>Some students are still finding the classroom. Grade what's there; keep providing input.</span></div>
+
+  <span class="eyebrow" style="margin-top:34px">Section Six</span><h2>Working with content teachers</h2>
+  <div class="move"><b>Bring a strategy, not a complaint.</b><span>Arrive with one thing that will work in their room tomorrow, made from their material.</span></div>
+  <div class="move"><b>Model in their classroom.</b><span>Twenty minutes of you teaching their students beats an hour of PD about it.</span></div>
+  <div class="move"><b>Translate the data.</b><span>"Level 2 in reading" means nothing to them. "She can follow your lecture but can't read the chapter" is actionable.</span></div>
+  <div class="move"><b>Ask what's hardest.</b><span>Open with their problem, not your mandate. You'll get a real answer and a real opening.</span></div>
+  <div class="move"><b>Follow up in writing.</b><span>A short warm email after every conversation. Builds the relationship and builds the record.</span></div>
+
+  <span class="eyebrow" style="margin-top:34px">Section Seven</span><h2>Families</h2>
+  <div class="move"><b>Interpretation is a right, not a favor.</b><span>Provide it and document it. Never use the student as the interpreter for anything that matters.</span></div>
+  <div class="move"><b>Lead with the good news.</b><span>If every call home is a problem, families stop answering. Make the first one positive.</span></div>
+  <div class="move"><b>Explain the system, not just the grade.</b><span>Many families have no reference for credits, GPA, or graduation requirements here. Draw it out.</span></div>
+  <div class="move"><b>Ask about schooling history.</b><span>Years attended, languages of instruction, interruptions. It changes everything about placement.</span></div>
+
+  <span class="eyebrow" style="margin-top:34px">Section Eight</span><h2>Data and testing</h2>
+  <div class="move"><b>Read the domains, not the composite.</b><span>Overall Level 3 hides a student at 5 in speaking and 1 in writing. The composite tells you almost nothing.</span></div>
+  <div class="move"><b>Teach the task format.</b><span>Students lose points to unfamiliar formats, not missing knowledge. Rehearse the format all year.</span></div>
+  <div class="move"><b>Accommodations are a habit, not a form.</b><span>Anything used on test day must have been running in class since August.</span></div>
+  <div class="move"><b>Chart growth where students see it.</b><span>Movement from Level 2 to Level 3 is invisible without a graph. Make it visible; it changes effort.</span></div>
+
+  <span class="eyebrow" style="margin-top:34px">Section Nine</span><h2>Keeping yourself in the work</h2>
+  <div class="move"><b>Ninety percent is the ceiling.</b><span>A caseload this size means something is always undone. Choose what, deliberately, rather than failing at everything equally.</span></div>
+  <div class="move"><b>Document as you go.</b><span>Five minutes a day beats a weekend in April, and it's the only thing that protects you.</span></div>
+  <div class="move"><b>Find one ally per building.</b><span>One content teacher who gets it changes more than any mandate.</span></div>
+  <div class="move"><b>Keep a good-day file.</b><span>Notes from students, a piece of writing that surprised you. February is long.</span></div>
+</section>
+</div></div>
+
+<!-- ================= VOLUME XI ================= -->
+<div class="panel" id="p-v11" role="tabpanel" aria-labelledby="t-v11" hidden>
+<header class="vh"><div class="wrap">
+  <div class="vn">Series II · Volume XI</div>
+  <h1>The Flexible<br><em>Block Guide</em></h1>
+  <p class="sb">One system, any bell. Running the five movements on fifty minutes, sixty minutes, A/B days, push-in, and co-teaching.</p>
+  <div class="st">Many Voices · One Storm</div>
+</div></header>
+<div class="wrap">
+
+<section>
+  <h2>Protect the ratio, not the minutes</h2>
+  <p class="lede">The block is not ninety-four minutes. It is a proportion. When the bell changes, hold the shape and shrink everything proportionally — with one exception.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:34%">Movement</th><th style="width:16%">Share</th><th style="width:16%">94 min</th><th style="width:16%">60 min</th><th>50 min</th></tr></thead>
+    <tbody>
+      <tr><td>I · Entry &amp; warm-up</td><td>11%</td><td>10</td><td>7</td><td>5</td></tr>
+      <tr><td>II · Explicit language instruction</td><td>27%</td><td>25</td><td>16</td><td>13</td></tr>
+      <tr><td>III · Guided practice</td><td>27%</td><td>25</td><td>16</td><td>13</td></tr>
+      <tr><td>IV · Content application</td><td>21%</td><td>20</td><td>13</td><td>11</td></tr>
+      <tr><td>V · Output &amp; close</td><td>15%</td><td>14</td><td>8</td><td>8</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call warn">
+    <h5>The exception</h5>
+    <p>Movement V does not shrink below eight minutes. Ever. On a fifty-minute period, take the time from Movements II and III instead. A block without output is a block where students listened, and listening alone does not move a proficiency level.</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Configuration</span><h2>Fifty minutes, daily</h2>
+  <p>The tightest common schedule. Two workable approaches:</p>
+  <div class="grid g2">
+    <div class="card"><span class="n">Option A</span><h5>Compress all five, every day</h5>
+      <p>Use the fifty-minute column above. Everything happens daily, all of it shorter. Best for Levels 1–2, where routine and repetition matter more than depth.</p>
+      <p><strong>Cost:</strong> Movement IV gets thin. Content application becomes a single paragraph rather than a real text.</p></div>
+    <div class="card"><span class="n">Option B</span><h5>Two-day cycle</h5>
+      <p><strong>Day 1:</strong> Movements I, II, III, and a short V.<br><strong>Day 2:</strong> Movements I, IV, extended III, and a full V.<br>Best for Levels 3–4, where sustained work with grade-level text matters most.</p>
+      <p><strong>Cost:</strong> Requires students to hold a thread across a day. Post the two-day map where they can see it.</p></div>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Configuration</span><h2>A/B block — 90 minutes, every other day</h2>
+  <p>You get the full architecture but only meet two or three times a week. The danger is not time; it is decay between sessions.</p>
+  <ul>
+    <li><strong>Open every block with retrieval, not review.</strong> Make Movement I a recall task from last session — students produce, rather than watch you re-teach.</li>
+    <li><strong>Assign a five-minute between-days task.</strong> One sentence written, one word used, one thing noticed in a content class. Small and daily beats large and occasional.</li>
+    <li><strong>Extend Movement IV to 30 minutes.</strong> With fewer sessions, each one needs to do more content work.</li>
+    <li><strong>Run a two-week arc rather than a one-week arc.</strong> Six meetings, not ten. Plan the unit accordingly.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="eyebrow">Configuration</span><h2>Push-in and co-teaching</h2>
+  <p class="lede">You don't control the clock. You control the language work inside someone else's lesson. The five movements still apply — they just get distributed.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:26%">Movement</th><th>What it becomes in a content classroom</th></tr></thead>
+    <tbody>
+      <tr><td>I · Warm-up</td><td>Arrive two minutes early. Front-load the day's three critical words with your students before the lesson starts.</td></tr>
+      <tr><td>II · Explicit instruction</td><td>Ask the content teacher for ninety seconds to name the language demand: "Today you'll be comparing. Here are the words comparison uses."</td></tr>
+      <tr><td>III · Guided practice</td><td>Pull a small group at the table during independent work. This is where most of your real teaching happens in a push-in model.</td></tr>
+      <tr><td>IV · Content application</td><td>Already happening — it's their lesson. Your job is scaffolding access to it in real time.</td></tr>
+      <tr><td>V · Output</td><td>Two minutes at the end with your students: what did you learn, said in a full sentence. Collect it.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call ok">
+    <h5>The co-teaching conversation to have in August</h5>
+    <p>Agree on three things before the first lesson: who introduces vocabulary, whether you may interrupt to clarify, and how student work will be graded. Getting these settled in August prevents the whole year from defaulting to you as an aide. Put it in writing, even informally — a shared page is enough.</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Configuration</span><h2>Mixed-level rooms</h2>
+  <p>One period, Levels 1 through 4 in the same room. The most common secondary reality and the least written about.</p>
+  <ul>
+    <li><strong>Movements I, II, and V are whole-group.</strong> Same objective, same content, same close. Differentiate the expected output, not the topic.</li>
+    <li><strong>Movement III is where the levels split.</strong> This is the entire reason guided practice exists. Protect it.</li>
+    <li><strong>Movement IV uses one text at three levels of scaffolding</strong> — not three different texts. Same passage, different supports: read-aloud plus glossary for Levels 1–2, chunked with a glossary for Level 3, independent for Levels 4–5.</li>
+    <li><strong>Pair across levels deliberately.</strong> A Level 4 explaining to a Level 2 gets the harder language task. Both are working.</li>
+  </ul>
+  <div class="call">
+    <h5>What not to do</h5>
+    <p>Do not run three separate lessons simultaneously. It's unsustainable, it fragments the room, and it means no group gets your attention for more than a few minutes. One lesson, three altitudes.</p>
+  </div>
+</section>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="fl">Midnight Executive · EL Publishing</div>
+  <p><strong style="color:#fff">The Classroom Shelf — Mississippi EL Library, Series II</strong><br>
+  Volumes VI–XI · Richard A. Daniel, M.Ed., ENL/EL Specialist · Laurel High School · 2026 Edition</p>
+  <p style="margin-top:13px;font-size:.78rem;color:#8E98BC">Free for classroom, school, and district professional development use. A teaching system, not policy. Verify all compliance and assessment guidance against current Mississippi Department of Education publications.</p>
+  <p style="margin-top:15px" class="fl">Many Voices · One Storm</p>
+</div></footer>
+
+<script>
+(function(){
+  var keys=['v6','v7','v8','v9','v10','v11'];
+  function show(k,push){
+    keys.forEach(function(x){
+      var on=(x===k);
+      document.getElementById('t-'+x).setAttribute('aria-selected',on?'true':'false');
+      document.getElementById('p-'+x).hidden=!on;
+    });
+    if(push) history.replaceState(null,'','#'+k);
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  keys.forEach(function(k){
+    document.getElementById('t-'+k).addEventListener('click',function(){show(k,true);});
+  });
+  document.getElementById('pnow').addEventListener('click',function(){window.print();});
+  var h=(location.hash||'').replace('#','');
+  if(keys.indexOf(h)>-1) show(h,false);
+})();
+</script>
+
+</body>
+</html>

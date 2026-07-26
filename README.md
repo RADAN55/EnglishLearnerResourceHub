@@ -9,15 +9,37 @@ Free curriculum, compliance manuals, and professional development for teachers o
 
 ---
 
-## What's here
+## Files in this repository
 
-`index.html` contains three sections: **Home** (the catalog, with search and filters), **The Manual** (*The Red Line*, sixteen parts on Mississippi LSP accommodations), and **The Module** (the companion 90-minute faculty PD session).
+| File | What it is |
+|---|---|
+| `index.html` | The site — Home catalog, *The Red Line* manual, and the 90-minute faculty module |
+| `classroom-shelf.html` | The Classroom Shelf, Series II, Volumes VI–XI |
+| `README.md` | This file |
 
 No build step, no framework, nothing to install.
 
 ## Publishing
 
-Upload `index.html` and `README.md`, then **Settings → Pages** → Deploy from a branch → `main` → `/ (root)` → Save.
+Upload all three files, then **Settings → Pages** → Deploy from a branch → `main` → `/ (root)` → Save.
+
+---
+
+## Sites this catalog links out to
+
+These live in their own repositories. **Click each one after publishing** — if any 404s, that repo's Pages setting needs turning on.
+
+| Resource | URL |
+|---|---|
+| ELPA21 Practice Suite | `radan55.github.io/elpa21/` |
+| ELPA21 All-Bands Practice, K–12 | `radan55.github.io/elpa21/k12.html` |
+| ELPA21 Blueprint Simulation, 9–12 | `radan55.github.io/elpa21/hs.html` |
+| ELPA21 Growth Manual | `radan55.github.io/elpa21growthmanual/` |
+| Every Teacher Is a Language Teacher — Interactive Module | `radan55.github.io/el-pd/` |
+| Every Teacher Is a Language Teacher — Guide + SIOP | `radan55.github.io/freeenglishlanguagelearnerpd/` |
+| The Vocabulary Engine | `radan55.github.io/elvocabularycurriculumengine/` |
+
+To fix or remove a link, open `index.html`, find the entry in `ITEMS`, and edit `target`.
 
 ---
 
@@ -25,63 +47,23 @@ Upload `index.html` and `README.md`, then **Settings → Pages** → Deploy from
 
 **Drag the file in. That's it.** The page checks what's actually in this repository and shows only those cards. Upload a file and its card appears; delete it and the card disappears. You never edit `index.html`.
 
-Cards for files you never upload simply never appear — so there is no penalty for this list being longer than what you publish.
+Cards for files you never upload simply never appear — so there's no penalty for the list being longer than what you publish.
 
-### Web pages are preferred over PDFs
+### Web pages beat PDFs
 
-Each entry looks for an `.html` version **first**, then falls back to the PDF. A web page opens instantly on a phone, is searchable, can be linked to a specific section, and prints to PDF on demand. A PDF can only be downloaded.
+Each entry looks for an `.html` version **first**, then falls back to a PDF. A web page opens instantly on a phone, is searchable, links to a specific section, and prints to PDF on demand. A PDF can only be downloaded — and can go missing.
 
 If both exist, the web page wins.
 
-| Document | Filenames it recognizes, in order of preference |
-|---|---|
-| ELPA21 ASCENT — Teacher Edition | `ELPA21-ASCENT-Teacher-Edition.pdf` · `ASCENT-Teacher-Edition.pdf` · `ELPA21-ASCENT-Teacher-Edition-566pp.pdf` · `ELPA21-Ascent-Teacher-Edition.pdf` |
-| ELPA21 ASCENT — Student Workbook | `ELPA21-ASCENT-Student-Workbook.pdf` · `ASCENT-Student-Workbook.pdf` · `ELPA21-Ascent-Student-Workbook.pdf` |
-| The Classroom Shelf — Complete Series II | `Mississippi-EL-Library-Series-II.pdf` · `The-Classroom-Shelf.pdf` · `Classroom-Shelf.pdf` |
-| The 90-Minute Block: A Conductor's Guide | `volume-06-conductors-guide.html` · `The-90-Minute-Block-Conductors-Guide.pdf` · `Conductors-Guide.pdf` · `The-90-Minute-Block.pdf` · `Volume-VI-Conductors-Guide.pdf` |
-| The Standards Ascent | `volume-07-standards-ascent.html` · `The-Standards-Ascent.pdf` · `Standards-Ascent.pdf` · `Volume-VII-Standards-Ascent.pdf` |
-| Standards Ascent — Lessons & Resources Companion | `volume-08-lessons-companion.html` · `Standards-Ascent-Lessons-Resources-Companion.pdf` · `Lessons-Resources-Companion.pdf` · `Standards-Ascent-Companion.pdf` |
-| The Domain & Level Handbook | `volume-09-domain-level-handbook.html` · `The-Domain-Level-Handbook.pdf` · `Domain-Level-Handbook.pdf` · `Domain-and-Level-Handbook.pdf` |
-| The EL Specialist's Field Book | `volume-10-field-book.html` · `EL-Specialists-Field-Book.pdf` · `The-EL-Specialists-Field-Book.pdf` · `Field-Book.pdf` |
-| The Flexible Block Guide | `volume-11-flexible-block-guide.html` · `The-Flexible-Block-Guide.pdf` · `Flexible-Block-Guide.pdf` |
-| The Summit Workbook — Year Edition | `Summit-Workbook-Year-Edition.pdf` · `The-Summit-Workbook.pdf` · `Summit-Workbook.pdf` |
-| EL Program Design & Scope | `EL-Program-Design-Scope.pdf` · `EL-Program-Design-and-Scope.pdf` · `Program-Design-Scope.pdf` |
-| EL Classroom Wall Pack | `EL-Classroom-Wall-Pack.pdf` · `Classroom-Wall-Pack.pdf` · `Wall-Pack.pdf` |
-| Emergency Sub Kit | `Emergency-Sub-Kit.pdf` · `Sub-Kit.pdf` |
-| NBCT Portfolio Crosswalk Memo | `NBCT-Portfolio-Crosswalk-Memo.pdf` · `NBCT-Crosswalk.pdf` · `NBCT-Portfolio-Crosswalk.pdf` |
-| Leveled Readables — Emerging | `187_Readables_Emerging_Gr9-12.pdf` · `Leveled-Readables-Emerging.pdf` · `Emerging-Readables.pdf` |
-| Leveled Readables — Progressing | `187_Readables_Progressing_Gr9-12.pdf` · `Leveled-Readables-Progressing.pdf` · `Progressing-Readables.pdf` |
-| Reading Foundations for Multilingual Learners | `Reading-Foundations-Manual.pdf` · `Reading-Foundations.pdf` · `Science-of-Reading-EL.pdf` |
-| World Geography for English Learners | `World-Geography-EL-Unit.pdf` · `World-Geography-Unit.pdf` · `World-Geography-for-English-Learners.pdf` |
-| ELL Strategies for Mainstreamed Students | `ELL-Strategies-Mainstreamed.pdf` · `ELL-Strategies-for-Mainstreamed-Students.pdf` · `EL-Strategies-Mainstreamed.pdf` |
-| Making Them Count | `Making-Them-Count.pdf` · `Making-Them-Count-Book.pdf` |
-**If a card doesn't appear** after upload, the filename isn't on the list. Either rename the file, or open `index.html`, find the entry, and add your filename to `target` separated by a `|`:
+### If a card doesn't appear
+
+The filename isn't on the recognized list. Open `index.html`, find the entry, and add your filename to `target` separated by a `|`:
 
 ```js
 target:"Your-Actual-Name.pdf|The-Flexible-Block-Guide.pdf"
 ```
 
-### Filenames
-
 Hyphens or underscores. No spaces, no parentheses — spaces become `%20` and look broken when shared.
-
-### Adding something new
-
-Copy an entry in the `ITEMS` list and change the fields:
-
-```js
-{ grp:"Curriculum & Instruction", fmt:"Manual", tags:["curriculum"],
-  name:"The title readers should see",
-  desc:"A sentence or two on what it is and who it's for.",
-  action:"file", target:"exact-file-name.html", label:"Read it" },
-```
-
-`grp` must match one of: Compliance & Program Operation · The Classroom Shelf · Series II · Curriculum & Instruction · Professional Development · Publications
-`tags` drive the filter buttons: `compliance` · `curriculum` · `pd`
-
-### One quirk worth knowing
-
-File detection needs a web server, so it only works on the live site. Double-clicking `index.html` on your computer hides every document card and looks broken. It isn't — check the live URL.
 
 ---
 
@@ -89,20 +71,21 @@ File detection needs a web server, so it only works on the live site. Double-cli
 
 | | |
 |---|---|
-| The Manual | `…/elpublishing/#manual` |
-| The Module | `…/elpublishing/#module` |
+| The Red Line manual | `…/elpublishing/#manual` |
+| The faculty module | `…/elpublishing/#module` |
 | The prohibition matrix | `…/elpublishing/#p9` |
 | The forms bank | `…/elpublishing/#p15` |
+| Series II, Volume X (Field Book) | `…/elpublishing/classroom-shelf.html#v10` |
 
-Manual sections run `#p1` through `#p16`.
+Manual sections run `#p1`–`#p16`. Shelf volumes run `#v6`–`#v11`.
 
 ## Printing
 
-Open the Manual or the Module and click **Print / PDF**. Only the visible section prints, so administrators can get the manual without the facilitator answer keys.
+Open any manual or volume and click **Print**. Only the visible section prints — administrators get the manual without the facilitator answer keys, and a teacher can print one volume instead of ninety-three pages.
 
 ## Verify before each testing cycle
 
-Manual Parts 7 through 9 are aligned to the Mississippi Testing Accommodations Manual revised **February 19, 2026**. Codes and allowability notes get revised. Reconcile against the current MTAM before every testing window.
+*The Red Line* Parts 7–9 are aligned to the Mississippi Testing Accommodations Manual revised **February 19, 2026**. Codes and allowability notes get revised. Reconcile against the current MTAM before every testing window.
 
 ---
 
